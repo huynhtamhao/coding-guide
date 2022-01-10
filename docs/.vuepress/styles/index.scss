@@ -1,0 +1,31 @@
+
+:root {
+  // brand colors
+  --c-brand: #297abd;
+  --c-brand-light: #4084bb;
+}
+
+html.dark {
+  // brand colors
+  --c-brand: #297abd;
+  --c-brand-light: #4084bb;
+}
+
+.right-anchor-button {
+  visibility: hidden;
+}
+
+.right-anchor-menu {
+  margin-top: 0px !important;
+}
+
+.right-anchor, .dark .right-anchor {
+  --rightAnchorTextColor: var(--c-brand);
+  --rightAnchorFontSize: 14px;
+  /* Menu */
+  --rightAnchorMenuTextColor: var(--rightAnchorTextColor);
+
+  &.customClass {
+    display: block !important;
+  }
+}
