@@ -21,11 +21,11 @@ public String getValue() {
 - Phải có hàm find để trả về enum cần tìm bằng value
 
 ```java
-    public static CURRENCY_CD find(String val) {
-        return Arrays.stream(CURRENCY_CD.values())
-            .filter(e -> e.getValue().equals(val)).findFirst()
-            .orElseThrow(() -> new IllegalStateException(String.format("Unsupported type %s.", val)));
-    }
+public static CURRENCY_CD find(String val) {
+    return Arrays.stream(CURRENCY_CD.values())
+        .filter(e -> e.getValue().equals(val)).findFirst()
+        .orElseThrow(() -> new IllegalStateException(String.format("Unsupported type %s.", val)));
+}
 ```
 
 ## Avoid

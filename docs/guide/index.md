@@ -3,6 +3,8 @@
 ## Programming environment
 
 - Java (Open JDK) - <Badge type="tip" text="v17.0.1" vertical="middle" />
+- Node.js - <Badge type="tip" text="v16.13.2 LTS" vertical="middle" />
+- Npm - <Badge type="tip" text="v8.3.0" vertical="middle" />
 - Angular - <Badge type="tip" text="v13.1.1" vertical="middle" />
 
 ### Java [(Download)](https://jdk.java.net/17/)
@@ -19,6 +21,10 @@
 - Angular cli <Badge type="tip" text="v11.2.17" vertical="middle" />
 - Angular Material Design <Badge type="tip" text="v13.1.1" vertical="middle" />
 - Bootstrap for Angular <Badge type="tip" text="v11.0.0" vertical="middle" />
+  | ng-bootstrap  | Angular | Bootstrap CSS | Note          |
+  |:--------------|:--------|:--------------|:--------------|
+  | 11.x.x        | 13.0.0  | 4.6.0         | recommend     |
+  | 12.0.0-beta.x | 13.0.0  | 5.0.0         | consider      |
 - Toast
 
 :::: code-group
@@ -42,19 +48,6 @@ yarn add @angular/cli
 ng add @ng-bootstrap/ng-bootstrap
 ```
 
-::: tip
-
-```bash
-ng add @ng-bootstrap/ng-bootstrap
-```
-
-This is a tip
-
-:::
-
-::: warning
-This is a warning
-:::
 ## Fanatic Programming Tools
 
 ### <img src="~@assets/images/IntelliJ_IDEA_Icon.png" alt="drawing" width="20"/> IntelliJ IDEA [(Download)](https://www.jetbrains.com/idea/download)

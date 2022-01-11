@@ -1,5 +1,38 @@
 # Frontend Styles (CSS)
 
+## SCSS
+
+Hiện tại project Fenix mặc dù có implement scss nhưng đang sử dụng như css bình thường
+
+```scss
+.mat-row.hovered {
+  outline: none;
+  background: #eee;
+}
+.mat-row.highlighted {
+  outline: none;
+  background: lightblue;
+}
+```
+
+Cách viết đúng của SCSS
+
+```scss
+@mixin background($background: #eee) {
+  background: $background;
+  outline: none;
+}
+
+.mat-row {
+  &.hovered {
+    @include background;
+  }
+  &.highlighted {
+    @include background($background: lightblue)
+  }
+}
+```
+
 ## Using BEM & SCSS
 
 ### Demo
