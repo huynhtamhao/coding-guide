@@ -1,8 +1,7 @@
 # Fanatic Documentation
 
 This is a Fanatic Documentation built with Vuepress.
-
-VuePress generates pre-rendered static HTML for each page, and runs as an SPA once a page is loaded.
+(VuePress generates pre-rendered static HTML for each page, and runs as an SPA once a page is loaded.)
 
 ## Installation
 
@@ -28,6 +27,9 @@ Build folder location : `$PROJECT/docs/.vuepress/dist`
 URL access: [http://localhost:8080](http://localhost:8080)
 
 ## Authors and acknowledgment
+
+`static.json` for heroku build and deploy.
+`.markdownlint.json` for markdownlint extension vscode.
 
 Fanatic Developer Team with ❤️
 
