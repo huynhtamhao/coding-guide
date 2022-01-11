@@ -4,14 +4,14 @@
 
 - Tên biến phải viết hoa toàn bộ và được ngăn cách bằng dấu gạch dưới
 
-```java
+```java:no-line-numbers
 JAPAN("JPY") // 日本
 MY_VARIABLE_CODE("MY_VARIABLE_VALUE") // 変更
 ```
 
 - Value Property phải là private, truy xuất thông tin bằng public method
 
-```java
+```java:no-line-numbers
 private final String value;
 public String getValue() {
     return this.value;
@@ -20,7 +20,7 @@ public String getValue() {
 
 - Phải có hàm find để trả về enum cần tìm bằng value
 
-```java
+```java:no-line-numbers
 public static CURRENCY_CD find(String val) {
     return Arrays.stream(CURRENCY_CD.values())
         .filter(e -> e.getValue().equals(val)).findFirst()
@@ -28,11 +28,19 @@ public static CURRENCY_CD find(String val) {
 }
 ```
 
+- Một số trường hợp đặc biệt thì nên có code đằng trước
+
+```java:no-line-numbers
+WH1300_SHIPPING_WAITING_WAREHOUSE("WH1300") // 出荷待倉庫
+WS9001_SUPPLIER_RETURN_WAITING("WS9001") // 仕入先保管 返送待ち
+WS9002_SUPPLIER_WITHOUT_RETURN("WS9002") // 仕入先保管 返却予定なし
+```
+
 ## Avoid
 
 - Tránh các enum không có nghĩa
 
-```java
+```java:no-line-numbers
 public enum INVENTORY_STATUS {
 
     INVENTORY_STATUS_1("1")   // ×
@@ -41,12 +49,8 @@ public enum INVENTORY_STATUS {
 }
 ```
 
-- Một số trường hợp đặc biệt thì nên có code đằng trước
+```java:no-line-numbers
 
-```java
-WH1300_SHIPPING_WAITING_WAREHOUSE("WH1300") // 出荷待倉庫
-WS9001_SUPPLIER_RETURN_WAITING("WS9001") // 仕入先保管 返送待ち
-WS9002_SUPPLIER_WITHOUT_RETURN("WS9002") // 仕入先保管 返却予定なし
 ```
 
 ## Example

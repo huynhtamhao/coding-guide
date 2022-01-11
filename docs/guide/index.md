@@ -2,30 +2,32 @@
 
 ## Programming environment
 
-- Java (Open JDK) - <Badge type="tip" text="v17.0.1" vertical="middle" />
-- Node.js - <Badge type="tip" text="v16.13.2 LTS" vertical="middle" />
+- Java (Open JDK) - <Badge type="tip" text="v17.0.1" vertical="middle" /> [(Download)](https://jdk.java.net/17/)
+- Node.js - <Badge type="tip" text="v16.13.2 LTS" vertical="middle" /> [(Download)](https://nodejs.org/en/)
 - Npm - <Badge type="tip" text="v8.3.0" vertical="middle" />
 - Angular - <Badge type="tip" text="v13.1.1" vertical="middle" />
 
-### Java [(Download)](https://jdk.java.net/17/)
+### Java
 
 - Spring Boot Framework
   - Spring Security
   - Spring JPA
   - Spring AOP
-- Mybatis
-- Gradle (Dependence and build tools)
+- [Gradle](https://gradle.org/) (Dependence and build tools) <Badge type="tip" text="v7.3.3" vertical="middle" />
+- [Mybatis](https://mybatis.org/mybatis-3/)
+- [Flyway](https://flywaydb.org/)
 
 ### Angular
 
-- Angular cli <Badge type="tip" text="v11.2.17" vertical="middle" />
-- Angular Material Design <Badge type="tip" text="v13.1.1" vertical="middle" />
-- Bootstrap for Angular <Badge type="tip" text="v11.0.0" vertical="middle" />
+- Angular cli <Badge type="tip" text="v13.1.1" vertical="middle" />
+- [Angular Material Design](https://material.angular.io/) <Badge type="tip" text="v13.1.1" vertical="middle" />
+- [Bootstrap for Angular](https://ng-bootstrap.github.io/#/home) <Badge type="tip" text="v11.0.0" vertical="middle" />
   | ng-bootstrap  | Angular | Bootstrap CSS | Note          |
   |:--------------|:--------|:--------------|:--------------|
   | 11.x.x        | 13.0.0  | 4.6.0         | recommend     |
   | 12.0.0-beta.x | 13.0.0  | 5.0.0         | consider      |
-- Toast
+- Angular Toastr - <Badge type="tip" text="v14.2.1" vertical="middle" /> [(Demo)](https://ngx-toastr.vercel.app/)
+- [RxJS](https://rxjs.dev/) - <Badge type="tip" text="v7.5.2" vertical="middle" />
 
 :::: code-group
 ::: code-group-item NPM

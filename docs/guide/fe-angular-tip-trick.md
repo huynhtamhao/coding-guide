@@ -35,7 +35,7 @@ export class UserRoutingModule {
 export class UserModule { }
 ```
 
-# 2. Sử dụng interface cho model thay cho class
+## 2. Sử dụng interface cho model thay cho class
 
 - Chỉ sử dụng Class khi ta có logic nghiệp vụ thực sự cần được implement để thực thi. Ngược lại, nếu chỉ dùng nó để tạo 1 ràng buộc kiểu cho params hay variable, ta nên dùng Interface
 - Nguyên nhân là do complier biên dịch từ code typescript sang javascript.
@@ -154,7 +154,7 @@ export class ListeningTestAnswerComponent implements OnInit {
 }
 ```
 
-**Parrent Component**
+**Parent Component**
 
 ```html
 <form [formGroup]="formGroup">
@@ -170,7 +170,7 @@ TODO: Tìm hiểu thêm add form group con cho form group cha
 
 - Add form group từ component con cho component cha
 
-## 6. Next
+## 6. Using right way RxJS
 
 ## 7. Next
 

@@ -49,16 +49,16 @@ title: Java
 **Input**
 
 ```md
-- VuePress - <Badge type="tip" text="v2" vertical="top" />
-- VuePress - <Badge type="warning" text="v2" vertical="middle" />
-- VuePress - <Badge type="danger" text="v2" vertical="bottom" />
+- VuePress Badge output with **top** position - <Badge type="tip" text="v2" vertical="top" />
+- VuePress Badge output with **middle** position - <Badge type="warning" text="v2" vertical="middle" />
+- VuePress Badge output with **bottom** position - <Badge type="danger" text="v2" vertical="bottom" />
 ```
 
 **Output**
 
-- VuePress - <Badge type="tip" text="v2" vertical="top" />
-- VuePress - <Badge type="warning" text="v2" vertical="middle" />
-- VuePress - <Badge type="danger" text="v2" vertical="bottom" />
+- VuePress Badge output with **top** position - <Badge type="tip" text="v2" vertical="top" />
+- VuePress Badge output with **middle** position - <Badge type="warning" text="v2" vertical="middle" />
+- VuePress Badge output with **bottom** position - <Badge type="danger" text="v2" vertical="bottom" />
 
 ### Code Group
 
