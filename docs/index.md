@@ -10,7 +10,7 @@ features:
   details: You can read it by English or Japanese.
 - title: Easy Access
   details:
-footer: MIT Licensed | Copyright © 2021 - present Fanatic Developer Team with ❤️
+footer: © 2017-present FANATIC COMPUTERS. ALL RIGHTS RESERVED - Fanatic Developer Team with ❤️
 ---
 
 <!-- # Hello

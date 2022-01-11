@@ -3,7 +3,7 @@ const config = require("./configs/index")
 
 module.exports = {
   title: 'Fanatic Documentation',
-  head: [['link', { rel: 'icon', href: 'favicon.png' }]],
+  head: [['link', { rel: 'icon', href: '/favicon.png' }]],
   alias: {
     '@assets': path.resolve(__dirname, "../assets"),
   },

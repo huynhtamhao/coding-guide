@@ -28,11 +28,7 @@ URL access: [http://localhost:8080](http://localhost:8080)
 
 ## Authors and acknowledgment
 
-`static.json` for heroku build and deploy.
-`.markdownlint.json` for markdownlint extension vscode.
+- `static.json` for heroku build and deploy.
+- `.markdownlint.json` for markdownlint extension vscode.
 
-Fanatic Developer Team with ❤️
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
+© 2017-present FANATIC COMPUTERS. ALL RIGHTS RESERVED - Fanatic Developer Team with ❤️
