@@ -39,7 +39,7 @@ module.exports = {
         selectText: 'Languages',
         selectLanguageName: '🇺🇸 English',
         navbar: [
-          { text: 'Home', link: '/', icon: "home" },
+          { text: 'Home', link: '/', icon: 'home' },
           { text: 'Guide', link: '/guide/' },
         ],
         sidebar: config.sidebar.en,

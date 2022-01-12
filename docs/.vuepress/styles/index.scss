@@ -29,3 +29,9 @@ html.dark {
     display: block !important;
   }
 }
+
+@media (max-width: 1350px) {
+  .toc-right-anchor {
+      display: none !important;
+  }
+}
