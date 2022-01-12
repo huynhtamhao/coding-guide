@@ -26,6 +26,43 @@ title: Java
 
 ## Hướng dẫn thêm item vào sidebar
 
+Access directory `$PROJECT/docs/.vuepress/configs`
+
+Open file sidebar-en.ts and sidebar-jp.ts.
+
+```js:no-line-numbers
+{
+  text: 'Database',
+  collapsible: false,
+  sidebarDepth: 3,
+  children: [
+    'db-postgresql',
+    'new-file1',
+  ],
+},
+```
+
+**Result:**
+
+<img src="~@assets/images/how-to-write-document-1.png" alt="drawing" />
+
+If you want add new Menu:
+
+```js:no-line-numbers
+{
+  text: 'New Menu',
+  collapsible: false,
+  sidebarDepth: 3,
+  children: [
+    'new-file2',
+  ],
+},
+```
+
+**Result:**
+
+<img src="~@assets/images/how-to-write-document-2.png" alt="drawing" />
+
 ## Markdown
 
 [Reference Basic Syntax](https://www.markdownguide.org/basic-syntax/)
@@ -48,7 +85,7 @@ title: Java
 
 **Input**
 
-```md
+```md:no-line-numbers
 - VuePress Badge output with **top** position - <Badge type="tip" text="v2" vertical="top" />
 - VuePress Badge output with **middle** position - <Badge type="warning" text="v2" vertical="middle" />
 - VuePress Badge output with **bottom** position - <Badge type="danger" text="v2" vertical="bottom" />
@@ -66,7 +103,7 @@ title: Java
 
 **Input**
 
-````md
+````md:no-line-numbers
 :::: code-group
 ::: code-group-item FOO
 ```js
@@ -104,7 +141,7 @@ const bar = 'bar'
 
 **Input**
 
-````md
+````md:no-line-numbers
 <CodeGroup>
   <CodeGroupItem title="FOO" active>
 ```js
@@ -125,7 +162,7 @@ const bar = 'bar'
 <CodeGroup>
   <CodeGroupItem title="FOO" active>
 
-```js
+```js:no-line-numbers
   const foo = 'foo'
 ```
 
@@ -133,7 +170,7 @@ const bar = 'bar'
 
   <CodeGroupItem title="BAR">
 
-```js
+```js:no-line-numbers
   const bar = 'bar'
 ```
 
@@ -163,7 +200,7 @@ Supported `type` :
 
 **Input**
 
-```md
+```md:no-line-numbers
 ::: tip
 This is a tip
 :::
@@ -203,7 +240,7 @@ This is a details block
 
 **Input**
 
-````md
+````md:no-line-numbers
 ::: danger STOP
 Danger zone, do not proceed
 :::
