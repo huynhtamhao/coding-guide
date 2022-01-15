@@ -21,6 +21,7 @@ export class UserRoutingModule {
     SalaryPasswordDialogComponent,
   ]
 }
+
 // Tại file module.ts
 @NgModule({
   imports: [
