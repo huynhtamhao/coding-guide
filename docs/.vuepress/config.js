@@ -36,22 +36,22 @@ module.exports = {
     contributors: false,
     locales: {
       '/': {
-        selectText: 'Languages',
+        selectLanguageText: '🌐 Languages',
         selectLanguageName: '🇺🇸 English',
         navbar: [
-          { text: 'Home', link: '/', icon: 'home' },
-          { text: 'Guide', link: '/guide/' },
+          { text: '🏠 Home', link: '/', icon: 'home' },
+          { text: '🖥️ Guide', link: '/guide/' },
         ],
         sidebar: config.sidebar.en,
         // 404 page
         notFound: ["Page Not Found !!!"],
       },
       '/jp/': {
-        selectText: '言語',
+        selectLanguageText: '🌐 言語',
         selectLanguageName: '🇯🇵 日本語',
         navbar: [
-          { text: 'ホームページ', link: '/jp/' },
-          { text: 'コーディング手引書', link: '/jp/guide/' },
+          { text: '🏠 ホームページ', link: '/jp/' },
+          { text: '🖥️ コーディング手引書', link: '/jp/guide/' },
         ],
         sidebar: config.sidebar.jp,
         // 404 page
