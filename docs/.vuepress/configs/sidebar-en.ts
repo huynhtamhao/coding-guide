@@ -24,6 +24,7 @@ export const en = {
       sidebarDepth: 3,
       children: [
         'db-postgresql',
+        'db-oracle-fdw',
       ],
     },
     // With start character is `be`

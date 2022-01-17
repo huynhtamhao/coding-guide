@@ -9,10 +9,15 @@
         "intellij",
         "Jaspersoft",
         "karios",
+        "libocci",
         "markdownlint",
         "Mockoon",
         "Mybatis",
         "Toastr",
-        "vuepress"
+        "vuepress",
+        "instantclient",
+        "libclntsh",
+        "nvim",
+        "sqlplus",
     ]
 }
