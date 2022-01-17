@@ -40,7 +40,7 @@ Description: 保管場所区分の定義。区分名と保管場所の種別を�
 | 保管場所種別   | storage_location_type | 文字列  | varchar(2)     | String      | 1:保管場所、2:伝票、3:勘定科目 |
 | 有効開始日    | effective_start_date  | 日付   | date           | LocalDate   | マスタが有効になる日付        |
 
-- Required columns in table
+- Required columns(common fields) in table
 
 | 項目名（日本語） | 項目名（日本語）     | データ型 | データ型(postgres) | データ型(java) | 備考             |
 | --------    | ------------ | ---- | -------------- | ---------- | -------------- |
@@ -49,7 +49,7 @@ Description: 保管場所区分の定義。区分名と保管場所の種別を�
 | 更新者      | updated_user | 文字列  | varchar        | String     | マスタを登録した日付時刻   |
 | 更新日時     | updated_date | 日付時刻 | timestamp      | Instant    | マスタを登録した日付時刻   |
 
-- Change data type from postgres to java
+#### Change data type from postgres to java
 
 | postgres             | java                           |
 | --------             | ----                           |
@@ -66,6 +66,17 @@ Description: 保管場所区分の定義。区分名と保管場所の種別を�
 | timestamp            | Instant/LocalDate/LocalDateTime|
 | date                 | LocalDate                      |
 | boolean              | boolean                        |
+
+#### Column order
+
+- The data fields, which are closely related from a business viewpoint between columns that are arranged in the same table, should be grouped next to each other or in the vicinity.
+- The column set as the primary key should be at the beginning of the table.
+- Candidate keys and foreign key constraints (FOREIGN KEY) are placed towards the beginning.
+- Table common fields (mainly, columns for system control that depend on architecture design, etc.) should be placed at the end of the table, and all columns designed from the business viewpoint should be placed before the table common items.
+- For business purposes, key data is placed towards the beginning and non-key data is placed towards the end.
+- Columns that are updated less frequently are placed towards the beginning, and columns that are updated frequently are placed towards the end.
+- Columns referenced frequently are placed towards the beginning, and columns that are not referenced often are placed towards the end.
+- Fixed-length data is placed towards the beginning, and variable-length data is placed towards the end.
 
 ### Sequence
 
@@ -93,4 +104,74 @@ Example: vw_monthly_sales_amount
 ```text
 Example: ix_credit_detail_01
 ```
+
+### Constraints
+
+#### Primary key constraint (PRIMARY KEY)
+
+- Primary key is a column of table which uniquely identifies each tuple (row) in that table.
+- Only one primary key is allowed to use in a table
+- The primary key does not accept the any duplicate and NULL values
+- Primary keys can be used as foreign keys for other tables too.
+
+#### Foreign key constraint (FOREIGN KEY)
+
+- A foreign key is a column or group of columns in a relational database table that provides a link between data in two tables.
+- It is a column (or columns) that references a column (most often the primary key) of another table.
+
+#### NOT NULL constraint (NOT NULL)
+
+- The NOT NULL constraint will not allow a column to contain NULL values.
+
+#### Unique constraint (UNIQUE KEY)
+
+- Unique key is a constraint that is used to uniquely identify a tuple in a table.
+- A table can have more than one unique key
+- NULL values are allowed in case of a unique key
+- Unique keys can be used as foreign keys for other tables too.
+
+#### Check constraint
+
+- The CHECK constraint is used to limit the value range that can be placed in a column.
+
+#### Default constraint
+
+- A column can be assigned a default value.
+- When a new row is created and no values are specified for some of the columns, those columns will be filled with their respective default values.
+
+#### Index constraint
+
+```sql
+Example: 
+CREATE TABLE persons (
+    id serial,
+    last_name varchar(255) ,
+    first_name varchar(255) ,
+    age int,
+    class_id varchar(10),
+    created_user varchar NOT NULL,
+    created_date timestamp NOT NULL,
+    updated_user varchar NOT NULL,
+    updated_date timestamp NOT NULL,
+    PRIMARY KEY (id), 
+    CONSTRAINT chk_Person CHECK (age>=18),
+    CONSTRAINT fk_class FOREIGN KEY (class_id)
+    REFERENCES class(class_id)
+);
+
+CREATE TABLE class (
+    class_id varchar(10) ,
+    class_name varchar(255) ,
+    active boolean DEFAULT true,
+    created_user varchar,
+    created_user varchar NOT NULL,
+    created_date timestamp NOT NULL,
+    updated_user varchar NOT NULL,
+    updated_date timestamp NOT NULL,
+    PRIMARY KEY (class_id),
+);
+```
+
+### next
+
 
