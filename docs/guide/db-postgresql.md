@@ -49,7 +49,7 @@ Description: 保管場所区分の定義。区分名と保管場所の種別を�
 | 更新者      | updated_user | 文字列  | varchar        | String     | マスタを登録した日付時刻   |
 | 更新日時     | updated_date | 日付時刻 | timestamp      | Instant    | マスタを登録した日付時刻   |
 
-#### Change data type from postgres to java
+#### Data type from postgres to java
 
 | postgres             | java                           |
 | --------             | ----                           |
@@ -89,11 +89,20 @@ Example: sq_credit_detail_id
 
 ### View
 
-- The view name is "sq_" + logical name
+- The view name is "vw_" + logical name
 - The maximum length is 30 characters
 
 ```text
 Example: vw_monthly_sales_amount
+```
+
+### Materialized views
+
+- The materialized views name is "mv_" + logical name
+- The maximum length is 30 characters
+
+```text
+Example: mv_monthly_sales_amount
 ```
 
 ### Index
@@ -119,27 +128,28 @@ Example: ix_credit_detail_01
 - A foreign key is a column or group of columns in a relational database table that provides a link between data in two tables.
 - It is a column (or columns) that references a column (most often the primary key) of another table.
 
-#### NOT NULL constraint (NOT NULL)
-
-- The NOT NULL constraint will not allow a column to contain NULL values.
-
 #### Unique constraint (UNIQUE KEY)
 
 - Unique key is a constraint that is used to uniquely identify a tuple in a table.
 - A table can have more than one unique key
 - NULL values are allowed in case of a unique key
 - Unique keys can be used as foreign keys for other tables too.
+- Choose Unique
+  - When columns other than the primary key must be absolutely unique from a system control perspective
+  - When a column other than the primary key is used as the parent column (reference source) of the foreign key constraint (FOREIGN KEY)
 
 #### Check constraint
 
 - The CHECK constraint is used to limit the value range that can be placed in a column.
 
-#### Default constraint
+#### NOT NULL constraint (NOT NULL)
+
+- The NOT NULL constraint will not allow a column to contain NULL values.
+
+#### DEFAULT constraint
 
 - A column can be assigned a default value.
 - When a new row is created and no values are specified for some of the columns, those columns will be filled with their respective default values.
-
-#### Index constraint
 
 ```sql
 Example: 
@@ -171,7 +181,3 @@ CREATE TABLE class (
     PRIMARY KEY (class_id),
 );
 ```
-
-### next
-
-
