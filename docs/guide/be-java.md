@@ -42,6 +42,111 @@ private String status;
 
 - Không đặt tên viết tắt khó hiểu, trừ các từ viết tắt phổ biến.
 
+```java
+private boolean isFirstName; // 〇
+private boolean isFN; // ✕
+
+private String stringHTML; // 〇
+```
+
+- Đặt tên view object (object có nhiều table join với nhau) với hậu tố là VO.
+
+```java
+public class ProductionDetailVO {
+
+}
+```
+
+```java
+public class ProductionAndDetailDto {  // ✕ AVOID!
+
+}
+```
+
+- Class đặt tên có hậu tố Utils (XUtils) là class tiện ích, trong đó các phương thức và định nghĩa đều là static, bao gồm các chức năng nhỏ sử dụng lặp lại ở bất cứ đâu, có thể dùng ở project khác.
+
+```java
+public class XUtils
+{
+    // static functions
+    public static String meowPrepend(String text)
+    {
+        return "Meow meow " + text + "!";
+    }
+    
+    public static String woofPrepend(String text)
+    {
+        return "Woof woof " + text + "!";
+    }
+}
+```
+
+- Class đặt tên có hậu tố Helper (XHelper) cũng là class tiện ích, dùng để hỗ trợ, cung cấp một số chức năng. Class có thể khởi tạo, có thể có các phương thức mở rộng, không nhất thiết phải có phương thức static. Hoặc có thể chỉ thực hiện một số các chức năng business (chỉ dùng được ở project hiện tại).
+
+```java
+public class TextHelper
+{
+    String text;
+
+    public String meowPrepend()
+    {
+        return "Meow meow " + text + "!";
+    }
+
+    public String woofPrepend()
+    {
+        return "Woof woof " + text + "!";
+    }
+}
+```
+
+```java
+public class Helper {
+{
+    public static final Helper INSTANCE = new Helper();
+
+    private Helper() {
+    }
+}
+```
+
+- Class đặt tên có hậu tố Validator (XValidator) là class chứa các chức năng xác thực.
+
+## Entity, Dto
+
+- Annotation dùng khi tạo DTO.
+
+```java
+@Data
+public class ItemDto {
+
+}
+```
+
+- Annotation dùng khi tạo Entity
+
+```java
+@Entity
+@Table(name = "GENERAL_TEST_RESULT")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@SuperBuilder(toBuilder = true)
+public class ProductBasicMaster extends CommonEntity {
+
+}
+```
+
+## Statements
+
+- Sử dụng java.time (>= jdk8), không sử dụng Calendar.
+- Có thể sử dụng toán tử 3 ngôi.
+
+```java
+return x > y ? true : false;
+```
+
 ## If-else Statements
 
 - Mệnh đề if đơn lẻ không cần cặp dấu ngoặc nhọn {} cũng được, có thể viết trên cùng 1 dòng.
@@ -65,7 +170,7 @@ if (condition) {
 
 ## Mapping Rules
 
-- Mapping sử dụng bắt đầu bằng chữ toEntity, toDto.
+- Mapping sử dụng bắt đầu bằng chữ to... (toEntity, toDto).
 
 ```java
 /**
@@ -88,7 +193,7 @@ import jp.co.fanatic.service.dto.InquirySearchConditionDto;
 ```
 
 ```java
-import jp.co.fanatic.service.dto.*; // × AVOID!
+import jp.co.fanatic.service.dto.*; // ✕ AVOID!
 ```
 
 ## DB process
