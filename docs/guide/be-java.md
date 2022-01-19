@@ -167,7 +167,7 @@ if (condition) {
 
 ## Mapping Rules
 
-- Mapping sử dụng bắt đầu bằng chữ to... (toEntity, toDto).
+- Mapping sử dụng bắt đầu bằng chữ to... (toEntity, toListEntity, toDto, toListDto).
 
 ```java
 /**
@@ -176,15 +176,23 @@ if (condition) {
   * @param engineeringBOMDetailDto 設計BOM明細Dto
   * @return 設計BOM明細エンティティ
   */
-EngineeringBOMDetail toEngineeringBOMDetail(EngineeringBOMDetailDto engineeringBOMDetailDto);
+EngineeringBOMDetail toEntity(EngineeringBOMDetailDto engineeringBOMDetailDto);
 
 /**
-  * 製造明細Dtoから設計BOM明細エンティティへ変換する。
+  * 設計BOM明細エンティティから設計BOM明細Dtoへ変換する。
+  *
+  * @param engineeringBOMDetail 設計BOM明細エンティティ
+  * @return 設計BOM明細Dto
+  */
+EngineeringBOMDetailDto toDto(EngineeringBOMDetail engineeringBOMDetail);
+
+/**
+  * 製造明細Dtoから設計BOM明細Dtoへ変換する。
   *
   * @param productionDetailDto 製造明細Dto
-  * @return 設計BOM明細エンティティ
+  * @return 設計BOM明細Dto
   */
-EngineeringBOMDetail toEngineeringBOMDetail(ProductionDetailDto productionDetailDto);
+EngineeringBOMDetailDto toDto(ProductionDetailDto productionDetailDto);
 ```
 
 ## Import Rules
