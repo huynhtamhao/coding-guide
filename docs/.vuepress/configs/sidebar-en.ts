@@ -48,6 +48,7 @@ export const en = {
         'fe-angular',
         'fe-angular-tip-trick',
         'fe-css',
+        'fe-chartjs',
       ],
     },
     // With start character is `z`
