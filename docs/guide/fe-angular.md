@@ -4,7 +4,11 @@
 
 [Reference](https://angular.io/guide/styleguide)
 
-1. Small function : Consider limiting to no more than 75 lines
+### Single responsibility
+
+- **Consider** limiting files to 400 lines of code
+- **Consider** limiting to no more than 75 lines
+
 1. Prefix custom component: User `karios` prefix stand for custom component, directive, pipe of Karios project.
 1. Folders-by-feature structure: Do create folders named for the feature area they represent.
 1. Use scss in project.
@@ -12,7 +16,8 @@
 
 1. File structure conventions
 
-    The guideline uses the shortcut hero.component.ts|html|css|spec to represent those various files. Using this shortcut makes this guide’s file structures easier to read and more terse.
+    The guideline uses the shortcut hero.component.ts|html|css|spec to represent those various files.
+    Using this shortcut makes this guide’s file structures easier to read and more terse.
 
 7. Single responsibility
 

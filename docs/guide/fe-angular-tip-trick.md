@@ -171,6 +171,15 @@ TODO: Tìm hiểu thêm add form group con cho form group cha
 
 - Add form group từ component con cho component cha
 
+## RxJS
+
+### Sử dụng RxJs với angular http client
+
+- map
+- mergeMap/flatMap => sử dụng khi API A làm param cho API B
+- switchMap => sử  dụng khi muốn lấy kq cuối cùng
+- forkJoin => sử dụng khi muốn trả két quả đồng thời.
+
 ## 7. Next
 
 ## Reference

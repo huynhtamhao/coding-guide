@@ -14,7 +14,8 @@ export const en = {
       collapsible: false,
       sidebarDepth: 3,
       children: [
-        'c-method-naming-conventions',
+        'c-naming-conventions',
+        'c-comment',
       ],
     },
     // With start character is `db`

@@ -28,25 +28,11 @@
   | 12.0.0-beta.x | 13.0.0  | 5.0.0         | consider      |
 - Angular Toastr - <Badge type="tip" text="v14.2.1" vertical="middle" /> [(Demo)](https://ngx-toastr.vercel.app/)
 - [RxJS](https://rxjs.dev/) - <Badge type="tip" text="v7.5.2" vertical="middle" />
-
-:::: code-group
-::: code-group-item NPM
+- [Chart.js](https://www.chartjs.org/) - <Badge type="tip" text="v3.5" vertical="middle" /> [(Sample)](https://www.chartjs.org/docs/latest/samples/information.html), [(Awesome Chart.js)](https://github.com/chartjs/awesome)
 
 ```bash:no-line-numbers
 npm install -g @angular/cli
-```
-
-:::
-::: code-group-item YARN
-
-```bash:no-line-numbers
-yarn add @angular/cli
-```
-
-:::
-::::
-
-```bash
+ng add @angular/material
 ng add @ng-bootstrap/ng-bootstrap
 ```
 
