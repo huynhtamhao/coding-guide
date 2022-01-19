@@ -61,7 +61,7 @@ Useful plugin for IntelliJ IDEA
 - SonarLint
 - Lombok
 
-Using <a href="~@assets/images/intellij-java-fanatic-style.xml" download>Fanatic IntelliJ Style Guide</a> based on [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)
+Using <a href="~@assets/styleguides/intellij-java-fanatic-style.xml" download>Fanatic IntelliJ Style Guide</a> based on [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)
 
 ### <img src="~@assets/images/Visual_Studio_Code_icon.png" alt="drawing" width="20"/> Visual Studio Code [(Download)](https://code.visualstudio.com/download)
 

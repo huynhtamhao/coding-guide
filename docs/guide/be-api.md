@@ -29,7 +29,7 @@
 ## Query Parameter Names
 
 1. Literals/expressions in query strings SHOULD be separated using underscore ( _ ).
-2. Query parameters values MUST be percent-encoded. Consider that AWS requires query paramter names to conform to the regex ^[a-zA-Z0-9._$-]+$
+2. Query parameters values MUST be percent-encoded. Consider that AWS requires query parameter names to conform to the regex ^[a-zA-Z0-9._$-]+$
 3. Query parameters MUST start with a letter and SHOULD be either camelCase or snake_case, consistent with the case standard employed for field names.
 4. Query parameters SHOULD be optional.
 5. Query parameters SHOULD not contain characters that are not URL safe.

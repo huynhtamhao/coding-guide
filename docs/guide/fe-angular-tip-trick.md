@@ -171,8 +171,6 @@ TODO: Tìm hiểu thêm add form group con cho form group cha
 
 - Add form group từ component con cho component cha
 
-## 6. Using right way RxJS
-
 ## 7. Next
 
 ## Reference
