@@ -1,7 +1,5 @@
 # Java
 
-Sử dụng Code [Code Conventions for the Java Programming Language (Oracle)](https://www.oracle.com/java/technologies/javase/codeconventions-introduction.html)
-
 ## Code style
 
 - Sử dụng google style
@@ -58,7 +56,7 @@ public class ProductionDetailVO {
 ```
 
 ```java
-public class ProductionAndDetailDto {  // ✕ AVOID!
+public class ProductionAndDetailDto {  // ✕ avoid using AND
 
 }
 ```
@@ -150,10 +148,9 @@ return x > y ? true : false;
 ## If-else Statements
 
 - Mệnh đề if đơn lẻ không cần cặp dấu ngoặc nhọn {} cũng được, có thể viết trên cùng 1 dòng.
-- Có thể dùng toán tử 3 ngôi trong câu if.
 
 ```java
-if (x > y ? true : false) statement;
+if (condition) statement;
 ```
 
 - Không viết trống câu if để thực thi else.
@@ -180,6 +177,14 @@ if (condition) {
   * @return 設計BOM明細エンティティ
   */
 EngineeringBOMDetail toEngineeringBOMDetail(EngineeringBOMDetailDto engineeringBOMDetailDto);
+
+/**
+  * 製造明細Dtoから設計BOM明細エンティティへ変換する。
+  *
+  * @param productionDetailDto 製造明細Dto
+  * @return 設計BOM明細エンティティ
+  */
+EngineeringBOMDetail toEngineeringBOMDetail(ProductionDetailDto productionDetailDto);
 ```
 
 ## Import Rules
@@ -198,8 +203,9 @@ import jp.co.fanatic.service.dto.*; // ✕ AVOID!
 
 ## DB process
 
-- Khi xử lý insert, update, delete DB phải có Rollback (trường hợp phát sinh error).
+- rollback DB trường hợp phát sinh error (custom common).
 
 ## Reference
 
 - [Code Conventions for the Java Programming Language (Oracle)](https://www.oracle.com/java/technologies/javase/codeconventions-introduction.html)
+- [Helper class (Wikipedia)](https://en.wikipedia.org/wiki/Helper_class)
