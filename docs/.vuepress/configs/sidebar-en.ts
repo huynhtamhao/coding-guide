@@ -37,7 +37,6 @@ export const en = {
         // '/guide/backend/java.md', => làm subfolder config nhiều và phải có extention
         'be-java',
         'be-api',
-        'be-enum',
       ],
     },
     // With start character is `fe`

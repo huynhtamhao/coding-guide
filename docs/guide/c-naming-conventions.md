@@ -52,6 +52,15 @@ aaa
 
 ## Enum
 
+
+- Tên biến phải viết hoa toàn bộ và được ngăn cách bằng dấu gạch dưới
+
+```java:no-line-numbers
+JAPAN("JPY") // 日本
+
+MY_VARIABLE_CODE("MY_VARIABLE_VALUE") // 変更
+```
+
 ## Constants
 
 ## Method - Function
