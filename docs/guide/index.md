@@ -68,7 +68,7 @@ Useful extensions for vscode
 - <img src="~@assets/images/DBeaver_logo.png" alt="drawing" width="20"/> DBeaver Community [(Download)](https://dbeaver.io/download/)
 - <img src="~@assets/images/Postman_logo.png" alt="drawing" width="20"/> Postman [(Download)](https://www.postman.com/downloads/)
 - <img src="~@assets/images/Mockoon_logo.png" alt="drawing" width="20"/> Mockoon [(Download)](https://mockoon.com/download/)
-- <img src="~@assets/images/Jaspersoft_logo.jpg" alt="drawing" width="20"/> Jasper Report Tools Community [(Download)](https://community.jaspersoft.com/download)
+- <img src="~@assets/images/Jaspersoft_logo.jpg" alt="drawing" width="20"/> Jasper Report Tools Community [(Download)](https://community.jaspersoft.com/project/jaspersoft-studio/releases)
 
 ## Reference
 
