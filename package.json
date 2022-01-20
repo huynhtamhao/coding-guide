@@ -12,11 +12,13 @@
     "build": "vuepress build docs"
   },
   "devDependencies": {
+    "@vuepress/plugin-register-components": "^2.0.0-beta.25",
     "@vuepress/plugin-search": "^2.0.0-beta.25",
     "vuepress": "2.0.0-beta.25",
     "vuepress-plugin-right-anchor": "^2.0.0-rc.3"
   },
   "dependencies": {
-    "@vuepress/cli": "^2.0.0-beta.25"
+    "@vuepress/cli": "^2.0.0-beta.25",
+    "chart.js": "^3.7.0"
   }
 }

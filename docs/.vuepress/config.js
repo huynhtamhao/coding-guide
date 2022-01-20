@@ -10,6 +10,12 @@ module.exports = {
   plugins: [
     '@vuepress/back-to-top',
     '@vuepress/plugin-search',
+    [
+      '@vuepress/register-components',
+      {
+        componentsDir: path.resolve(__dirname, './components'),
+      },
+    ],
     ['vuepress-plugin-right-anchor', {
       showDepth: 2,
       ignore: [
