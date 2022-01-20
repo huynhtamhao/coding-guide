@@ -80,11 +80,11 @@ Description: 保管場所区分の定義。区分名と保管場所の種別を�
 
 ### Sequence
 
-- The sequence name is "sq_" + the logical name
+- The sequence name is "seq_" + the logical name. (the sequence automatically generated does not need to follow this rule)
 - The maximum length is 30 characters
 
 ```text
-Example: sq_credit_detail_id
+Example: seq_credit_detail_id
 ```
 
 ### View
@@ -107,7 +107,7 @@ Example: mv_monthly_sales_amount
 
 ### Index
 
-- The index name is "ix_" + logical name + key number ("_" + 01 to 99)
+- The index name is "ix_" + logical name + key number ("_" + 01 to 99). (The index automatically generated does not need to follow this rule)
 - The maximum length is 30 characters
 
 ```text
