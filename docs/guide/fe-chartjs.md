@@ -20,7 +20,7 @@
 
 ```ts
 import {  BarController, BarElement, CategoryScale, LinearScale,
-Chart, ChartConfiguration, Legend, Title, Tooltip } from 'chart.js’;
+Chart, ChartConfiguration, Legend, Title, Tooltip } from 'chart.js';
 
 chart: Chart;
 
@@ -41,7 +41,7 @@ this.chart = new Chart(ctx, {…});
 ```
 
 ```ts
-import Chart from 'chart.js/auto’;
+import Chart from 'chart.js/auto';
 
 @ViewChild('lineChart') lineChart: ElementRef;
 chart: Chart;
@@ -66,45 +66,6 @@ declare var Chart: any;
 const chart = new Chart(this.pieChart.nativeElement, config);
 ```
 
-## Chart Types
-
-<script>
-export default {
-  mounted () {
-
-  }
-}
-</script>
-
-- Line Chart
-- Bar Chart
-- Radar Chart
-- Doughnut and Pie Charts
-- Polar Area Chart
-- Bubble Chart
-- Scatter Chart
-- Area Chart
-- Mixed Chart Types
-
-```ts
-datasets: [
-        {
-     type: 'line',
-          label: 'Dataset 1',
-          data: randomData(7, 20, 35),
-          backgroundColor: 'rgba(54, 162, 235, 0.2)',
-        },
-        {
-     type: bar',
-          label: 'Dataset 2',
-          data: randomData(7, 20, 25),
-          backgroundColor: 'rgba(255, 99, 132, 0.2)',
-        }
-      ]
-```
-
-- See also charts example: [Chart Types](https://www.chartjs.org/docs/latest/charts/line.html)
-
 ## Chart Config
 
 - Chart config includes 3 parts
@@ -121,20 +82,34 @@ datasets: [
 
 **Options**: configure scales, plugins, animations, events,...
 
-- Each type chart can have different specific properties. Depending on the type of chart, the constructor data import will also be different.
+- Basic config only needs Type and Data to create new Chart.
 
 ```ts
-// type line, bar, pie
+const config: ChartConfiguration = {
+      type: 'bubble',
+      data,
+    };
+```
+
+- Each type chart can have different specific properties. Depending on the type of chart, the constructor data import will also be different.
+
+:::: code-group
+::: code-group-item Line Chart
+
+```ts
+// type line
 datasets: [
         {
           label: 'Dataset 1',
           data: [65, 59, 80, 81, 56],
-          borderColor: 'rgb(75, 192, 192)’,
-          tension: 0.5,
+          borderColor: 'rgb(75, 192, 192)',
+          tension: 0.1,
         }, 
 ]
-
 ```
+
+:::
+::: code-group-item Bubble Chart
 
 ```ts
 // type bubble
@@ -149,18 +124,173 @@ datasets: [
           hoverRadius: 15,
         }, 
 ]
-
 ```
 
-- Basic config only needs type and data to create new Chart.
+:::
+::::
+
+## Chart Types
+
+- Line Chart
+
+<LineChart />
+
+:::: code-group
+::: code-group-item Config
 
 ```ts
-const config: ChartConfiguration = {
-      type: 'bubble',
-      data,
-    };
-
+const config = {
+  type: 'line',
+  data: data,
+};
 ```
+
+:::
+::: code-group-item Setup
+
+```ts
+const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+const data = {
+  labels: labels,
+  datasets: [{
+    label: 'My First Dataset',
+    data: [35, 59, 50, 31, 56, 35, 40],
+    fill: false,
+    borderColor: 'rgb(255, 0, 0)',
+    tension: 0.1
+  }]
+};
+```
+
+:::
+::::
+
+- Bar Chart
+
+<BarChart />
+
+:::: code-group
+::: code-group-item Config
+
+```ts
+const config = {
+  type: 'bar',
+  data: data,
+};
+```
+
+:::
+::: code-group-item Setup
+
+```ts
+const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+const data = {
+  labels: labels,
+  datasets: [{
+      label: 'Dataset 1',
+      data: [65, 59, 80, 81, 56, 55, 40],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(255, 159, 64, 0.2)',
+        'rgba(255, 205, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(201, 203, 207, 0.2)'
+      ],
+      borderColor: [
+        'rgb(255, 99, 132)',
+        'rgb(255, 159, 64)',
+        'rgb(255, 205, 86)',
+        'rgb(75, 192, 192)',
+        'rgb(54, 162, 235)',
+        'rgb(153, 102, 255)',
+        'rgb(201, 203, 207)'
+      ],
+      borderWidth: 1
+    }]
+};
+```
+
+:::
+::::
+
+- Pie Chart
+
+<PieChart />
+
+:::: code-group
+::: code-group-item Config
+
+```ts
+const config = {
+  type: 'pie',
+  data: data,
+};
+```
+
+:::
+::: code-group-item Setup
+
+```ts
+const labels = ['Red', 'Orange', 'Yellow', 'Green', 'Blue'];
+const data = {
+  labels: labels,
+  datasets: [
+        {
+          label: 'Dataset 1',
+          data: [35, 59, 50, 31, 56],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.5)',
+            'rgba(255, 159, 64, 0.5)',
+            'rgba(255, 205, 86, 0.5)',
+            'rgba(75, 192, 192, 0.5)',
+            'rgba(54, 162, 235, 0.5)',
+          ],
+        }
+      ]
+};
+```
+
+:::
+::::
+
+- Radar Chart
+
+- Doughnut Chart
+
+- Polar Area Chart
+
+- Bubble Chart
+
+- Scatter Chart
+
+- Area Chart
+
+- Mixed Chart Types
+
+```ts
+datasets: [
+        {
+          type: 'line',
+          label: 'Dataset 1',
+          data: [35, 59, 50, 31, 56],
+          backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        },
+        {
+          type: 'bar',
+          label: 'Dataset 2',
+          data: [15, 19, 20, 31, 26],
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        }
+      ]
+```
+
+- See also charts example
+
+[Chart Types](https://www.chartjs.org/docs/latest/charts/line.html)
+
+[Samples](https://www.chartjs.org/docs/latest/samples/bar/vertical.html)
 
 ## Defaults and Overrides
 
@@ -184,7 +314,8 @@ Chart.overrides.bar.borderColor = 'blue';
 ## Actions
 
 - [API for Chart](https://www.chartjs.org/docs/latest/developers/api.html)
-- Example
+
+- Example:
 
 ```ts
 this.chart = new Chart(ctx, config);
@@ -216,7 +347,7 @@ export interface ChartEvent {
 ```
 
 ```html
-<canvas #pieChart id="pieChart" width="500" height="400" (click)="onClick()“
+<canvas #pieChart id="pieChart" width="500" height="400" (click)="onClick()"
   (dblclick)="onDblclick()" (mousedown)="mousedown()">
   Your browser does not support the canvas element.
 </canvas>
@@ -226,3 +357,5 @@ export interface ChartEvent {
 ## Reference
 
 - [Chart.js](https://www.chartjs.org/docs/latest/getting-started/installation.html)
+
+- [CanvasRenderingContext2D](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D)
