@@ -25,6 +25,7 @@ export const en = {
       sidebarDepth: 3,
       children: [
         'db-postgresql',
+        'db-sql',
         'db-oracle-fdw',
       ],
     },
