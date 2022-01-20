@@ -131,7 +131,7 @@ datasets: [
 
 ## Chart Types
 
-- Line Chart
+### Line Chart
 
 <LineChart />
 
@@ -165,7 +165,7 @@ const data = {
 :::
 ::::
 
-- Bar Chart
+### Bar Chart
 
 <BarChart />
 
@@ -215,7 +215,7 @@ const data = {
 :::
 ::::
 
-- Pie Chart
+### Pie Chart
 
 <PieChart />
 
@@ -255,19 +255,19 @@ const data = {
 :::
 ::::
 
-- Radar Chart
+### Radar Chart
 
-- Doughnut Chart
+### Doughnut Chart
 
-- Polar Area Chart
+### Polar Area Chart
 
-- Bubble Chart
+### Bubble Chart
 
-- Scatter Chart
+### Scatter Chart
 
-- Area Chart
+### Area Chart
 
-- Mixed Chart Types
+### Mixed Chart Types
 
 ```ts
 datasets: [
@@ -286,7 +286,7 @@ datasets: [
       ]
 ```
 
-- See also charts example
+### See also charts example
 
 [Chart Types](https://www.chartjs.org/docs/latest/charts/line.html)
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <canvas id="bar-chart"></canvas>
+    <canvas id="barChart"></canvas>
   </div>
 </template>
 
@@ -15,7 +15,7 @@ export default{
             }
     },
     mounted() {
-        const ctx = document.getElementById('bar-chart');
+        const ctx = document.getElementById('barChart');
         new Chart(ctx, this.chartData);
     },
 }

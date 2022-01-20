@@ -1,6 +1,6 @@
 <template>
   <div>
-    <canvas id="pie-chart"></canvas>
+    <canvas id="pieChart"></canvas>
   </div>
 </template>
 
@@ -15,7 +15,7 @@ export default{
             }
     },
     mounted() {
-        const ctx = document.getElementById('pie-chart');
+        const ctx = document.getElementById('pieChart');
         new Chart(ctx, this.chartData);
     },
 }

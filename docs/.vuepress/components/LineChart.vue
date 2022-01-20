@@ -1,6 +1,6 @@
 <template>
   <div>
-    <canvas id="line-chart"></canvas>
+    <canvas id="lineChart"></canvas>
   </div>
 </template>
 
@@ -15,7 +15,7 @@ export default{
             }
     },
     mounted() {
-        const ctx = document.getElementById('line-chart');
+        const ctx = document.getElementById('lineChart');
         new Chart(ctx, this.chartData);
     },
 }
