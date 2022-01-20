@@ -1,50 +1,50 @@
 {
-    "javascript.preferences.quoteStyle": "single",
-    "typescript.preferences.quoteStyle": "single",
-    "cSpell.words": [
-        "abcdefghijklmnopqrstuvwxyz",
-        "chartjs",
-        "fanaticdocs",
-        "frontmatter",
-        "instantclient",
-        "Intelli",
-        "intellij",
-        "Jaspersoft",
-        "karios",
-        "libclntsh",
-        "libocci",
-        "markdownlint",
-        "Mockoon",
-        "Mybatis",
-        "nvim",
-        "sqlplus",
-        "Toastr",
-        "todohighlight",
-        "vuepress"
-    ],
-    "todohighlight.keywords": [
-        {
-            "text": "NOTE:",
-            "color": "white",
-            "backgroundColor": "grey",
-            "overviewRulerColor": "grey"
-        },
-        {
-            "text": "BUG:",
-            "color": "#ff0000",
-            "backgroundColor": "yellow",
-            "overviewRulerColor": "grey"
-        },
-        {
-            "text": "XXX:",
-            "color": "#ff0000",
-            "backgroundColor": "yellow",
-            "overviewRulerColor": "grey"
-        },
-        {
-            "text": "HACK:",
-            "color": "#000",
-            "isWholeLine": false,
-        },
-    ]
+  "javascript.preferences.quoteStyle": "single",
+  "typescript.preferences.quoteStyle": "single",
+  "cSpell.words": [
+    "abcdefghijklmnopqrstuvwxyz",
+    "chartjs",
+    "fanaticdocs",
+    "frontmatter",
+    "instantclient",
+    "Intelli",
+    "intellij",
+    "Jaspersoft",
+    "karios",
+    "libclntsh",
+    "libocci",
+    "markdownlint",
+    "Mockoon",
+    "Mybatis",
+    "nvim",
+    "sqlplus",
+    "Toastr",
+    "todohighlight",
+    "vuepress"
+  ],
+  "todohighlight.keywords": [
+    {
+      "text": "NOTE:",
+      "color": "white",
+      "backgroundColor": "grey",
+      "overviewRulerColor": "grey"
+    },
+    {
+      "text": "BUG:",
+      "color": "#ff0000",
+      "backgroundColor": "yellow",
+      "overviewRulerColor": "grey"
+    },
+    {
+      "text": "XXX:",
+      "color": "#ff0000",
+      "backgroundColor": "yellow",
+      "overviewRulerColor": "grey"
+    },
+    {
+      "text": "HACK:",
+      "color": "#000",
+      "isWholeLine": false,
+    },
+  ]
 }
