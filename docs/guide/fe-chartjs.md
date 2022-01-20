@@ -359,3 +359,5 @@ export interface ChartEvent {
 - [Chart.js](https://www.chartjs.org/docs/latest/getting-started/installation.html)
 
 - [CanvasRenderingContext2D](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D)
+
+- Internal Document <a href="~@assets/tutorials/ChartJs.pptx" download>(download)</a>
