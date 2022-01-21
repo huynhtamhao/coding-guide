@@ -165,6 +165,20 @@ const data = {
 :::
 ::::
 
+#### Dataset Properties
+
+| Name                 | Description      | Default             | Value       |
+|:---------------------|:-----------------|:--------------------|:------------|
+| ``tension``          | Curve tension. | ``0`` ||
+| ``fill``             | Fill the area under the line. | ``false`` ||
+| ``backgroundColor``  | The line fill color. | ``'rgba(0, 0, 0, 0.1)'`` ||
+| ``borderWidth``      | Line stroke width. | ``3`` ||
+| ``borderColor``      | The line color. | ``'rgba(0, 0, 0, 0.1)'`` ||
+| ``borderCapStyle``   | Line cap style. | ``'butt'`` | ``'butt' \|\| 'round' \|\| 'square'`` |
+| ``borderDash``       | Line dash. | ``number[]`` | [] is solid lines |
+| ``borderJoinStyle``  | Line join style. | ``'miter'`` | ``'round'\|'bevel'\|'miter'`` |
+| ``stepped``          | Show the line as a stepped line. | ``false`` | when ``true``, ``tension`` will be ignored. |
+
 ### Bar Chart
 
 <BarChart />
@@ -215,6 +229,15 @@ const data = {
 :::
 ::::
 
+#### Dataset Properties
+
+| Name                 | Description      | Default             | Value       |
+|:---------------------|:-----------------|:--------------------|:------------|
+| ``backgroundColor``  | The bar background color. | ``'rgba(0, 0, 0, 0.1)'`` ||
+| ``borderColor``      | The bar border color. | ``'rgba(0, 0, 0, 0.1)'`` ||
+| ``borderWidth``      | The bar border width (in pixels). | ``'0'`` ||
+| ``base``      | starting point of the chart on the Y axis | ``'0'`` ||
+
 ### Pie Chart
 
 <PieChart />
@@ -255,19 +278,17 @@ const data = {
 :::
 ::::
 
-### Radar Chart
+#### Dataset Properties
 
-### Doughnut Chart
+### Other Chart
 
-### Polar Area Chart
-
-### Bubble Chart
-
-### Scatter Chart
-
-### Area Chart
-
-### Mixed Chart Types
+- Radar Chart
+- Doughnut Chart
+- Polar Area Chart
+- Bubble Chart
+- Scatter Chart
+- Area Chart
+- Mixed Chart Types
 
 ```ts
 datasets: [
@@ -286,34 +307,11 @@ datasets: [
       ]
 ```
 
-### See also charts example
+- See also charts example
 
 [Chart Types](https://www.chartjs.org/docs/latest/charts/line.html)
 
 [Samples](https://www.chartjs.org/docs/latest/samples/bar/vertical.html)
-
-## Dataset Properties
-
-### Line Chart
-
-| Name                 | Description      | Default             | Value       |
-|:---------------------|:-----------------|:--------------------|:------------|
-| ``tension``          | Curve tension. | ``0`` ||
-| ``fill``             | Fill the area under the line. | ``false`` ||
-| ``backgroundColor``  | The line fill color. | ``'rgba(0, 0, 0, 0.1)'`` ||
-| ``borderWidth``      | Line stroke width. | ``3`` ||
-| ``borderColor``      | The line color. | ``'rgba(0, 0, 0, 0.1)'`` ||
-| ``borderCapStyle`` | Line cap style. | ``0`` | ``'butt' \|\| 'round' \|\| 'square'`` |
-| ``borderDash``      | Line dash. | ``number[]`` | [] is solid lines |
-| ``borderJoinStyle`` | Line join style. | ``'miter'`` | ``'round'\|'bevel'\|'miter'`` |
-
-### Bar Chart
-
-| Name                 | Description      | Default             | Value       |
-|:---------------------|:-----------------|:--------------------|:------------|
-| ``backgroundColor``  | The bar background color. | ``'rgba(0, 0, 0, 0.1)'`` ||
-| ``borderColor``      | The bar border color. | ``'rgba(0, 0, 0, 0.1)'`` ||
-| ``borderWidth``      | The bar border width (in pixels). | ``'0'`` ||
 
 ## Defaults and Overrides
 
