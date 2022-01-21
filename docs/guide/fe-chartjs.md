@@ -91,6 +91,34 @@ const config: ChartConfiguration = {
     };
 ```
 
+- Options example
+
+```ts
+const config = {
+  type: 'line',
+  data: data,
+  options: {
+    responsive: false,
+    indexAxis: 'y',
+    interaction: {
+
+    },
+    scales: {
+      x: { },
+      y: { },
+    },
+    plugins: {
+      title: { },
+      legend: { },
+      tooltip: { },
+    },
+    animations: {
+
+    }
+  }
+};
+```
+
 - Each type chart can have different specific properties. Depending on the type of chart, the constructor data import will also be different.
 
 :::: code-group
