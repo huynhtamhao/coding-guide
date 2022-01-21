@@ -313,6 +313,78 @@ datasets: [
 
 [Samples](https://www.chartjs.org/docs/latest/samples/bar/vertical.html)
 
+## Data structures
+
+### Primitive[]
+
+```ts
+type: 'bar',
+data: {
+    datasets: [{
+      data: [20, 10],
+    }],
+    labels: ['a', 'b']
+}
+```
+
+### Object
+
+```ts
+type: 'line',
+data: {
+  datasets: [{
+      data: {
+          January: 10,
+          February: 20
+      }
+    }]
+}
+```
+
+### Object[]
+
+```ts
+type: 'line',
+data: {
+  datasets: [{
+    data: [{x:'2016-12-25', y:20}, {x:'2016-12-26', y:10}]
+  }]
+}
+```
+
+### Object[] using custom properties
+
+```ts
+type: 'bar',
+data: {
+    datasets: [{
+        data: [{id: 'Sales', nested: {value: 1500}}, {id: 'Purchases', nested: {value: 500}}]
+    }]
+},
+options: {
+    parsing: {
+        xAxisKey: 'id',
+        yAxisKey: 'nested.value'
+    }
+}
+```
+
+When using the pie/doughnut chart type
+
+```ts
+type: 'doughnut',
+data: {
+    datasets: [{
+        data: [{id: 'Sales', nested: {value: 1500}}, {id: 'Purchases', nested: {value: 500}}]
+    }]
+},
+options: {
+    parsing: {
+        key: 'nested.value'
+    }
+}
+```
+
 ## Defaults and Overrides
 
 - Defaults: default global for Chart.
