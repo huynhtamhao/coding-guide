@@ -4,13 +4,27 @@
 >
 > — Phil Karlton
 
+## Aim
+
+The name of a variable, function, or class, should answer all the big questions.
+It should tell you why it exists, what it does, and how it is used.
+If a name requires a comment, then the name does not reveal its intent.
+(Except Japanese comment for variable belongs to business logic such as dto, domain, entity...)
+
+## Some common rules for naming
+
 - It should be English. (Some words be translated from Japanese).
-- Uses CamelCase for writing names of methods, variables, classes.
-- Tránh chứa một số chữ gây nhiễu như data, processor, table, information...
-- Không đặt tên viết tắt khó hiểu, trừ các từ viết tắt phổ biến.
-(Đối với các từ viết tắt cũng phải theo rule camel case. Ex: `myHtml` chứ ko phải `myHTML`)
+- Avoid noise words such as `data`, `processor`, `table`, `info`, `object`, `a`, `an`, `the`.
+Ex: `ProductInfo`, `ProductData`.
+- Meaning and pronounceable. (Don't use abbreviations for variable names, except some common words like `HTML`, `DVD`...)
+For common abbreviations, the camelcase rule should be followed. Ex: `myHtml` not `myHTML`.
 
 ## Variable
+
+**One-character variable names should be avoided except for temporary "throwaway" variables.**
+
+- Common names for temporary variables are `i`, `j`, `k`, `m`, and `n` for integers; `c`, `d`for characters; `e`, `ex` for Exception;
+- Should be able to assume that its value is not used outside a few lines of code
 
 **Some values are intrinsically themselves, so don't have to add anything to the variable name.**
 
@@ -35,8 +49,6 @@ Ex: `numberOfFailures`, `failureCount`or `tooltipShowDelayInMillisecs`.
 
 ### Floating-Point Numbers
 
-- Like
-
 ### Boolean
 
 - Boolean variables should be prefixed with `is`.
@@ -46,29 +58,46 @@ Example: `isVisible`, `isFinished`, `hasLicense`, `canEvaluate`, `shouldAbort`, 
 
 ### Arrays, Lists, and Sets
 
-aaa
+- Naming with plural word.
 
 ### Map
 
-## Enum
+### Enums
 
+- Enum name with Upper Camelcase
+- Enum's variables should be all uppercase with words separated by underscores `_`.
 
-- Tên biến phải viết hoa toàn bộ và được ngăn cách bằng dấu gạch dưới
+### Constants
+
+- Should be all uppercase with words separated by underscores `_`.
 
 ```java:no-line-numbers
-JAPAN("JPY") // 日本
+// 注文伝票の商品最大
+public static final int MAX_LENGTH_ORDER_QUANTITY = 5;
 
-MY_VARIABLE_CODE("MY_VARIABLE_VALUE") // 変更
+public static final String PDF_EXTENSION = ".pdf";
+
+public enum SYSTEM_NAME {
+    USER_MANAGEMENT("UMP", "USER MANAGEMENT SYSTEM", "ユーザー管理システム")
+    , MATERIAL_MANAGEMENT("MMSYS", "MATERIAL MANAGEMENT SYSTEM", "材料管理システム")
+    , MATER_MANAGEMENT("MTM", "MATERIAL MANAGEMENT SYSTEM", "材料管理システム")
+    ;
+    // ...
+}
 ```
 
-## Constants
+## Classes & Interfaces
 
-## Method - Function
+Class names should be nouns, in mixed case with the first letter of each internal word capitalized.
+Try to keep your class names simple and descriptive.
+Use whole words-avoid acronyms and abbreviations (unless the abbreviation is much more widely used than the long form, such as URL or HTML).
 
-- Phải viết thường chữ cái đầu tiên
-- Sử dụng động từ ở chữ đầu tiên
-- Lấy danh sách list thì Danh từ phải nằm ở số nhiều
-- Tránh sử dụng các từ liên kết như `and` hoặc `or` (trừ JPA repository).
+## Methods - Functions
+
+- Should be verbs in the first word.
+- Should be lowercase in the first letter.
+- Plural form if getting a map, a list...
+- Don't use some linking words like `and` hoặc `or` except in the JPA repository.
 
 | Function | Method Name    | Notes                  |
 | -------- | -------------- | ---------------------- |
@@ -78,6 +107,11 @@ MY_VARIABLE_CODE("MY_VARIABLE_VALUE") // 変更
 | Save     | saveCustomer   | save 1 customer        |
 | Update   | updateCustomer | Update 1 customer      |
 | Delete   | deleteCustomer | Delete 1 customer      |
+
+## Package
+
+The prefix of a unique package name is always written in all-lowercase ASCII letters and should be one of the top-level domain names, currently com, edu, gov, mil, net, org, or one of the English two-letter codes identifying countries as specified in ISO Standard 3166, 1981.
+Subsequent components of the package name vary according to an organization's own internal naming conventions. Such conventions might specify that certain directory name components be division, department, project, machine, or login names.
 
 ## Preference
 

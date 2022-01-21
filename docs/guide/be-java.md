@@ -163,6 +163,21 @@ if (condition) {
 
 - Trường hợp nhiều if-else thì nên dùng switch case.
 
+### Boolean vs boolean
+
+Boolean allow null value but boolean not
+
+```java
+Boolean a;
+boolean b;
+
+if (a1) => OK
+
+// Boolean variables are explicitly compared to true in order to avoid an ugly null check
+if (b == true) // => OK
+if (b != null && b) // NG
+```
+
 ## Utils
 
 - Class đặt tên có hậu tố Utils (XUtils) là class tiện ích.
