@@ -101,20 +101,58 @@ const config = {
     responsive: false,
     indexAxis: 'y',
     interaction: {
-
+      intersect: true,
+      mode: 'index',
     },
     scales: {
       x: { },
       y: { },
     },
     plugins: {
-      title: { },
-      legend: { },
+      title: {
+        text: 'Chart.js Line Chart Example',
+        display: true,
+        color: 'red',
+        align: 'start',
+        position: 'top',
+        padding: {
+          top: 5,
+          bottom: 5,
+        },
+        font: {
+          size: 16,
+          weight: 'bold',
+          lineHeight: 1.5,
+        },
+        fullSize: true,
+      },
+      legend: {
+        display: true,
+        title: {
+          display: true,
+          text: 'Label Legend',
+          color: 'red',
+          font: {
+            size: 14,
+          }
+        },
+        fullSize: true,
+        position: 'top',
+        align: 'center',
+      },
       tooltip: { },
     },
     animations: {
-
-    }
+      tension: {
+        duration: 1000,
+        easing: 'linear',
+        from: 1,
+        to: 0,
+        loop: true,
+        delay: 0,
+      }
+    },
+    events: ['click'],
   }
 };
 ```
@@ -197,15 +235,31 @@ const data = {
 
 | Name                 | Description      | Default             | Value       |
 |:---------------------|:-----------------|:--------------------|:------------|
-| ``tension``          | Curve tension. | ``0`` ||
-| ``fill``             | Fill the area under the line. | ``false`` ||
+| ``order``            | The drawing order of dataset. | ``0`` ||
+| ``label``            | The label for the dataset. | ``''`` ||
 | ``backgroundColor``  | The line fill color. | ``'rgba(0, 0, 0, 0.1)'`` ||
-| ``borderWidth``      | Line stroke width. | ``3`` ||
 | ``borderColor``      | The line color. | ``'rgba(0, 0, 0, 0.1)'`` ||
-| ``borderCapStyle``   | Line cap style. | ``'butt'`` | ``'butt' \|\| 'round' \|\| 'square'`` |
+| ``borderCapStyle``   | Line cap style. | ``'butt'`` | ``'butt' \| 'round' \| 'square'`` |
 | ``borderDash``       | Line dash. | ``number[]`` | [] is solid lines |
-| ``borderJoinStyle``  | Line join style. | ``'miter'`` | ``'round'\|'bevel'\|'miter'`` |
+| ``borderJoinStyle``  | Line join style. | ``'miter'`` | ``'round' \| 'bevel' \| 'miter'`` |
+| ``borderWidth``      | Line stroke width. | ``3`` ||
+| ``fill``             | Fill the area under the line. | ``false`` ||
+| ``tension``          | Curve tension. | ``0`` ||
+| ``showLine``         | If false, the line is not drawn for this dataset. | ``true`` ||
+| ``spanGaps``         | If true, lines will be drawn between points with no or null data. If false, points with null data will create a break in the line. | ``undefined`` | ``boolean \| number`` |
 | ``stepped``          | Show the line as a stepped line. | ``false`` | when ``true``, ``tension`` will be ignored. |
+| ``pointBackgroundColor`` | The fill color for points. | ``'rgba(0, 0, 0, 0.1)'`` ||
+| ``pointBorderColor`` | The border color for points. | ``'rgba(0, 0, 0, 0.1)'`` ||
+| ``pointBorderWidth / borderWidth`` | The width of the point border in pixels. | ``1`` ||
+| ``pointHitRadius``   | The fill color for points. | ``1`` ||
+| ``pointHoverBackgroundColor`` | Point background color when hovered. | ``undefined`` ||
+| ``pointHoverBorderColor`` | Point border color when hovered. | ``undefined`` ||
+| ``pointHoverBorderWidth / hoverBorderWidth`` | Border width of point when hovered. | ``1`` ||
+| ``pointHoverRadius / hoverRadius`` | The radius of the point when hovered. | ``4`` ||
+| ``pointRadius / radius`` | The radius of the point shape. If set to 0, the point is not rendered. | ``3`` ||
+| ``pointStyle``       | Style of the point. | ``'circle'`` | ``'circle' \| 'cross'\| 'crossRot' \| 'dash' \| 'line' \| 'rect' \| 'rectRounded' \| 'rectRot' \| 'star' \| 'triangle'`` ||
+| ``clip``             | Positive value allows overflow, negative value clips that many pixels inside chartArea. ``clip: {left: 5, top: false, right: -2, bottom: 0}`` | ``undefined`` | ``number \| object`` |
+| ``indexAxis``        | The base axis of the dataset. 'x' for horizontal lines and 'y' for vertical lines. | ``'x'`` ||
 
 ### Bar Chart
 
@@ -263,8 +317,12 @@ const data = {
 |:---------------------|:-----------------|:--------------------|:------------|
 | ``backgroundColor``  | The bar background color. | ``'rgba(0, 0, 0, 0.1)'`` ||
 | ``borderColor``      | The bar border color. | ``'rgba(0, 0, 0, 0.1)'`` ||
-| ``borderWidth``      | The bar border width (in pixels). | ``'0'`` ||
-| ``base``      | starting point of the chart on the Y axis | ``'0'`` ||
+| ``borderWidth``      | The bar border width (in pixels). | ``0`` ||
+| ``borderRadius``      | radius of border | ``0`` | ``number\|object``|
+| ``base``             | Starting point of the chart on the Y axis |||
+| ``barPercentage``    |  | ``0.9``||
+| ``barThickness``     | If this value is a number, it is applied to the width of each bar, in pixels. When this is enforced, barPercentage and categoryPercentage are ignored. |||
+| ``maxBarThickness``  | Set this to ensure that bars are not sized thicker than this. |||
 
 ### Pie Chart
 
@@ -308,6 +366,22 @@ const data = {
 
 #### Dataset Properties
 
+| Name                 | Description      | Default             | Value       |
+|:---------------------|:-----------------|:--------------------|:------------|
+| ``backgroundColor``  | arc background color. | ``'rgba(0, 0, 0, 0.1)'`` ||
+| ``borderColor``      | arc border color. | ``'rgba(0, 0, 0, 0.1)'`` ||
+| ``borderJoinStyle``  | arc border join style. | ``undefined`` ||
+| ``borderWidth``      | arc border width (in pixels). | ``2`` ||
+| ``offset``           | arc offset (in pixels). | ``0`` ||
+| ``spacing``          | Fixed arc offset (in pixels). Similar to offset but applies to all arcs. | ``0`` ||
+| ``weight``           | The relative thickness of the dataset. | ``1`` ||
+| ``hoverBackgroundColor``  | arc background color when hovered. | ``undefined`` ||
+| ``hoverBorderColor``      | arc border color when hovered. | ``undefined`` ||
+| ``hoverBorderJoinStyle``  | arc border join style when hovered. | ``undefined`` ||
+| ``hoverBorderWidth``      | arc border width when hovered (in pixels). | ``undefined`` | ``'round' \| 'bevel' \| 'miter'`` |
+| ``hoverOffset``           | arc offset when hovered (in pixels). | ``0`` ||
+| ``radius``           | The outer radius of the chart. If ``string`` and ending with '%', percentage of radius. ``number`` is considered to be pixels. || ``number\|string`` |
+
 ### Other Chart
 
 - Radar Chart
@@ -340,6 +414,75 @@ datasets: [
 [Chart Types](https://www.chartjs.org/docs/latest/charts/line.html)
 
 [Samples](https://www.chartjs.org/docs/latest/samples/bar/vertical.html)
+
+### Option Properties
+
+#### General
+
+| Name                 | Description      | Default             | Value       |
+|:---------------------|:-----------------|:--------------------|:------------|
+| ``responsive``          | Chart auto size (width/height). | ``true`` ||
+| ``indexAxis`` | The base axis of the dataset. 'x' for horizontal lines and 'y' for vertical lines. | ``'x'`` ||
+
+#### Scales
+
+| Name                 | Description      | Default             | Value       |
+|:---------------------|:-----------------|:--------------------|:------------|
+| ``type``             | Type axis.       |  | ``linear \| category \| time \| logarithmic`` |
+| ``display``          | Show line scale of axis. | ``true`` ||
+| ``title``            | Title of axis.   |  | ``Opject`` |
+| ``grid``             | Grid line setting.   |  | ``Opject`` |
+
+[Scales](https://www.chartjs.org/docs/latest/samples/scales/linear-min-max.html)
+
+[Axes](https://www.chartjs.org/docs/latest/axes/)
+
+#### Plugins
+
+| Name                 | Description      | Default             | Value       |
+|:---------------------|:-----------------|:--------------------|:------------|
+| ``title``            | Show Title for Chart.    || ``Opject`` |
+| ``subtitle``         | Show Subtitle for Chart. || ``Opject`` |
+| ``legend``           | Show Legend for Chart.   || ``Opject`` |
+| ``tooltip``          | Tooltip for Chart when hovered. || ``Opject`` |
+| ``quadrants``        | Divide the Chart into quadrants.(topLeft, topRight, bottomRight, bottomLeft) |  | ``Opject`` |
+| ``chartAreaBorder``  | Style area border Chart. || ``Opject`` |
+
+#### Animations
+
+| Name                 | Description      | Default             | Value       |
+|:---------------------|:-----------------|:--------------------|:------------|
+| ``tension``          | Animations for tension. || ``Opject`` |
+
+#### Events
+
+// TODO:
+
+``'contextmenu' | 'mouseenter' | 'mousedown' | 'mousemove' | 'mouseup' | 'mouseout' | 'click' | 'dblclick' | 'keydown' | 'keypress' | 'keyup' | 'resize'``
+
+#### See also Properties
+
+[Samples](https://www.chartjs.org/docs/latest/samples/information.html)
+
+#### Scriptable Options
+
+```ts
+grid: {
+  drawBorder: true,
+  borderColor: 'red',
+  tickColor: 'red',
+  color: (context) => {
+    if (context.tick.value > 0) {
+      return 'lightgrey';
+    } else if (context.tick.value < 0) {
+      return 'lightblue';
+    }
+    return 'rgb(255, 159, 64)';
+  },
+},
+```
+
+[Scriptable Options](https://www.chartjs.org/docs/latest/samples/scriptable/bar.html)
 
 ## Data structures
 
@@ -416,7 +559,7 @@ options: {
 ## Defaults and Overrides
 
 - Defaults: default global for Chart.
-- Overrides:
+- Overrides: override properties and new Chart.
 
 ```ts
 // default element width of bar chart
