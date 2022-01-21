@@ -74,7 +74,9 @@ Use <img src="@assets/images/report_text_field.png"/> when change data
 ## Parameter
 
 - Outline - Right click **Parameters** - choose **Create Parameter**
-<img src="@assets/images/report_parameter_create.png"/>
+<img src="@assets/images/report_parameter_create_0.png"/>
+<img src="@assets/images/report_parameter_create_1.png"/>
+- Change information of parameter at properties
 
 ## Field
 
