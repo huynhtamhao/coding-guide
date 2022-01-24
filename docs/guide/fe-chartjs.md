@@ -318,11 +318,19 @@ const data = {
 | ``backgroundColor``  | The bar background color. | ``'rgba(0, 0, 0, 0.1)'`` ||
 | ``borderColor``      | The bar border color. | ``'rgba(0, 0, 0, 0.1)'`` ||
 | ``borderWidth``      | The bar border width (in pixels). | ``0`` ||
-| ``borderRadius``      | radius of border | ``0`` | ``number\|object``|
+| ``borderRadius``     | radius of border | ``0`` | ``number\|object``|
+| ``hoverBackgroundColor``| The bar background color when hovered. | ``undefined`` ||
+| ``hoverBorderColor`` | The bar border color when hovered. | ``undefined`` ||
+| ``hoverBorderWidth`` | The bar border width when hovered (in pixels). | ``1`` ||
+| ``hoverBorderRadius``| The bar border radius when hovered (in pixels). | ``0`` ||
 | ``base``             | Starting point of the chart on the Y axis |||
-| ``barPercentage``    |  | ``0.9``||
+| ``barPercentage``    | Percent (0-1) of the available width each bar should be within the category width. | ``0.9``||
+| ``categoryPercentage``| Percent (0-1) of the available width each category should be within the sample width. | ``0.8``||
 | ``barThickness``     | If this value is a number, it is applied to the width of each bar, in pixels. When this is enforced, barPercentage and categoryPercentage are ignored. |||
 | ``maxBarThickness``  | Set this to ensure that bars are not sized thicker than this. |||
+| ``minBarLength``     | Set this to ensure that bars have a minimum length in pixels. |||
+| ``pointStyle``       | Style of the point for legend. | ``'circle'`` | ``'circle' \| 'cross'\| 'crossRot' \| 'dash' \| 'line' \| 'rect' \| 'rectRounded' \| 'rectRot' \| 'star' \| 'triangle'`` ||
+| ``borderSkipped``    | The edge to skip when drawing bar. || ``'start' \| 'end' \| 'middle' \| 'bottom' \| 'left' \| 'top' \| 'right' \| false`` |
 
 ### Pie Chart
 
@@ -382,7 +390,7 @@ const data = {
 | ``hoverOffset``           | arc offset when hovered (in pixels). | ``0`` ||
 | ``radius``           | The outer radius of the chart. If ``string`` and ending with '%', percentage of radius. ``number`` is considered to be pixels. || ``number\|string`` |
 
-### Other Chart
+### Other Charts
 
 - Radar Chart
 - Doughnut Chart
@@ -456,9 +464,22 @@ datasets: [
 
 #### Events
 
-// TODO:
+- The events option defines the browser events that the chart should listen to for tooltips and hovering.
 
 ``'contextmenu' | 'mouseenter' | 'mousedown' | 'mousemove' | 'mouseup' | 'mouseout' | 'click' | 'dblclick' | 'keydown' | 'keypress' | 'keyup' | 'resize'``
+
+- For example, to have the chart only respond to click events:
+
+```ts
+var chart = new Chart(ctx, {
+    type: 'line',
+    data: data,
+    options: {
+        // This chart will not respond to mousemove, etc
+        events: ['click']
+    }
+});
+```
 
 #### See also Properties
 
@@ -607,7 +628,6 @@ export interface ChartEvent {
   x: number | null;
   y: number | null;
 }
-
 ```
 
 ```html
@@ -615,7 +635,13 @@ export interface ChartEvent {
   (dblclick)="onDblclick()" (mousedown)="mousedown()">
   Your browser does not support the canvas element.
 </canvas>
+```
 
+```ts
+public onClick(event: Event): void {
+  this.chart.data.datasets[0].data = [65, 59, 80, 81, 56, 15, -40];
+  this.chart.update();
+}
 ```
 
 ## Reference
