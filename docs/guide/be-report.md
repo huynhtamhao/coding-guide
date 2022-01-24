@@ -6,21 +6,21 @@ Use Jaspersoft to create report
 
 <img src="@assets/images/report_jaspersoft.png"/>
 
-- Outline: Liệt kê các thuôc tính đã sử dụng trong report
-- Palette: liệt kê type design report
-- Composite Elements: liệt kê Composite Element được thiết kế sẵn
-- Tab Design: layout report thiết kế
+- Outline: outline the structure of the report
+- Palette: list of design type
+- Composite Elements: list of Composite Element pre-designed
+- Tab Design: layout of report
 - Tab Source: source của report
-- Tab Preview: layout report khi được thực thi
-- Cấu trúc report
-  - Title: nội dung hiển thị đầu tiên trong report và chỉ hiển thị ở page đầu tiên
-  - Page Header: nội dung hiển thị ở header page ở tất cả các page
-  - Column Header: nội dung hiển thị đầu tiên ở mỗi page (page đầu tiên hiển thị sau title)
-  - Detail: nội dung hiển thị dần qua các page
-  - Column Footer: nội dung hiển thị cuối cùng ở mỗi page
-  - Page Footer: nội dung chỉ hiển thị ở Footer page ở tất cả các page
-  - Last Page Footer: nội dung chỉ hiển thị ở Footer của page cuối cùng
-  - Summary: nội dung hiển thị cuối cùng trong report
+- Tab Preview: layout report when executed
+- Structure report
+  - Title: display in the first report and only display on the first page
+  - Page Header: display at Page Header of every page
+  - Column Header: display first of every page (the first page displayed after the title)
+  - Detail: displayed through the pages
+  - Column Footer: display end of every page
+  - Page Footer: display at Page Footer of every page
+  - Last Page Footer: display at Page Footer of last page
+  - Summary: display at end report
 
 ## Some type design report
 
@@ -141,10 +141,17 @@ Use <img src="@assets/images/report_text_field.png"/> when change data
 
 ## Dataset
 
-- Tạo data để setting vào report
-- Thường được sử dụng cho table, list
-- Các bước tạo Dataset:
-  - Click chuột phải vào report main ở Outline  
-  <img src="@assets/images/report_dataset_0.png"/>
-  - Hiển thị thông tin
-  <img src="@assets/images/report_dataset_1.png"/>
+- Create data to set in the report
+- Alway use to table, list
+- Step create to Dataset:
+  - Outline - Right click main report  
+  - You will use data param, so select **Create an empty dataset**
+  - Input dataset name and click **Finish**
+  <img src="@assets/images/report_dataset.png"/>
+
+## Compile report
+
+- Click **Compile report**  
+<img src="@assets/images/report_compile_0.png"/>
+- File *.jasper* is generated  
+<img src="@assets/images/report_compile_1.png"/>
