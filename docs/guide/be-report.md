@@ -43,7 +43,7 @@ Use <img src="@assets/images/report_text_field.png"/> when change data
 
 ### Table
 
-- Use <img src="@assets/images/report_table.png"/>
+- Palette - Click <img src="@assets/images/report_table.png"/> - Choose position in report
 - You can create new dataset or using an existing dataset for table. If you don't have an existing dataset, that option **Create a Table using an existing dataset** is disabled
 <img src="@assets/images/report_table_0.png"/>
 - Create a table from a new dataset
@@ -60,8 +60,8 @@ Use <img src="@assets/images/report_text_field.png"/> when change data
   - Choose display header/footer
     - Table Header: display at first table
     - Column Header: display at header table
-    - Group Header: display at header
-    - Group Footer: display at start table
+    - Group Header: display group of header
+    - Group Footer: display group of footer
     - Column Footer: display at footer table
     - Table Footer: display at end of last table
   - Click Finish
@@ -71,21 +71,31 @@ Use <img src="@assets/images/report_text_field.png"/> when change data
 - Create a table using an existing dataset:  
 //TODO
 
+### Barcode
+
+- Palette - Click <img src="@assets/images/report_barcode.png"/> - Choose position in report
+<img src="@assets/images/report_barcode_create_0.png"/>
+
 ## Parameter
 
-- Outline - Right click **Parameters** - choose **Create Parameter**
+- Outline - Right click **Parameters** - Choose **Create Parameter**
 <img src="@assets/images/report_parameter_create_0.png"/>
 <img src="@assets/images/report_parameter_create_1.png"/>
 - Change information of parameter at properties
 
 ## Field
 
+- Outline - Right click **Fields** - choose **Create Field**  
+<img src="@assets/images/report_field_create_0.png"/>  
+<img src="@assets/images/report_field_create_1.png"/>
+- Change information of field at properties
+
 ## Dataset
 
 - Tạo data để setting vào report
 - Thường được sử dụng cho table, list
 - Các bước tạo Dataset:
-  - Click chuột phải vào report main ở Outline
-  <img src="~@assets/images/report_dataset_0.png"/>
+  - Click chuột phải vào report main ở Outline  
+  <img src="@assets/images/report_dataset_0.png"/>
   - Hiển thị thông tin
-  <img src="~@assets/images/report_dataset_1.png"/>
+  <img src="@assets/images/report_dataset_1.png"/>
