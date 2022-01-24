@@ -51,6 +51,7 @@ export const en = {
         'fe-angular-tip-trick',
         'fe-css',
         'fe-chartjs',
+        'fe-toastr',
       ],
     },
     // With start character is `z`
