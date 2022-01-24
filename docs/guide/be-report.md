@@ -10,7 +10,7 @@ Use Jaspersoft to create report
 - Palette: list of design type
 - Composite Elements: list of Composite Element pre-designed
 - Tab Design: layout of report
-- Tab Source: source của report
+- Tab Source: source of report
 - Tab Preview: layout report when executed
 - Structure report
   - Title: display in the first report and only display on the first page
@@ -22,7 +22,7 @@ Use Jaspersoft to create report
   - Last Page Footer: display at Page Footer of last page
   - Summary: display at end report
 
-## Some type design report
+## Some type design
 
 ### Label
 
@@ -124,6 +124,7 @@ Use <img src="@assets/images/report_text_field.png"/> when change data
 - Palette - Click <img src="@assets/images/report_barcode.png"/> - Choose position in report
 <img src="@assets/images/report_barcode_create_0.png"/>
 - Choose the type of Barbecue types and click **Finish**
+- Input data of Barcode at **Code Expression** of tab **Barcode**
 
 ## Parameter
 
@@ -145,9 +146,11 @@ Use <img src="@assets/images/report_text_field.png"/> when change data
 - Alway use to table, list
 - Step create to Dataset:
   - Outline - Right click main report  
+  <img src="@assets/images/report_dataset_0.png"/>
   - You will use data param, so select **Create an empty dataset**
   - Input dataset name and click **Finish**
-  <img src="@assets/images/report_dataset.png"/>
+  <img src="@assets/images/report_dataset_1.png"/>
+  <img src="@assets/images/report_dataset_2.png"/>
 
 ## Compile report
 
@@ -155,3 +158,5 @@ Use <img src="@assets/images/report_text_field.png"/> when change data
 <img src="@assets/images/report_compile_0.png"/>
 - File *.jasper* is generated  
 <img src="@assets/images/report_compile_1.png"/>
+
+
