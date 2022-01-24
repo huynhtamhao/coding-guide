@@ -105,7 +105,7 @@ this.toastrService.error('everything is broken', 'Major Error', {
 | message                | Title on toast                               |
 | ToastConfig            | Option config                                |
 
-## Options Config
+## Option Config
 
 <img src="~@assets/images/toastr/toastr-app-demo.jpg"><img />
 
