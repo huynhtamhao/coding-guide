@@ -15,7 +15,7 @@ export const jp = {
       sidebarDepth: 3,
       children: [
         'c-naming-conventions',
-        // 'c-comment',
+        'c-comment',
       ],
     },
     // With start character is `db`
