@@ -1,10 +1,10 @@
 # Report
 
-Use Jaspersoft to create report
+Use Jaspersoft(TIBCO Jaspersoft® Studio 6.18.1) to create report
 
 ## Layout design
 
-<img src="@assets/images/report_jaspersoft.png"/>
+<img src="@assets/images/report/report_jaspersoft.png"/>
 
 - Outline: outline the structure of the report
 - Palette: list of design type
@@ -26,11 +26,11 @@ Use Jaspersoft to create report
 
 ### Label
 
-Use <img src="@assets/images/report_static_text.png"/> when fixed data
+Use <img src="@assets/images/report/report_static_text.png"/> when fixed data
 
 ### Text Field
 
-Use <img src="@assets/images/report_text_field.png"/> when change data
+Use <img src="@assets/images/report/report_text_field.png"/> when change data
 
 - Data is a parameter
   - Expression: $P{ + param name + }
@@ -45,18 +45,18 @@ Use <img src="@assets/images/report_text_field.png"/> when change data
 
 #### Create table
 
-- Palette - Click <img src="@assets/images/report_table.png"/> - Choose position in report
+- Palette - Click <img src="@assets/images/report/report_table.png"/> - Choose position in report
 - You can create new dataset or using an existing dataset for table. If you don't have an existing dataset, that option **Create a Table using an existing dataset** is disabled
-<img src="@assets/images/report_table_0.png"/>
+<img src="@assets/images/report/report_table_0.png"/>
 - Create a table from a new dataset
   - Input dataset name and click **Next**
-  <img src="@assets/images/report_table_1.png"/>
+  <img src="@assets/images/report/report_table_1.png"/>
   - You will use data param, so select **Create an empty dataset** and click **Next**
-  <img src="@assets/images/report_table_2.png"/>
+  <img src="@assets/images/report/report_table_2.png"/>
   - Click **Next**
-  <img src="@assets/images/report_table_3.png"/>
+  <img src="@assets/images/report/report_table_3.png"/>
   - Click **Next**
-  <img src="@assets/images/report_table_4.png"/>
+  <img src="@assets/images/report/report_table_4.png"/>
   - Choose style table
   - Choose display header/footer
     - Table Header: display at first table
@@ -66,17 +66,17 @@ Use <img src="@assets/images/report_text_field.png"/> when change data
     - Column Footer: display at footer table
     - Table Footer: display at end of last table
   - Click **Finish**
-  <img src="@assets/images/report_table_5.png"/>
+  <img src="@assets/images/report/report_table_5.png"/>
   - The table appears in your report, in the spot where you dragged the element.
-  <img src="@assets/images/report_table_6.png"/>
+  <img src="@assets/images/report/report_table_6.png"/>
 - Create a table using an existing dataset:
   - Select **Create a Table using an existing dataset**
   - Select a dataset from the drop-down and click **Next**
-  <img src="@assets/images/report_table_7.png"/>
+  <img src="@assets/images/report/report_table_7.png"/>
   - Click **Next**
-  <img src="@assets/images/report_table_3.png"/>
+  <img src="@assets/images/report/report_table_3.png"/>
   - Click **Next**
-  <img src="@assets/images/report_table_4.png"/>
+  <img src="@assets/images/report/report_table_4.png"/>
   - Choose style table
   - Choose display header/footer
     - Table Header: display at first table
@@ -86,58 +86,58 @@ Use <img src="@assets/images/report_text_field.png"/> when change data
     - Column Footer: display at footer table
     - Table Footer: display at end of last table
   - Click **Finish**
-  <img src="@assets/images/report_table_5.png"/>
+  <img src="@assets/images/report/report_table_5.png"/>
   - The table appears in your report, in the spot where you dragged the element.
-  <img src="@assets/images/report_table_6.png"/>
+  <img src="@assets/images/report/report_table_6.png"/>
 
 #### Group Columns
 
 - Choose column you want group on **Outline**  - Right click - Choose **Group Columns**  
-<img src="@assets/images/report_table_group_column_0.png"/>
+<img src="@assets/images/report/report_table_group_column_0.png"/>
 
-<img src="@assets/images/report_table_group_column_1.png"/>
+<img src="@assets/images/report/report_table_group_column_1.png"/>
 
 - Example:
 
-<img src="@assets/images/report_table_group_column_2.png"/>  
+<img src="@assets/images/report/report_table_group_column_2.png"/>  
 
 #### Change size column
 
 ##### Change handle
 
 - If the table column layout is **Vertical Layout**, you will not be able to resize the field width in the table because this container layout centers the cell elements horizontally.  
-<img src="@assets/images/report_table_column_0.png"/>  
-<img src="@assets/images/report_table_column_1.png"/>
+<img src="@assets/images/report/report_table_column_0.png"/>  
+<img src="@assets/images/report/report_table_column_1.png"/>
 - Changing table column layout to **Free Layout** to enable field adjustment capability
-<img src="@assets/images/report_table_column_2.png"/>
+<img src="@assets/images/report/report_table_column_2.png"/>
 - Change size column
-<img src="@assets/images/report_table_column_5.png"/>
+<img src="@assets/images/report/report_table_column_5.png"/>
 
 ##### Stretch to Table
 
 - Choose column you want stretch on **Outline**  - Right click - Choose **Stretch to Table**  
-<img src="@assets/images/report_table_column_3.png"/>  
-<img src="@assets/images/report_table_column_4.png"/>
+<img src="@assets/images/report/report_table_column_3.png"/>  
+<img src="@assets/images/report/report_table_column_4.png"/>
 
 ### Barcode
 
-- Palette - Click <img src="@assets/images/report_barcode.png"/> - Choose position in report
-<img src="@assets/images/report_barcode_create_0.png"/>
+- Palette - Click <img src="@assets/images/report/report_barcode.png"/> - Choose position in report
+<img src="@assets/images/report/report_barcode_create_0.png"/>
 - Choose the type of Barbecue types and click **Finish**
 - Input data of Barcode at **Code Expression** of tab **Barcode**
 
 ## Parameter
 
 - Outline - Right click **Parameters** - Choose **Create Parameter**
-<img src="@assets/images/report_parameter_create_0.png"/>
-<img src="@assets/images/report_parameter_create_1.png"/>
+<img src="@assets/images/report/report_parameter_create_0.png"/>
+<img src="@assets/images/report/report_parameter_create_1.png"/>
 - Change information of parameter at properties
 
 ## Field
 
 - Outline - Right click **Fields** - choose **Create Field**  
-<img src="@assets/images/report_field_create_0.png"/>  
-<img src="@assets/images/report_field_create_1.png"/>
+<img src="@assets/images/report/report_field_create_0.png"/>  
+<img src="@assets/images/report/report_field_create_1.png"/>
 - Change information of field at properties
 
 ## Dataset
@@ -146,17 +146,17 @@ Use <img src="@assets/images/report_text_field.png"/> when change data
 - Alway use to table, list
 - Step create to Dataset:
   - Outline - Right click main report  
-  <img src="@assets/images/report_dataset_0.png"/>
+  <img src="@assets/images/report/report_dataset_0.png"/>
   - You will use data param, so select **Create an empty dataset**
   - Input dataset name and click **Finish**
-  <img src="@assets/images/report_dataset_1.png"/>
-  <img src="@assets/images/report_dataset_2.png"/>
+  <img src="@assets/images/report/report_dataset_1.png"/>
+  <img src="@assets/images/report/report_dataset_2.png"/>
 
 ## Compile report
 
 - Click **Compile report**  
-<img src="@assets/images/report_compile_0.png"/>
+<img src="@assets/images/report/report_compile_0.png"/>
 - File *.jasper* is generated  
-<img src="@assets/images/report_compile_1.png"/>
+<img src="@assets/images/report/report_compile_1.png"/>
 
-
+## Run file report
