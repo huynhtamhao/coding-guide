@@ -471,7 +471,7 @@ datasets: [
 - For example, to have the chart only respond to click events:
 
 ```ts
-var chart = new Chart(ctx, {
+const chart = new Chart(ctx, {
     type: 'line',
     data: data,
     options: {
