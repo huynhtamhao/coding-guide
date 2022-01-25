@@ -52,6 +52,7 @@ export const en = {
         'fe-css',
         'fe-chartjs',
         'fe-toastr',
+        'fe-dialog',
       ],
     },
     // With start character is `z`
