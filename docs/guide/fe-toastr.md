@@ -109,6 +109,53 @@ this.toastrService.error('everything is broken', 'Major Error', {
 
 <img src="~@assets/images/toastr/toastr-app-demo.jpg"><img />
 
+### Individual options
+
+| Option                 | Default               | Description                                  |
+|:-----------------------|:----------------------|:---------------------------------------------|
+| tapToDismiss           | ``true``              | Close on click                               |
+| closeButton            | ``false``             | Show close button                            |
+| timeOut                | ``5000``              | Time to live in milliseconds                 |
+| extendedTimeOut        | ``1000``              | Time to close after a user hovers over toast |
+| disableTimeOut         | ``false``             | Disable both timeOut and extendedTimeOut when set to true. Allows specifying which timeOut to disable, either: timeOut or extendedTimeOut            |
+| easing                 | ``'ease-in'``         | Toast component easing                       |
+| easeTime               | ``300``               | Time spent easing                            |
+| enableHtml             | ``false``             | Allow html in message                        |
+| progressBar            | ``false``             | Show progress bar                            |
+| progressAnimation      | ``'decreasing'``      | Changes the animation of the progress bar. ``'decreasing' \| 'increasing'`` |
+| toastClass             | ``'ngx-toastr'``      | Class on toast                               |
+| messageClass           | ``'toast-message'``   | Class inside toast on message bar            |
+
+### Global options
+
+- All individual options can be overridden in the global options to affect all toasts. In addition, global options include the following options:
+
+| Option                 | Default               | Description                                  |
+|:-----------------------|:----------------------|:---------------------------------------------|
+| maxOpened              | ``0``                 | Max toasts opened. Toasts will be queued. 0 is unlimited |
+| autoDismiss            | ``false``             | Dismiss current toast when max is reached    |
+| iconClasses            | ``{error: 'toast-error', info: 'toast-info', success: 'toast-success', warning: 'toast-warning'}`` | Classes used on toastr service methods                            |
+| newestOnTop            | ``true``              | New toast placement                          |
+| preventDuplicates      | ``false``             | Block duplicate messages                     |
+| countDuplicates        | ``false``             | Displays a duplicates counter (preventDuplicates must be true). Toast must have a duplicate message |
+| resetTimeoutOnDuplicate| ``false``             | Reset toast timeout on duplicate (preventDuplicates must be true) |
+| includeTitleDuplicates | ``false``             | Include the title of a toast when checking for duplicates (by default only message is compared) |
+
+#### Setting Global Options
+
+- Pass values to ToastrModule.forRoot()
+
+```ts
+// root app NgModule
+imports: [
+  ToastrModule.forRoot({
+    timeOut: 10000,
+    positionClass: 'toast-bottom-right',
+    preventDuplicates: true,
+  }),
+],
+```
+
 ### Toast Position
 
 | Option                 | Default               | Description                                  |
@@ -180,53 +227,6 @@ export class AppComponent implements OnInit {
     this.toastrService.success('in div');
   }
 }
-```
-
-### Individual options
-
-| Option                 | Default               | Description                                  |
-|:-----------------------|:----------------------|:---------------------------------------------|
-| tapToDismiss           | ``true``              | Close on click                               |
-| closeButton            | ``false``             | Show close button                            |
-| timeOut                | ``5000``              | Time to live in milliseconds                 |
-| extendedTimeOut        | ``1000``              | Time to close after a user hovers over toast |
-| disableTimeOut         | ``false``             | Disable both timeOut and extendedTimeOut when set to true. Allows specifying which timeOut to disable, either: timeOut or extendedTimeOut            |
-| easing                 | ``'ease-in'``         | Toast component easing                       |
-| easeTime               | ``300``               | Time spent easing                            |
-| enableHtml             | ``false``             | Allow html in message                        |
-| progressBar            | ``false``             | Show progress bar                            |
-| progressAnimation      | ``'decreasing'``      | Changes the animation of the progress bar. ``'decreasing' \| 'increasing'`` |
-| toastClass             | ``'ngx-toastr'``      | Class on toast                               |
-| messageClass           | ``'toast-message'``   | Class inside toast on message bar            |
-
-### Global options
-
-- All individual options can be overridden in the global options to affect all toasts. In addition, global options include the following options:
-
-| Option                 | Default               | Description                                  |
-|:-----------------------|:----------------------|:---------------------------------------------|
-| maxOpened              | ``0``                 | Max toasts opened. Toasts will be queued. 0 is unlimited |
-| autoDismiss            | ``false``             | Dismiss current toast when max is reached    |
-| iconClasses            | ``{error: 'toast-error', info: 'toast-info', success: 'toast-success', warning: 'toast-warning'}`` | Classes used on toastr service methods                            |
-| newestOnTop            | ``true``              | New toast placement                          |
-| preventDuplicates      | ``false``             | Block duplicate messages                     |
-| countDuplicates        | ``false``             | Displays a duplicates counter (preventDuplicates must be true). Toast must have a duplicate message |
-| resetTimeoutOnDuplicate| ``false``             | Reset toast timeout on duplicate (preventDuplicates must be true) |
-| includeTitleDuplicates | ``false``             | Include the title of a toast when checking for duplicates (by default only message is compared) |
-
-#### Setting Global Options
-
-- Pass values to ToastrModule.forRoot()
-
-```ts
-// root app NgModule
-imports: [
-  ToastrModule.forRoot({
-    timeOut: 10000,
-    positionClass: 'toast-bottom-right',
-    preventDuplicates: true,
-  }),
-],
 ```
 
 ## Functions
