@@ -34,10 +34,10 @@ const ctx = document.getElementById('barChart') as HTMLCanvasElement;
 this.chart = new Chart(ctx, {…});
 ```
 
-- Register auto and new Chart as usual. In case there is an error, update the tsconfig.json file.
+- Register auto and new Chart as usual. In case of error with 'any' type, update the tsconfig.json file.
 
 ```json
-"noImplicitAny": false,
+"skipLibCheck": true,
 ```
 
 ```ts
