@@ -1,8 +1,8 @@
 # Chart.js
 
-## Installation
+## インストール
 
-- Chart.js uses the HTML Canvas Graphics tag to draw shapes.
+- Chart.js はuses the HTML Canvas Graphics タグを使って図を描く
 
 ```html
 <canvas id="lineChart" width="800" height="300" style="border: 1px solid #000000;">
@@ -10,13 +10,13 @@
 </canvas>
 ```
 
-- Install using npm
+- npmを使ってインストール
 
 ``npm install chart.js``
 
 ## Register and New Chart
 
-- Register the controllers, elements, scales and plugins you are going to use (recommend using this method).
+- 利用しようとするcontrollers, elements, scales and plugins を登録 する(この手法を勧める).
 
 ```ts
 import {  BarController, BarElement, CategoryScale, LinearScale,
@@ -34,7 +34,7 @@ const ctx = document.getElementById('barChart') as HTMLCanvasElement;
 this.chart = new Chart(ctx, {…});
 ```
 
-- Register auto and new Chart as usual. In case there is an error, update the tsconfig.json file.
+- 通常のようにauto and new Chartろ登録する。エラーが発生した場合は tsconfig.jsonファイルを更新する。
 
 ```json
 "noImplicitAny": false,
@@ -50,7 +50,7 @@ this.chart = new Chart(this.lineChart.nativeElement, {…});
 
 ```
 
-- Import chart.min.js in angular.json file and declare variable Chart.
+- angular.jsonファイルで chart.min.jsをインポートして Chart変数を宣言する。
 
 ```json
 "scripts": [
@@ -76,7 +76,7 @@ const chart = new Chart(this.pieChart.nativeElement, config);
 
 **Data**:
 
--lables: [ ] label name for each index.
+-labels: [ ] label name for each index.
 
 -datasets: [ {  } ] data and configuration for point data.
 
@@ -91,7 +91,7 @@ const config: ChartConfiguration = {
     };
 ```
 
-- Options example
+- Options 例
 
 ```ts
 const config = {
@@ -157,7 +157,7 @@ const config = {
 };
 ```
 
-- Each type chart can have different specific properties. Depending on the type of chart, the constructor data import will also be different.
+- 各chartタイプは異なる特定のプロパティーを持つことが可能である。Chartタイプによって、インポートするconstructor data が異なる。
 
 :::: code-group
 ::: code-group-item Line Chart
@@ -170,7 +170,7 @@ datasets: [
           data: [65, 59, 80, 81, 56],
           borderColor: 'rgb(75, 192, 192)',
           tension: 0.1,
-        }, 
+        },
 ]
 ```
 
@@ -188,14 +188,14 @@ datasets: [
             { x: 1.5, y: 3, r: 5 },
           ],
           hoverRadius: 15,
-        }, 
+        },
 ]
 ```
 
 :::
 ::::
 
-## Chart Types
+## Chart タイプ
 
 ### Line Chart
 
@@ -374,21 +374,21 @@ const data = {
 
 #### Dataset Properties
 
-| Name                 | Description      | Default             | Value       |
-|:---------------------|:-----------------|:--------------------|:------------|
-| ``backgroundColor``  | arc background color. | ``'rgba(0, 0, 0, 0.1)'`` ||
-| ``borderColor``      | arc border color. | ``'rgba(0, 0, 0, 0.1)'`` ||
-| ``borderJoinStyle``  | arc border join style. | ``undefined`` ||
-| ``borderWidth``      | arc border width (in pixels). | ``2`` ||
-| ``offset``           | arc offset (in pixels). | ``0`` ||
-| ``spacing``          | Fixed arc offset (in pixels). Similar to offset but applies to all arcs. | ``0`` ||
-| ``weight``           | The relative thickness of the dataset. | ``1`` ||
-| ``hoverBackgroundColor``  | arc background color when hovered. | ``undefined`` ||
-| ``hoverBorderColor``      | arc border color when hovered. | ``undefined`` ||
-| ``hoverBorderJoinStyle``  | arc border join style when hovered. | ``undefined`` ||
-| ``hoverBorderWidth``      | arc border width when hovered (in pixels). | ``undefined`` | ``'round' \| 'bevel' \| 'miter'`` |
-| ``hoverOffset``           | arc offset when hovered (in pixels). | ``0`` ||
-| ``radius``           | The outer radius of the chart. If ``string`` and ending with '%', percentage of radius. ``number`` is considered to be pixels. || ``number\|string`` |
+|           Name           |                               Description                                |         Default          | Value |
+| :----------------------- | :----------------------------------------------------------------------- | :----------------------- | :---- |
+| ``backgroundColor``      | arc background color.                                                    | ``'rgba(0, 0, 0, 0.1)'`` |       |
+| ``borderColor``          | arc border color.                                                        | ``'rgba(0, 0, 0, 0.1)'`` |       |
+| ``borderJoinStyle``      | arc border join style.                                                   | ``undefined``            |       |
+| ``borderWidth``          | arc border width (in pixels).                                            | ``2``                    |       |
+| ``offset``               | arc offset (in pixels).                                                  | ``0``                    |       |
+| ``spacing``              | Fixed arc offset (in pixels). Similar to offset but applies to all arcs. | ``0``                    |       |
+| ``weight``               | The relative thickness of the dataset.                                   | ``1``                    |       |
+| ``hoverBackgroundColor`` | arc background color when hovered.                                       | ``undefined``            |       |
+| ``hoverBorderColor``     | arc border color when hovered.                                           | ``undefined``            |       |
+| ``hoverBorderJoinStyle`` | arc border join style when hovered.                                      | ``undefined``            |       |
+| ``hoverBorderWidth``     | arc border width when hovered (in pixels).                               | ``undefined``            | ``'round' \| 'bevel' \| 'miter'`` |
+| ``hoverOffset``          | arc offset when hovered (in pixels).                                     | ``0``                    |       |
+| ``radius``               | The outer radius of the chart. If ``string`` and ending with '%', percentage of radius. ``number`` is considered to be pixels. || ``number\|string`` |
 
 ### Other Charts
 
@@ -417,7 +417,7 @@ datasets: [
       ]
 ```
 
-- See also charts example
+- charts例の参考
 
 [Chart Types](https://www.chartjs.org/docs/latest/charts/line.html)
 
@@ -438,8 +438,8 @@ datasets: [
 |:---------------------|:-----------------|:--------------------|:------------|
 | ``type``             | Type axis.       |  | ``linear \| category \| time \| logarithmic`` |
 | ``display``          | Show line scale of axis. | ``true`` ||
-| ``title``            | Title of axis.   |  | ``Opject`` |
-| ``grid``             | Grid line setting.   |  | ``Opject`` |
+| ``title``            | Title of axis.   |  | ``Object`` |
+| ``grid``             | Grid line setting.   |  | ``Object`` |
 
 [Scales](https://www.chartjs.org/docs/latest/samples/scales/linear-min-max.html)
 
@@ -449,26 +449,26 @@ datasets: [
 
 | Name                 | Description      | Default             | Value       |
 |:---------------------|:-----------------|:--------------------|:------------|
-| ``title``            | Show Title for Chart.    || ``Opject`` |
-| ``subtitle``         | Show Subtitle for Chart. || ``Opject`` |
-| ``legend``           | Show Legend for Chart.   || ``Opject`` |
-| ``tooltip``          | Tooltip for Chart when hovered. || ``Opject`` |
-| ``quadrants``        | Divide the Chart into quadrants.(topLeft, topRight, bottomRight, bottomLeft) |  | ``Opject`` |
-| ``chartAreaBorder``  | Style area border Chart. || ``Opject`` |
+| ``title``            | Show Title for Chart.    || ``Object`` |
+| ``subtitle``         | Show Subtitle for Chart. || ``Object`` |
+| ``legend``           | Show Legend for Chart.   || ``Object`` |
+| ``tooltip``          | Tooltip for Chart when hovered. || ``Object`` |
+| ``quadrants``        | Divide the Chart into quadrants.(topLeft, topRight, bottomRight, bottomLeft) |  | ``Object`` |
+| ``chartAreaBorder``  | Style area border Chart. || ``Object`` |
 
 #### Animations
 
 | Name                 | Description      | Default             | Value       |
 |:---------------------|:-----------------|:--------------------|:------------|
-| ``tension``          | Animations for tension. || ``Opject`` |
+| ``tension``          | Animations for tension. || ``Object`` |
 
 #### Events
 
-- The events option defines the browser events that the chart should listen to for tooltips and hovering.
+- ツールチップやマウスオーバーのイベントオプションを定義する。.
 
 ``'contextmenu' | 'mouseenter' | 'mousedown' | 'mousemove' | 'mouseup' | 'mouseout' | 'click' | 'dblclick' | 'keydown' | 'keypress' | 'keyup' | 'resize'``
 
-- For example, to have the chart only respond to click events:
+- 例えば、クリックのイベントのみに応答するChartを指定する：
 
 ```ts
 var chart = new Chart(ctx, {
@@ -481,11 +481,11 @@ var chart = new Chart(ctx, {
 });
 ```
 
-#### See also Properties
+#### Propertiesの参考
 
 [Samples](https://www.chartjs.org/docs/latest/samples/information.html)
 
-#### Scriptable Options
+#### Scriptable オプション
 
 ```ts
 grid: {
@@ -644,7 +644,7 @@ public onClick(event: Event): void {
 }
 ```
 
-## Reference
+## 参考
 
 - [Chart.js](https://www.chartjs.org/docs/latest/getting-started/installation.html)
 

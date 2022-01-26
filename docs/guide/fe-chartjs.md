@@ -76,7 +76,7 @@ const chart = new Chart(this.pieChart.nativeElement, config);
 
 **Data**:
 
--lables: [ ] label name for each index.
+-labels: [ ] label name for each index.
 
 -datasets: [ {  } ] data and configuration for point data.
 
@@ -170,7 +170,7 @@ datasets: [
           data: [65, 59, 80, 81, 56],
           borderColor: 'rgb(75, 192, 192)',
           tension: 0.1,
-        }, 
+        },
 ]
 ```
 
@@ -188,7 +188,7 @@ datasets: [
             { x: 1.5, y: 3, r: 5 },
           ],
           hoverRadius: 15,
-        }, 
+        },
 ]
 ```
 
@@ -313,24 +313,24 @@ const data = {
 
 #### Dataset Properties
 
-| Name                 | Description      | Default             | Value       |
-|:---------------------|:-----------------|:--------------------|:------------|
-| ``backgroundColor``  | The bar background color. | ``'rgba(0, 0, 0, 0.1)'`` ||
-| ``borderColor``      | The bar border color. | ``'rgba(0, 0, 0, 0.1)'`` ||
-| ``borderWidth``      | The bar border width (in pixels). | ``0`` ||
-| ``borderRadius``     | radius of border | ``0`` | ``number\|object``|
-| ``hoverBackgroundColor``| The bar background color when hovered. | ``undefined`` ||
-| ``hoverBorderColor`` | The bar border color when hovered. | ``undefined`` ||
-| ``hoverBorderWidth`` | The bar border width when hovered (in pixels). | ``1`` ||
-| ``hoverBorderRadius``| The bar border radius when hovered (in pixels). | ``0`` ||
-| ``base``             | Starting point of the chart on the Y axis |||
-| ``barPercentage``    | Percent (0-1) of the available width each bar should be within the category width. | ``0.9``||
-| ``categoryPercentage``| Percent (0-1) of the available width each category should be within the sample width. | ``0.8``||
-| ``barThickness``     | If this value is a number, it is applied to the width of each bar, in pixels. When this is enforced, barPercentage and categoryPercentage are ignored. |||
-| ``maxBarThickness``  | Set this to ensure that bars are not sized thicker than this. |||
-| ``minBarLength``     | Set this to ensure that bars have a minimum length in pixels. |||
-| ``pointStyle``       | Style of the point for legend. | ``'circle'`` | ``'circle' \| 'cross'\| 'crossRot' \| 'dash' \| 'line' \| 'rect' \| 'rectRounded' \| 'rectRot' \| 'star' \| 'triangle'`` ||
-| ``borderSkipped``    | The edge to skip when drawing bar. || ``'start' \| 'end' \| 'middle' \| 'bottom' \| 'left' \| 'top' \| 'right' \| false`` |
+|           Name           |                   Description                   |         Default          |   Value   |          |
+| :----------------------- | :---------------------------------------------- | :----------------------- | :-------- | -------- |
+| ``backgroundColor``      | The bar background color.                       | ``'rgba(0, 0, 0, 0.1)'`` |           |          |
+| ``borderColor``          | The bar border color.                           | ``'rgba(0, 0, 0, 0.1)'`` |           |          |
+| ``borderWidth``          | The bar border width (in pixels).               | ``0``                    |           |          |
+| ``borderRadius``         | radius of border                                | ``0``                    | ``number\ | object`` |
+| ``hoverBackgroundColor`` | The bar background color when hovered.          | ``undefined``            |           |          |
+| ``hoverBorderColor``     | The bar border color when hovered.              | ``undefined``            |           |          |
+| ``hoverBorderWidth``     | The bar border width when hovered (in pixels).  | ``1``                    |           |          |
+| ``hoverBorderRadius``    | The bar border radius when hovered (in pixels). | ``0``                    |           |          |
+| ``base``                 | Starting point of the chart on the Y axis       |                          |           |          |
+| ``barPercentage``        | Percent (0-1) of the available width each bar should be within the category width.    | ``0.9``||
+| ``categoryPercentage``   | Percent (0-1) of the available width each category should be within the sample width. | ``0.8``||
+| ``barThickness``         | If this value is a number, it is applied to the width of each bar, in pixels. When this is enforced, barPercentage and categoryPercentage are ignored. |||
+| ``maxBarThickness``      | Set this to ensure that bars are not sized thicker than this. |||
+| ``minBarLength``         | Set this to ensure that bars have a minimum length in pixels. |||
+| ``pointStyle``           | Style of the point for legend. | ``'circle'`` | ``'circle' \| 'cross'\| 'crossRot' \| 'dash' \| 'line' \| 'rect' \| 'rectRounded' \| 'rectRot' \| 'star' \| 'triangle'`` ||
+| ``borderSkipped``        | The edge to skip when drawing bar. || ``'start' \| 'end' \| 'middle' \| 'bottom' \| 'left' \| 'top' \| 'right' \| false`` |
 
 ### Pie Chart
 
@@ -374,21 +374,21 @@ const data = {
 
 #### Dataset Properties
 
-| Name                 | Description      | Default             | Value       |
-|:---------------------|:-----------------|:--------------------|:------------|
-| ``backgroundColor``  | arc background color. | ``'rgba(0, 0, 0, 0.1)'`` ||
-| ``borderColor``      | arc border color. | ``'rgba(0, 0, 0, 0.1)'`` ||
-| ``borderJoinStyle``  | arc border join style. | ``undefined`` ||
-| ``borderWidth``      | arc border width (in pixels). | ``2`` ||
-| ``offset``           | arc offset (in pixels). | ``0`` ||
-| ``spacing``          | Fixed arc offset (in pixels). Similar to offset but applies to all arcs. | ``0`` ||
-| ``weight``           | The relative thickness of the dataset. | ``1`` ||
-| ``hoverBackgroundColor``  | arc background color when hovered. | ``undefined`` ||
-| ``hoverBorderColor``      | arc border color when hovered. | ``undefined`` ||
-| ``hoverBorderJoinStyle``  | arc border join style when hovered. | ``undefined`` ||
-| ``hoverBorderWidth``      | arc border width when hovered (in pixels). | ``undefined`` | ``'round' \| 'bevel' \| 'miter'`` |
-| ``hoverOffset``           | arc offset when hovered (in pixels). | ``0`` ||
-| ``radius``           | The outer radius of the chart. If ``string`` and ending with '%', percentage of radius. ``number`` is considered to be pixels. || ``number\|string`` |
+|           Name           |                               Description                                |         Default          | Value |
+| :----------------------- | :----------------------------------------------------------------------- | :----------------------- | :---- |
+| ``backgroundColor``      | arc background color.                                                    | ``'rgba(0, 0, 0, 0.1)'`` |       |
+| ``borderColor``          | arc border color.                                                        | ``'rgba(0, 0, 0, 0.1)'`` |       |
+| ``borderJoinStyle``      | arc border join style.                                                   | ``undefined``            |       |
+| ``borderWidth``          | arc border width (in pixels).                                            | ``2``                    |       |
+| ``offset``               | arc offset (in pixels).                                                  | ``0``                    |       |
+| ``spacing``              | Fixed arc offset (in pixels). Similar to offset but applies to all arcs. | ``0``                    |       |
+| ``weight``               | The relative thickness of the dataset.                                   | ``1``                    |       |
+| ``hoverBackgroundColor`` | arc background color when hovered.                                       | ``undefined``            |       |
+| ``hoverBorderColor``     | arc border color when hovered.                                           | ``undefined``            |       |
+| ``hoverBorderJoinStyle`` | arc border join style when hovered.                                      | ``undefined``            |       |
+| ``hoverBorderWidth``     | arc border width when hovered (in pixels).                               | ``undefined``            | ``'round' \| 'bevel' \| 'miter'`` |
+| ``hoverOffset``          | arc offset when hovered (in pixels).                                     | ``0``                    |       |
+| ``radius``               | The outer radius of the chart. If ``string`` and ending with '%', percentage of radius. ``number`` is considered to be pixels. || ``number\|string`` |
 
 ### Other Charts
 
@@ -438,8 +438,8 @@ datasets: [
 |:---------------------|:-----------------|:--------------------|:------------|
 | ``type``             | Type axis.       |  | ``linear \| category \| time \| logarithmic`` |
 | ``display``          | Show line scale of axis. | ``true`` ||
-| ``title``            | Title of axis.   |  | ``Opject`` |
-| ``grid``             | Grid line setting.   |  | ``Opject`` |
+| ``title``            | Title of axis.   |  | ``Object`` |
+| ``grid``             | Grid line setting.   |  | ``Object`` |
 
 [Scales](https://www.chartjs.org/docs/latest/samples/scales/linear-min-max.html)
 
@@ -449,18 +449,18 @@ datasets: [
 
 | Name                 | Description      | Default             | Value       |
 |:---------------------|:-----------------|:--------------------|:------------|
-| ``title``            | Show Title for Chart.    || ``Opject`` |
-| ``subtitle``         | Show Subtitle for Chart. || ``Opject`` |
-| ``legend``           | Show Legend for Chart.   || ``Opject`` |
-| ``tooltip``          | Tooltip for Chart when hovered. || ``Opject`` |
-| ``quadrants``        | Divide the Chart into quadrants.(topLeft, topRight, bottomRight, bottomLeft) |  | ``Opject`` |
-| ``chartAreaBorder``  | Style area border Chart. || ``Opject`` |
+| ``title``            | Show Title for Chart.    || ``Object`` |
+| ``subtitle``         | Show Subtitle for Chart. || ``Object`` |
+| ``legend``           | Show Legend for Chart.   || ``Object`` |
+| ``tooltip``          | Tooltip for Chart when hovered. || ``Object`` |
+| ``quadrants``        | Divide the Chart into quadrants.(topLeft, topRight, bottomRight, bottomLeft) |  | ``Object`` |
+| ``chartAreaBorder``  | Style area border Chart. || ``Object`` |
 
 #### Animations
 
 | Name                 | Description      | Default             | Value       |
 |:---------------------|:-----------------|:--------------------|:------------|
-| ``tension``          | Animations for tension. || ``Opject`` |
+| ``tension``          | Animations for tension. || ``Object`` |
 
 #### Events
 

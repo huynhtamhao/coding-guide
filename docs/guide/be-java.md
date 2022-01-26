@@ -1,29 +1,33 @@
 # Java
 
-```java
-/** 不具合品番号 */
-private String defectiveProductNo;
+## Code style
 
-/** 仕入先名 */
-private String supplierName;
+- Sử dụng google style
+- Intellij: <a href="~@assets/styleguides/intellij-java-fanatic-style.xml" download>Fanatic IntelliJ Style Guide</a> based on [intellij-java-google-style.xml](https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml)
+- Eclipse: <a href="~@assets/styleguides/eclipse-java-fanatic-style.xml" download>Fanatic Eclipse Style Guide</a> based on [eclipse-java-google-style.xml](https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml)
 
-/** ステータス */
-private String status;
+### Import Rules
 
-private boolean isFirstName; // 〇
-private boolean isFN; // ✕
+- Chỉ import các class cần dùng, không import *
 
-private String myHtml; // 〇
-private String myHTML; // ✕
-```
-
-- Đặt tên view object (object có nhiều table join với nhau) với hậu tố là VO.
+:::: code-group
+::: code-group-item CODE
 
 ```java
-public class ProductionDetailVO {
-
-}
+import jp.co.fanatic.service.dto.InquiryContentDto;
+import jp.co.fanatic.service.dto.InquiryNoDto;
+import jp.co.fanatic.service.dto.InquirySearchConditionDto;
 ```
+
+:::
+::: code-group-item AVOID
+
+```java
+import jp.co.fanatic.service.dto.*; // ✕ AVOID!
+```
+
+:::
+::::
 
 ## Mapping Rules
 
@@ -34,7 +38,7 @@ public class ProductionDetailVO {
   - toDto
   - toListEntity
   - toListDto
-  - Ngoài 4 trường hợp trên sẽ thảo luận khi làm dự án.
+  - Ngoài 4 trường hợp trên sẽ thảo luận khi làm dự án.vi
 - Về comment
   - Không cần comment cho method.
   - Class comment: `「Tên tiếng Nhật」マッパー`
@@ -76,34 +80,7 @@ public interface CustomerProductMapper {
 }
 ```
 
-## Code style
-
-- Sử dụng google style
-- Intellij: <a href="~@assets/styleguides/intellij-java-fanatic-style.xml" download>Fanatic IntelliJ Style Guide</a> based on [intellij-java-google-style.xml](https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml)
-- Eclipse: <a href="~@assets/styleguides/eclipse-java-fanatic-style.xml" download>Fanatic Eclipse Style Guide</a> based on [eclipse-java-google-style.xml](https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml)
-
-### Import Rules
-
-- Chỉ import các class cần dùng, không import *
-
-:::: code-group
-::: code-group-item CODE
-
-```java
-import jp.co.fanatic.service.dto.InquiryContentDto;
-import jp.co.fanatic.service.dto.InquiryNoDto;
-import jp.co.fanatic.service.dto.InquirySearchConditionDto;
-```
-
-:::
-::: code-group-item AVOID
-
-```java
-import jp.co.fanatic.service.dto.*; // ✕ AVOID!
-```
-
-:::
-::::
+## Coding Best Practice
 
 ### Entity, Dto
 
@@ -178,63 +155,90 @@ if (b == true) // => OK
 if (b != null && b) // NG
 ```
 
-## Utils
+### Var
 
-- Class đặt tên có hậu tố Utils (XUtils) là class tiện ích.
-- Phương thức và định nghĩa đều là static.
-- Bao gồm các chức năng nhỏ sử dụng lặp lại ở bất cứ đâu, có thể dùng ở project khác.
+- Tại Java 10 đã có thể sử dụng từ khóa `var` để khai báo biến.
+- Tuy nhiên chỉ nên sử dụng khi khởi tạo biến
 
 ```java
-public class XUtils
-{
-    private XUtils() {}
+var customer = new Customer(); // OK
 
-    // static functions
-    public static String meowPrepend(String text) {
-        return "Meow meow " + text + "!";
-    }
+var ratio = foo.calculateRatio(); // DO NOT
+int ratio = foo.calculateRatio(); // SHOULD
+```
 
-    public static String woofPrepend(String text) {
-        return "Woof woof " + text + "!";
-    }
+## Utility classes
+
+### Interface instead
+
+- Java 8 introduces a leaner alternative -- the "utility interface" and makes the private anti-constructor superfluous:
+
+:::: code-group
+::: code-group-item Interface
+
+```java
+public interface Math {
+    public static double sin(double a) { /**/}
 }
 ```
 
-- Class đặt tên có hậu tố Helper (XHelper) cũng là class tiện ích
-- Dùng để hỗ trợ, cung cấp một số chức năng.
-- Class có thể khởi tạo, có thể có các phương thức mở rộng, không nhất thiết phải có phương thức static.
-- Hoặc có thể chỉ thực hiện một số các chức năng business (chỉ dùng được ở project hiện tại).
+:::
+::: code-group-item Utility classes
 
 ```java
-public class TextHelper {
-    String text;
+public final class Math {
 
-    public String meowPrepend() {
-        return "Meow meow " + text + "!";
-    }
+    private Math() {}
 
-    public String woofPrepend() {
-        return "Woof woof " + text + "!";
-    }
+    public static double sin(double a) { /**/}
 }
 ```
 
-```java
-public class Helper {
-    public static final Helper INSTANCE = new Helper();
-    private Helper() {
+:::
+::::
 
+### Utility
+
+- Suffix: Utils, Validator, Formatter, Creator, Sender, Generator, Helper ...
+- Whenever a common block of code needs to be used from multiple places, we can create utils class.
+- Should be comment utility classes
+- Advantages of Utils class:
+  - The Utils class provides advantages to reuse the code.
+- Disadvantages of Utils class:
+  - There is possibility of breaking SOLID principle unless considered properly.
+  -Static method stays in memory for longer duration
+
+- **Chỉ tạo Utility classes khi thực sự có sự tái sử dụng code ở nhiều chỗ**
+- **Tạo suffix phù hợp thay vì chỉ tạo Utils**
+Thay vì tạo EmailUtils, xem xét tách chức năng và tạo các file: EmailValidator, EmailFormatter, EmailCreator, EmailSender...
+
+### How to create
+
+- Create a class with suffix is `Utils`.
+- Make its constructor private
+- Expose the methods/functions as static.
+
+```java
+/**
+ * Class process file
+ */
+public class ExcelFileUtils {
+
+    private ExcelFileUtils () { }
+
+    /**
+     * Thực hiện mở
+     * @param path
+     * @return
+     */
+    public static File openFile(String path){
+        // ...
+    }
+    public static File readFile(String path){
+        // ...
     }
 }
 ```
-
-- Class đặt tên có hậu tố Validator (XValidator) là class chứa các chức năng xác thực.
-
-## DB process
-
-- rollback DB trường hợp phát sinh error (custom common).
-
-## Optimistic vs pessimistic locking
 
 ## Enum
 
@@ -335,9 +339,61 @@ public enum WAREHOUSE {
 }
 ```
 
-### Best Practices
-
 ## Reference
 
 - [Code Conventions for the Java Programming Language (Oracle)](https://www.oracle.com/java/technologies/javase/codeconventions-introduction.html)
 - [Helper class (Wikipedia)](https://en.wikipedia.org/wiki/Helper_class)
+
+<!-- ## Utils
+
+- Class đặt tên có hậu tố Utils (XUtils) là class tiện ích.
+- Phương thức và định nghĩa đều là static.
+- Bao gồm các chức năng nhỏ sử dụng lặp lại ở bất cứ đâu, có thể dùng ở project khác.
+
+```java
+public class XUtils
+{
+    private XUtils() {}
+
+    // static functions
+    public static String meowPrepend(String text) {
+        return "Meow meow " + text + "!";
+    }
+
+    public static String woofPrepend(String text) {
+        return "Woof woof " + text + "!";
+    }
+}
+```
+
+## Helper
+
+- Class đặt tên có hậu tố Helper (XHelper) cũng là class tiện ích
+- Dùng để hỗ trợ, cung cấp một số chức năng.
+- Class có thể khởi tạo, có thể có các phương thức mở rộng, không nhất thiết phải có phương thức static.
+- Hoặc có thể chỉ thực hiện một số các chức năng business (chỉ dùng được ở project hiện tại).
+
+```java
+public class TextHelper {
+    String text;
+
+    public String meowPrepend() {
+        return "Meow meow " + text + "!";
+    }
+
+    public String woofPrepend() {
+        return "Woof woof " + text + "!";
+    }
+}
+```
+
+```java
+public class Helper {
+    public static final Helper INSTANCE = new Helper();
+    private Helper() {
+
+    }
+}
+```
+
+- Class đặt tên có hậu tố Validator (XValidator) là class chứa các chức năng xác thực. -->

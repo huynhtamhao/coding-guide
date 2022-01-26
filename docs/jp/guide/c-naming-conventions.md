@@ -1,26 +1,25 @@
-# Naming Conventions
+# 命名規約
 
 > “There are only two hard things in Computer Science: cache invalidation and naming things.”
 >
 > — Phil Karlton
 
-## Aim
+## 目的
 
-The name of a variable, function, or class, should answer all the big questions.
-It should tell you why it exists, what it does, and how it is used.
-If a name requires a comment, then the name does not reveal its intent.
-(Except Japanese comment for variable belongs to business logic such as dto, domain, entity...)
+変数名、ファンクション名、クラス名は重要な質問を回答する必要がある：
+存在の理由、何をしたい、どのように利用される。。。などを伝える
+名前にコメントが必要な場合、その名前は明確にやりたいことを伝達できないのである。
+( dto, domain, entity...などの業務ロジックの変数を説明する日本語のコメントを除く)
 
-## Some common rules for naming
+## 命名の共通ルール
 
-- It should be English. (Some words will be translated from Japanese).
-- Avoid noise words such as `data`, `processor`, `table`, `info`, `object`, `a`, `an`, `the`.
+- 英語でなければならない (一部は日本語のローマ字化).
+- `data`, `processor`, `table`, `info`, `object`, `a`, `an`, `the`などを避けたい
 Ex: `ProductInfo`, `ProductData`.
-- Meaning and pronounceable. (Don't use abbreviations for variable names, except some common words like
-`HTML`, `DVD`, `Str` for `String`, `Num` for `Number`, `Prop` for `Property`, or `Val` for Value ...)
-For common abbreviations, the camelcase rule should be followed. Ex: `myHtml` not `myHTML`.
+- 意味のあり、読みやすい (`HTML`, `DVD`, `Str` for `String`, `Num` for `Number`, `Prop` for `Property`, or `Val` for Value ...などの一般的な語を除き、基本的に変数名は略語を使わない)
+一般的な略語に対してキャメルケースのルールを適用する。例: `myHtml` not `myHTML`.
 
-| Naming Conventions   | Java                                      | Angular                                                                                                  |
+| 命名規約              | Java                                      | Angular                                                                                                  |
 |----------------------|-------------------------------------------|----------------------------------------------------------------------------------------------------------|
 | Lower Camel Case     | variables / methods                       | variable / parameter / function / method / property / module alias / directive selector / pipe name      |
 | Upper Camel Case     | classes / interfaces / annotations / enum | class / interface / type / enum / decorator / type parameters                                            |
@@ -28,14 +27,14 @@ For common abbreviations, the camelcase rule should be followed. Ex: `myHtml` no
 | lower dot case       | package / property files                  | file name                                                                                                |
 | kebab case           |                                           | component selector                                                                                       |
 
-## Variable
+## 変数
 
-**One-character variable names should be avoided except for temporary "throwaway" variables.**
+**使い捨ての一時変数以外に、一語のみからなる変数名は避けたい**
 
-- Common names for temporary variables are `i`, `j`, `k`, `m`, and `n` for integers; `c`, `d`for characters; `e`, `ex` for Exception;
-- Should be able to assume that its value is not used outside a few lines of code.
+- 一般的な一時変数名は `i`, `j`, `k`, `m`, and `n` for integers; `c`, `d`for characters; `e`, `ex` for Exception;
+- その変数の値は数行のLOCの範囲内のみに使われることを想定する。
 
-**Some values are intrinsically themselves, so don't have to add anything to the variable name.**
+**いくつかの変数名は本質的に意味と型を持っているため、追加説明が不要である。**
 
 - String: `name`, `city` or `customer`..
 - Integer: `age` or `year`..
@@ -43,43 +42,42 @@ For common abbreviations, the camelcase rule should be followed. Ex: `myHtml` no
 
 ### String
 
-Một số trường hợp variable không có ý nghĩa là string chẳng hạn như `year` thì nên đặt tên biến:
+`year`などのstringという意味がないvariableの場合は下記の変数名にしてよいです。
 `**<someValue>String**` or `<someValue>AsString`. Ex: `yearString`.
 
 ### Number (Integer vs Floating-Point Numbers)
 
-- Ngoài những biến có ý nghĩa là số thì sẽ có thêm những quy tắc như bên dưới cho từng trường hợp
+- 数字という意味がある変数のほかに下記の規則もある。
   - `numberOf<something>` (Ex: numberOfFailures).
   - `<something>Count` (Ex: customerCount).
   - `total<something>` or `sum<something>` (Ex: `totalProduct`).
   - `<something>Amount` (Ex: moneyAmount).
-  - Ngoài ra có thể có một số trường hợp đặc biệt khác. Nên đặt tên biến
-  là `tooltipShowDelayInMillisecs` thay vì `tooltipShowDelay` (sẽ làm rõ nghĩa tên biến).
+  - 上記以外の特別な場合もあるかもしれない。×：`tooltipShowDelay`、〇：`tooltipShowDelayInMillisecs`（変数名の意味がある）
 
 ### Boolean
 
-- Boolean variables should be prefixed with `is`.
-- There are a few alternatives to the is prefix that fits better in some situations. These are `has`, `can` `allows`, `does`, `did`, `will` and `should` prefixes.
+- Boolean 変数は最初に `is`と付ける必要がある。
+- 場合によってより良い接頭辞（prefix）がある。例 `has`, `can` `allows`, `does`, `did`, `will` and `should` prefixes.
 
 Example: `isVisible`, `isFinished`, `hasLicense`, `canEvaluate`, `shouldAbort`, `allowsWhitespace`, `didUpdate`, `willUpdate`.
 
 ### Arrays, Lists, and Sets
 
-- Naming with plural word. Ex: Customers, Suppliers
-- Specify the implementation in the name of the variable. For example: queueOfTasks, stackOfCards, or orderedSetOfTimestamp
+- 複数形の語で命名する。 Ex: Customers, Suppliers
+- 変数名に実行したいことを記述する。例: queueOfTasks, stackOfCards, or orderedSetOfTimestamp
 
 ### Map
 
-- Rule: `keyToValueMap`. Ex: customerToCustomerName
+- ルール: `keyToValueMap`. Ex: customerToCustomerName
 
 ### Enums
 
-- Enum name with Upper Camelcase
-- Enum's variables should be all uppercase with words separated by underscores `_`.
+- Upper CamelcaseでEnum 名を指定する。
+- Enums変数はアンダーバー`_`で区切する大文字の語からなる。
 
 ### Constants, Enum value
 
-- Should be all uppercase with words separated by underscores `_`.
+- アンダーバー`_`で区切する大文字の語からなる。
 
 ```java:no-line-numbers
 // 注文伝票の商品最大
@@ -95,14 +93,14 @@ public static final String PDF_EXTENSION = ".pdf";
 
 ## Classes , Interfaces, Enum
 
-Class names should be nouns, in mixed case with the first letter of each internal word capitalized.
-Try to keep your class names simple and descriptive.
-Use whole words-avoid acronyms and abbreviations (unless the abbreviation is much more widely used than the long form, such as URL or HTML).
+Class名は名詞であり、1語として続く単語の先頭の文字は大文字である。
+Class名はシンプルで、意味を持っている
+略語やアクロニムを避けたい( URL or HTMLなどアクロニムの方が普及する語を除く).
 
 ## Enum
 
-- Enum Name: should be nouns, in mixed case with the first letter of each internal word capitalized.
-- Enum Value: should be all uppercase with words separated by underscores `_`.
+- Enum 名: は名詞であり、1語として続く単語の先頭の文字は大文字である。
+- Enum 値: アンダーバー`_`で区切する大文字の語からなる。
 
 ```java
 public enum SystemName {
@@ -116,12 +114,12 @@ public enum SystemName {
 
 ## Methods - Functions
 
-- Should be verbs in the first word.
-- Should be lowercase in the first letter.
-- Plural form if getting a map, a list...
-- Don't use some linking words like `and` hoặc `or` (except in the JPA repository).
+- 動詞の語から始まる。
+- 最初の文字は小文字である。
+- a map, a list...などを取得する場合は複数形の語を用いる。
+- `and` 又は `or` などの接続詞を使わない(JPA repositoryを除く).
 
-| Function |  Method Name   |        Notes        |
+| Function |  Method 名   |        Notes        |
 | -------- | -------------- | ------------------- |
 | List     | listCustomers  | get customer list   |
 | Get      | getCustomer    | get one Customer    |
@@ -132,10 +130,10 @@ public enum SystemName {
 
 ## Package
 
-The prefix of a unique package name is always written in all-lowercase ASCII letters and should be one of the top-level domain names, currently com, edu, gov, mil, net, org, or one of the English two-letter codes identifying countries as specified in ISO Standard 3166, 1981.
-Subsequent components of the package name vary according to an organization's own internal naming conventions. Such conventions might specify that certain directory name components be division, department, project, machine, or login names.
+特定のPackage名の接頭語は小文字のASCII文字で、com, edu, gov, mil, net, orgなどトップレベルのドメイン名、又は ISO Standard 3166, 1981で定義される2文字の国名コードであるべき。
+Package名の続く語は機関内の命名規約に従うことによって様々な形がある。その規約はdivision, department, project, machine, or login namesを特定することがある。
 
-## Preference
+## 参考
 
 - [Oracle Naming Conventions](https://www.oracle.com/java/technologies/javase/codeconventions-namingconventions.html)
 - [NUS Computing's Java Coding Standard](https://www.comp.nus.edu.sg/~cs2103/AY1617S1/contents/coding-standards-java.html)

@@ -1,20 +1,20 @@
-# Comment Conventions
+# コメント規約
 
-**Chỉ comment khi thực sự cần thiết.**
+**必要に応じてコメントする。**
 > “Code never lies, comments sometimes do.”
 >
 > -- <cite>Benjamin Franklin</cite>
 
-## Avoid comment
+## コメントを避けたい
 
-- Không nên comment những gì mà code đã thể hiện
+- すでにコードで表現されている場合にはコメントする必要がない。
 
 ```java
 i = i + 1; // index plus 1
-String firstName; // Declare first nam variable
+String firstName; // Declare first name variable
 ```
 
-- Không nên có comment nếu có thể code được rõ ràng.
+- 明確にコードできる場合にはコメントする必要がない。
 
 ```java
 int d; // elapsed time in days
@@ -35,9 +35,9 @@ private String getCustomerName() {
 }
 ```
 
-- Những comment ko cung cấp thông tin cho người đọc có thể hiểu đoạn code tốt hơn
+- コードが理解できる情報が不足しているコメント
   - Constructor
-  - Tên function đã thể hiện ý nghĩa chức năng
+  - その意味を示す機能名
 
 ```java
 public DefectiveProductDto getDefectiveProduct(String defectiveProductNo) {
@@ -45,15 +45,15 @@ public DefectiveProductDto getDefectiveProduct(String defectiveProductNo) {
 }
 ```
 
-- If can’t write a clear comment, there may be a problem with the code.
-- Nhận xét phải làm rõ ràng source code chứ không phải gây thêm nhầm lẫn
+- 明確にコメントが書けない場合は、コードに問題あるかもしれない
+- 誤認識を避けるようにソースコードを明確にするコメント
 
-## Should be comment
+## コメントが必要
 
-### Should be comment
+### コメントが必要
 
-- Business properties in models, domain, dto...
-- Cung cấp thông tin "ngay tức thời" mà không phải suy nghĩ chẳng hạn như các regex `"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"`.
+- models, domain, dto...での業務プロパティー
+-regex `"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"`などの（考えないで）"即時"情報を提供する。
 
 ```java
 // Minimum eight characters, at least one letter and one number
@@ -66,9 +66,9 @@ str.substr(str.indexOf(' ') + 1);
 private int supplierCode;
 ```
 
-### Consider
+### 検討
 
-- Cung cấp liên kết đến nguồn gốc của source code được sao chép hoặc là tài liệu tham khảo.
+- ソースコードのコピー元への連携や参考資料を提供する。
 
 ```java
 /** Converts a Drawable to Bitmap. via https://stackoverflow.com/a/46018816/2219998. */
@@ -78,30 +78,30 @@ private int supplierCode;
 // http://tools.ietf.org/html/rfc4180 suggests that CSV lines should be terminated by CRLF, hence the \r\n.
 ```
 
-### Comment out source code
+### source codeのコメントアウト
 
-- For a reason and have to comment that reason
+- 理由があるときにその理由を説明する
 
 ```java
-// NOTE: Theo issue PCS-123, sẽ xem xét có triển khai chức năng này hay không.
+// NOTE：Issue PCS-123ではこの機能を展開するかどうか検討しています。
 // public exportProductionsReport() {
 //    // code here
 // }
 ```
 
-### Marker
+### マーカー　Marker
 
-- Use comments to mark incomplete implementations (TODO, FIXME ...).
+- 未完成の実装をマークするためにコメントを加える (TODO, FIXME ...).
 
-| Marker |                                                                  Notes                                                                   |
-| :----- | :--------------------------------------------------------------------------------------------------------------------------------------- |
-| TODO:  | No problem, but additional code needs to be written, usually when you are skipping something. (Nội dung tôi chưa làm hoặc chưa tìm hiểu) |
-| FIXME: | This works, sort of, but it could be done better. (usually code written in a hurry that needs rewriting) Code lởm ở đây                  |
-| NOTE:  | Description of how the code works (when it isn't self evident).                                                                          |
-| HACK:  | Not very well written or malformed code to circumvent a problem/bug (Solution này chưa phù hợp với problem)                              |
-| BUG:   | There is a problem here (Bug)                                                                                                            |
-| XXX:   | Warning about possible pitfalls (Cẩn thận không toang!)                                                                                  |
+| Marker |                                                            Notes                                                            |
+| :----- | :-------------------------------------------------------------------------------------------------------------------------- |
+| TODO:  | No problem, but additional code needs to be written, usually when you are skipping something. (未着手または未調査の内容)    |
+| FIXME: | This works, sort of, but it could be done better. (usually code written in a hurry that needs rewriting) 下手なコードがある |
+| NOTE:  | Description of how the code works (when it isn't self evident).                                                             |
+| HACK:  | Not very well written or malformed code to circumvent a problem/bug (この解決法は問題に不適切である)                        |
+| BUG:   | There is a problem here (Bug)                                                                                               |
+| XXX:   | Warning about possible pitfalls (要注意!)                                                                                   |
 
-## Reference
+## 参考
 
 [Reference](https://stackoverflow.blog/2021/12/23/best-practices-for-writing-code-comments/)

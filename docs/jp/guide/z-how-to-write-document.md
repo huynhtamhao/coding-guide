@@ -2,19 +2,19 @@
 
 ## Markdown File Naming
 
-- Sử dụng hyphen giữa các chữ
+- 各文字の区切りはハイフンとなる。
 
-| Ký tự bắt đầu của tên file                                 | Example                            |
+| ファイル名の頭文字                                 | 例                            |
 |:-----------------------------------------------------------|:-----------------------------------|
-| Đối với các quy tắc common thì bắt đầu bằng chữ **'c'**    | **c**-method-naming-conventions.md |
-| Đối với các quy tắc database thì bắt đầu bằng chữ **'db'** | **db**-postgresql.md               |
-| Đối với các quy tắc backend thì bắt đầu bằng chữ **'be'**  | **be**-java.md                     |
-| Đối với các quy tắc frontend thì bắt đầu bằng chữ **'fe'** | **fe**-angular.md                  |
-| Đối với các quy tắc khác thì bắt đầu bằng chữ **'z'**      | **z**-how-to-write-document.md     |
+| 共通規則： **'c'** で始まる。   | **c**-method-naming-conventions.md |
+| データベース規則： **'db'** で始まる。| **db**-postgresql.md               |
+| バックエンド規則： **'be'** で始まる。 | **be**-java.md                     |
+| フロントエンド規則： **'fe'** で始まる。| **fe**-angular.md                  |
+| それ以外の規則： **'z'** で始まる。     | **z**-how-to-write-document.md     |
 
 <!-- ## Template
 
-Sau khi tạo file markdown thì copy đoạn code bên dưới lên đầu markdown file.
+markdownファイル作成後、下記のコードをコピーしてmarkdownファイルに付ける。
 
 ```md:no-line-numbers
 ---
@@ -24,7 +24,7 @@ title: Java
 # {{ $frontmatter.title }}
 ``` -->
 
-## Hướng dẫn thêm item vào sidebar
+## sidebarに項目を追加する方
 
 Access directory `$PROJECT/docs/.vuepress/configs`
 
@@ -187,9 +187,9 @@ const bar = 'bar'
 :::
 ```
 
-The `type` is required, and the `title` and `content` are optional.
+`type` は必須で, `title` と `content` は任意である。
 
-Supported `type` :
+サポートされる `type` :
 
 - `tip`
 - `warning`

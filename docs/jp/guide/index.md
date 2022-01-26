@@ -1,6 +1,6 @@
 # 🚀️ Programming Environment and Tools
 
-## Programming environment
+## 開発環境
 
 - Java (Open JDK) - <Badge type="tip" text="v17.0.1" vertical="middle" /> [(Download)](https://jdk.java.net/17/)
 - Node.js - <Badge type="tip" text="v16.13.2 LTS" vertical="middle" /> [(Download)](https://nodejs.org/en/)
@@ -36,11 +36,11 @@ ng add @angular/material
 ng add @ng-bootstrap/ng-bootstrap
 ```
 
-## Fanatic Programming Tools
+## Fanatic 開発ツール
 
 ### <img src="~@assets/images/IntelliJ_IDEA_Icon.png" alt="drawing" width="20"/> IntelliJ IDEA [(Download)](https://www.jetbrains.com/idea/download)
 
-Useful plugin for IntelliJ IDEA
+IntelliJ IDEAの有効的なプラグイン
 
 - GitToolBox
 - String Manipulation
@@ -51,7 +51,7 @@ Using <a href="~@assets/styleguides/intellij-java-fanatic-style.xml" download>Fa
 
 ### <img src="~@assets/images/Visual_Studio_Code_icon.png" alt="drawing" width="20"/> Visual Studio Code [(Download)](https://code.visualstudio.com/download)
 
-Useful extensions for vscode
+vscodeの有効的なextensions
 
 - GitLens — Git supercharged
 - Bracket Pair Colorizer 2
@@ -63,14 +63,14 @@ Useful extensions for vscode
 - TODO Highlight
 - Visual Studio IntelliCode
 
-### Some other tools
+### 他の便利なツール
 
 - <img src="~@assets/images/DBeaver_logo.png" alt="drawing" width="20"/> DBeaver Community [(Download)](https://dbeaver.io/download/)
 - <img src="~@assets/images/Postman_logo.png" alt="drawing" width="20"/> Postman [(Download)](https://www.postman.com/downloads/)
 - <img src="~@assets/images/Mockoon_logo.png" alt="drawing" width="20"/> Mockoon [(Download)](https://mockoon.com/download/)
 - <img src="~@assets/images/Jaspersoft_logo.jpg" alt="drawing" width="20"/> Jasper Report Tools Community [(Download)](https://community.jaspersoft.com/project/jaspersoft-studio/releases)
 
-## Reference
+## 参考
 
 - [Google Naming Conventions](https://cloud.google.com/apis/design/naming_convention)
 - [Google Style Guide](https://google.github.io/styleguide/)

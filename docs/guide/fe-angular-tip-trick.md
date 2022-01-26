@@ -44,7 +44,7 @@ export class UserModule { }
 Trường hợp sử dụng class:
 
 ```js
-class Resposne {
+class Response {
     status: number;            // 200, 401, 404 ...
     message: string;
 }
@@ -175,7 +175,7 @@ TODO: Tìm hiểu thêm add form group con cho form group cha
 
 ### Sử dụng RxJs với angular http client
 
-- map
+- map => map data
 - mergeMap/flatMap => sử dụng khi API A làm param cho API B
 - switchMap => sử  dụng khi muốn lấy kq cuối cùng
 - forkJoin => sử dụng khi muốn trả két quả đồng thời.
