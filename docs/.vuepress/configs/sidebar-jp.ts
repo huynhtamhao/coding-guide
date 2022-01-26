@@ -35,7 +35,7 @@ export const jp = {
       collapsible: false,
       sidebarDepth: 3,
       children: [
-        // 'be-java',
+        'be-java',
         'be-api',
         // 'be-report',
       ],
