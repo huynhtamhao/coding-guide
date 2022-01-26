@@ -145,12 +145,43 @@ Use <img src="@assets/images/report/report_text_field.png"/> when change data
 - Create data to set in the report
 - Alway use to table, list
 - Step create to Dataset:
-  - Outline - Right click main report  
+  - Outline - Right click main report - Choose **Create Dataset**  
   <img src="@assets/images/report/report_dataset_0.png"/>
   - You will use data param, so select **Create an empty dataset**
   - Input dataset name and click **Finish**
   <img src="@assets/images/report/report_dataset_1.png"/>
   <img src="@assets/images/report/report_dataset_2.png"/>
+
+- Create data for dataset
+  - Create handle
+    - Add fields in dataset  
+    <img src="@assets/images/report/report_dataset_3.png"/>
+    - Add Parameter (name of dataset), type is **List**
+    <img src="@assets/images/report/report_dataset_4.png"/>
+    <img src="@assets/images/report/report_dataset_5.png"/>
+
+  - Import file jar
+    - **Project Explorer** - Right click project - Choose **Properties**
+    <img src="@assets/images/report/report_field_jar_0.png"/>
+    - **Java Build Path** - **Classpath** - Click **Add External JARs**
+    <img src="@assets/images/report/report_field_jar_1.png"/>
+    - Choose file jar you want import - Click **Open**
+    <img src="@assets/images/report/report_field_jar_2.png"/>
+    - Click **Apply and close**
+    <img src="@assets/images/report/report_field_jar_3.png"/>
+    - Imported the jar file into the project  
+    <img src="@assets/images/report/report_field_jar_4.png"/>
+    - Add data into field
+    - **Outline** - Right click dataset - Choose **Dataset and query**
+    <img src="@assets/images/report/report_field_jar_5.png"/>
+    - **Java Bean** - Choose file you want open
+    <img src="@assets/images/report/report_field_jar_6.png"/>
+    - Search file name and choose file in suggestion list - Click **Open**
+    <img src="@assets/images/report/report_field_jar_7.png"/>
+    - Choose field you want add - Click **Add selected field(s)** - Click **OK**
+    <img src="@assets/images/report/report_field_jar_8.png"/>
+    - Added fields in dataset  
+    <img src="@assets/images/report/report_field_jar_9.png"/>
 
 ## Compile report
 
