@@ -156,9 +156,6 @@ Use <img src="@assets/images/report/report_text_field.png"/> when change data
   - Create handle
     - Add fields in dataset  
     <img src="@assets/images/report/report_dataset_3.png"/>
-    - Add Parameter (name of dataset), type is **List**
-    <img src="@assets/images/report/report_dataset_4.png"/>
-    <img src="@assets/images/report/report_dataset_5.png"/>
 
   - Import file jar
     - **Project Explorer** - Right click project - Choose **Properties**
@@ -190,4 +187,96 @@ Use <img src="@assets/images/report/report_text_field.png"/> when change data
 - File *.jasper* is generated  
 <img src="@assets/images/report/report_compile_1.png"/>
 
-## Run file report
+## Add report to project
+
+### Create the Unicode font(Japanese)
+
+- Use font ARIALUNI.TTF, which add to folder **resources/fonts**
+
+#### Create the **font-config.xml** file
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+    <bean id="fontBean128414600565620182" class="net.sf.jasperreports.engine.fonts.SimpleFontFamily">
+        <property name="name" value="Arial Unicode MS"/>
+        <property name="normal" value="fonts/ARIALUNI.TTF"/>
+        <property name="pdfEmbedded" value="false"/>
+    </bean>
+</beans>
+```
+
+#### Create the **jasperreports_extension.properties** file
+
+```properties
+net.sf.jasperreports.extension.registry.factory.fonts=net.sf.jasperreports.extensions.SpringExtensionsRegistryFactory
+net.sf.jasperreports.extension.fonts.spring.beans.resource=fonts/fonts_config.xml
+```
+
+#### Add font into report
+
+- Add into the item if that uses Unicode font
+
+```html
+<textField>
+  <textElement>
+    <font fontName="Arial Unicode MS" size="11" pdfFontName="fonts/ARIALUNI.TTF" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+  </textElement>
+  <textFieldExpression><![CDATA[$P{createId}]]></textFieldExpression>
+</textField>
+```
+
+### Gradle Dependency
+
+```java
+implementation 'net.sf.jasperreports:jasperreports:6.18.1'
+implementation 'net.sf.jasperreports:jasperreports-fonts:6.18.1'
+implementation 'com.lowagie:itext:2.1.7'
+```
+
+### Generate report
+
+#### Input file
+
+##### The jrxml file
+
+```java
+InputStream jrxmlFile = getClass().getResourceAsStream("/report/Blank_A4.jrxml");
+JasperReport jasperReport = JasperCompileManager.compileReport(jrxmlFile);
+```
+
+##### The jasper file
+
+- Do not need compile from the jrxml file to the jasper file
+
+```java
+InputStream jasperFile = getClass().getResourceAsStream("/report/Blank_A4.jasper");
+JasperReport jasperReport = (JasperReport) JRLoader.loadObject(jasperFile);
+```
+
+#### Generate report file
+
+```java
+// Data of Fields
+List<Product> products = new ArrayList<>();
+        int i = 0;
+        while (i != 5) {
+            Product product = new Product();
+            product.setProductId("PD00" + i);
+            product.setProductName("product" + i);
+            product.setAmount(i);
+            products.add(product);
+            i++;
+        }
+JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(products);
+
+// Data of Parameters
+Map<String,Object> parameters = new HashMap<>();
+parameters.put("createId", "トゥー");
+
+// Fill the report (file PDF)
+JasperRunManager.runReportToPdf(jasperReport, parameters, dataSource);
+```
