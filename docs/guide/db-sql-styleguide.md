@@ -1,4 +1,28 @@
-# Postgres Style Guide
+# SQL Style Guide (Postgresql)
+
+## General
+
+### Query
+
+- Luôn sử dụng chữ hoa cho các từ khóa như SELECT, WHERE.
+- Sử dụng hợp lý khoảng trắng và thụt lề để làm cho mã dễ đọc hơn.
+- Cố gắng sử dụng SQL chuẩn vì mục đích di động.
+- Thụt lề trong một truy vấn (ví dụ: cột, JOIN mệnh đề, nhiều dòng GROUP BY, v.v.) nên được thụt lề 2 khoảng trắng
+- Trong một WITH, toàn bộ câu lệnh SQL phải được thụt lề 4 khoảng trắng.
+
+```sql
+
+```
+
+## Naming conventions
+
+- Ensure the name is unique and does not exist as a reserved keyword.
+- Keep the length to a maximum of 30 bytes—in practice this is 30 characters unless you are using a multi-byte character set.
+- Names must begin with a letter and may not end with an underscore.
+- Only use letters, numbers and underscores in names.
+- Avoid the use of multiple consecutive underscores—these can be hard to read.
+- Use underscores where you would naturally include a space in the name (first name becomes first_name).
+- Avoid abbreviations and if you have to use them make sure they are commonly understood.
 
 ## Design DB
 
@@ -20,7 +44,8 @@ Symbols: _
 
 ### Table
 
-- Must have table name by JapaneseMust have column name by Japanese
+- Must have table name by Japanese
+- Must have column name by Japanese
 - Can comment on the meaning of the table
 
 ```text
@@ -34,20 +59,19 @@ Description: 保管場所区分の定義。区分名と保管場所の種別を�
 
 - Must have column name by Japanese
 - Can comment on the meaning of the column, the meaning of the value in column
-
-| 項目名（日本語） | 項目名（日本語）              | データ型 | データ型(postgres) | データ型 (java) | 備考                 |
-| ------------- | --------------------- | ---- | -------------- | ----------- | ------------------ |
-| 保管場所種別   | storage_location_type | 文字列  | varchar(2)     | String      | 1:保管場所、2:伝票、3:勘定科目 |
-| 有効開始日    | effective_start_date  | 日付   | date           | LocalDate   | マスタが有効になる日付        |
-
 - Required columns(common fields) in table
 
-| 項目名（日本語） | 項目名（日本語）     | データ型 | データ型(postgres) | データ型(java) | 備考             |
+<!-- | 項目名（日本語） | 項目名（日本語）              | データ型 | データ型(postgres) | データ型 (java) | 備考                 |
+| ------------- | --------------------- | ---- | -------------- | ----------- | ------------------ |
+| 保管場所種別   | storage_location_type | 文字列  | varchar(2)     | String      | 1:保管場所、2:伝票、3:勘定科目 |
+| 有効開始日    | effective_start_date  | 日付   | date           | LocalDate   | マスタが有効になる日付        | -->
+
+<!-- | 項目名（日本語） | 項目名（日本語）     | データ型 | データ型(postgres) | データ型(java) | 備考             |
 | --------    | ------------ | ---- | -------------- | ---------- | -------------- |
 | 登録者      | created_user | 文字列  | varchar        | String     | マスタを登録したユーザーID |
 | 登録日時    | created_date | 日付時刻 | timestamp      | Instant    | マスタを登録した日付時刻   |
 | 更新者      | updated_user | 文字列  | varchar        | String     | マスタを登録した日付時刻   |
-| 更新日時     | updated_date | 日付時刻 | timestamp      | Instant    | マスタを登録した日付時刻   |
+| 更新日時     | updated_date | 日付時刻 | timestamp      | Instant    | マスタを登録した日付時刻   | -->
 
 #### Data type from postgres to java
 
@@ -149,24 +173,26 @@ Example: ix_credit_detail_01
 #### DEFAULT constraint
 
 - A column can be assigned a default value.
+
 - When a new row is created and no values are specified for some of the columns, those columns will be filled with their respective default values.
 
+Example:
+
 ```sql
-Example: 
 CREATE TABLE persons (
-    id serial,
-    last_name varchar(255) ,
-    first_name varchar(255) ,
-    age int,
-    class_id varchar(10),
-    created_user varchar NOT NULL,
-    created_date timestamp NOT NULL,
-    updated_user varchar NOT NULL,
-    updated_date timestamp NOT NULL,
-    PRIMARY KEY (id), 
-    CONSTRAINT chk_Person CHECK (age>=18),
-    CONSTRAINT fk_class FOREIGN KEY (class_id)
-    REFERENCES class(class_id)
+  id serial,
+  last_name varchar(255) ,
+  first_name varchar(255) ,
+  age int,
+  class_id varchar(10),
+  created_user varchar NOT NULL,
+  created_date timestamp NOT NULL,
+  updated_user varchar NOT NULL,
+  updated_date timestamp NOT NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT chk_Person CHECK (age>=18),
+  CONSTRAINT fk_class FOREIGN KEY (class_id)
+  REFERENCES class(class_id)
 );
 
 CREATE TABLE class (

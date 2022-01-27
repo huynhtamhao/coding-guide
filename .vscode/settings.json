@@ -42,6 +42,7 @@
     "substr",
     "Toastr",
     "todohighlight",
+    "transloco",
     "vuepress"
   ],
   "todohighlight.keywords": [

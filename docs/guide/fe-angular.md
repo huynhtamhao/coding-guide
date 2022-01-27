@@ -14,9 +14,9 @@
 Ngoài ra cũng tránh alias nếu nó không có gì đặc biệt.).
 1. Logic nên được coding trong file service, presentation logic thì vẫn để trong component.
 1. Nên sử dụng config file để  xây dựng môi trường vì nó thuận tiện nhất. [Using config with multiple environment](https://mokkapps.de/blog/how-to-build-an-angular-app-once-and-deploy-it-to-multiple-environments/)
-1. Member sequence
-    - Properties nằm trên function
-    - public trước, private sau
+1. Thứ tự đặt source code trong 1 file
+    - Properties nằm trên function.
+    - public trước, private sau.
     - Nên xếp theo bảng chữ cái.
 
 ## Naming Conventions
@@ -91,52 +91,74 @@ export class HeroComponent {
 
 ```text
 |-- app
-    |-- modules
-        |-- home
-            |-- [+] components
-            |-- [+] pages
-            |-- home-routing.module.ts
-            |-- home.module.ts
-    |-- core
-        |-- [+] authentication
-        |-- [+] footer
-        |-- [+] guards
-        |-- [+] http
+    |-- customer                                    // Feature module
+        |-- [+] components
+        |-- [+] pages
+        |-- customer-routing.module.ts
+        |-- customer.module.ts
+    |-- core                                        // Core Module
+        |-- [+] constants                           // Nơi chứa constants và enum của project
+        |-- [+] guards                              // security
         |-- [+] interceptors
-        |-- [+] mocks
-        |-- [+] services
-        |-- [+] header
+        |-- models
+            |-- core.interfaces.ts                  // model sử dụng cho core module
+        |-- services
+            |-- auth.service.ts
+            |-- config.service.ts
+            |-- error.service.ts
+            |-- logger.service.ts
+            |-- sidebar.service.ts
+        |-- [+] transloco
         |-- core.module.ts
         |-- ensureModuleLoadedOnceGuard.ts
-        |-- logger.service.ts
-    |
-    |-- shared
-            |-- [+] components
-            |-- [+] directives
-            |-- [+] pipes
-            |-- [+] models
-    |
-    |-- [+] configs
+    |-- layout                                       // Layout Module: chứa common layout của project
+        |-- [+] authentication
+        |-- [+] dashboard
+        |-- [+] footer
+        |-- [+] header
+        |-- [+] main-layout
+        |-- [+] sidebar
+        |-- layout.module.ts
+    |-- shared                                       // Shared Module
+        |-- [+] components
+        |-- [+] directives
+        |-- [+] errors
+        |-- [+] pipes
+        |-- [+] models
+        |-- material.module.ts
+        |-- shared.module.ts
+    |-- app-routing.module.ts
+    |-- app.module.ts
 |-- assets
+    |-- [+] configs
+    |-- [+] fonts
+    |-- [+] i18n                                     // Đa ngôn ngữ
+    |-- [+] images
+    |-- [+] js
     |-- scss
-            |-- [+] partials
-            |-- _base.scss
-            |-- styles.scss
+        |-- [+] partials
+        |-- _base.scss
+        |-- styles.scss
+|-- [+] environments
 ```
 
 - Đặt tất cả mã của ứng dụng vào một thư mục có tên src.
-- Tạo thư mục theo nghiệp vụ.
-
-<!-- TODO: Giải thích về Angular Structure -->
-
+- Tạo thư mục theo nghiệp vụ (One module per feature / view (Lazy Load)). Ex: customer.
 - App root module: `app.module.ts`.
-- Feature modules: ``
-- Shared feature module: ``
-- Lazy Loaded folders: ``
-- Never directly import lazy loaded folders: ``
-- Components:
+- Never directly import lazy loaded folders
+- `material.module.ts`: add các module của material để sử dụng tai các module khác tránh khai báo lại.
 
-## Sharing Data between Angular Components - Four Methods
+## RxJS
+
+### Sử dụng RxJs với angular http client
+
+- map => map data
+- mergeMap/flatMap => sử dụng khi get data từ API A sau đó làm param cho API B
+- switchMap => sử  dụng khi muốn lấy kq cuối cùng.
+- forkJoin => sử dụng khi muốn trả két quả đồng thời.
+
+<!-- TODO: Tìm hiểu trong lúc coding -->
+<!-- ## Sharing Data between Angular Components - Four Methods
 
 ### Parent to child component
 
@@ -154,16 +176,7 @@ export class HeroComponent {
 - Service
 - RxJS BehaviorSubject
 
-## Quản lý state
-
-## RxJS
-
-### Sử dụng RxJs với angular http client
-
-- map => map data
-- mergeMap/flatMap => sử dụng khi API A làm param cho API B
-- switchMap => sử  dụng khi muốn lấy kq cuối cùng
-- forkJoin => sử dụng khi muốn trả két quả đồng thời.
+## Quản lý state -->
 
 ## Angular Tips & Tricks
 
@@ -328,11 +341,9 @@ export class ListeningTestAnswerComponent implements OnInit {
 </form>
 ```
 
-TODO: Tìm hiểu thêm add form group con cho form group cha
+<!-- TODO: Tìm hiểu thêm add form group con cho form group cha
 
-- Add form group từ component con cho component cha
-
-## 7. Next
+- Add form group từ component con cho component cha -->
 
 ## Reference
 

@@ -24,7 +24,7 @@ export const en = {
       collapsible: false,
       sidebarDepth: 3,
       children: [
-        'db-postgresql',
+        'db-sql-styleguide',
         'db-sql',
         'db-sql-styleguide',
         'db-oracle-fdw',
