@@ -61,8 +61,6 @@ create foreign table datawrap_test2 (
 select * from datawrap_test2;
 ```
 
-example
-
 ## Preference
 
 - [PostgreSQL Foreign Data Wrapper for Oracle](http://laurenz.github.io/oracle_fdw/)

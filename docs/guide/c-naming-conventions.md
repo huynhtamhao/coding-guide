@@ -59,7 +59,8 @@ Một số trường hợp variable không có ý nghĩa là string chẳng hạ
 ### Boolean
 
 - Boolean variables should be prefixed with `is`.
-- There are a few alternatives to the is prefix that fits better in some situations. These are `has`, `can` `allows`, `does`, `did`, `will` and `should` prefixes.
+- There are a few alternatives to the is prefix that fits better in some situations.
+These are `has`, `can` `allows`, `does`, `did`, `will` and `should` prefixes.
 
 Example: `isVisible`, `isFinished`, `hasLicense`, `canEvaluate`, `shouldAbort`, `allowsWhitespace`, `didUpdate`, `willUpdate`.
 

@@ -26,6 +26,7 @@ export const en = {
       children: [
         'db-postgresql',
         'db-sql',
+        'db-sql-styleguide',
         'db-oracle-fdw',
       ],
     },
@@ -48,7 +49,6 @@ export const en = {
       sidebarDepth: 3,
       children: [
         'fe-angular',
-        'fe-angular-tip-trick',
         'fe-css',
         'fe-chartjs',
         'fe-toastr',
