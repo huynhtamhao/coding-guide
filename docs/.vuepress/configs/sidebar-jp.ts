@@ -24,7 +24,6 @@ export const jp = {
       collapsible: false,
       sidebarDepth: 3,
       children: [
-        // 'db-postgresql',
         // 'db-sql',
         // 'db-oracle-fdw',
       ],
@@ -46,8 +45,7 @@ export const jp = {
       collapsible: false,
       sidebarDepth: 3,
       children: [
-        // 'fe-angular',
-        // 'fe-angular-tip-trick',
+        'fe-angular',
         // 'fe-css',
         'fe-chartjs',
       ],

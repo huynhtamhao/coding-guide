@@ -24,10 +24,8 @@ export const en = {
       collapsible: false,
       sidebarDepth: 3,
       children: [
-        'db-sql-styleguide',
         'db-sql',
-        'db-sql-styleguide',
-        'db-oracle-fdw',
+        // 'db-oracle-fdw',
       ],
     },
     // With start character is `be`
@@ -51,8 +49,8 @@ export const en = {
         'fe-angular',
         'fe-css',
         'fe-chartjs',
-        'fe-toastr',
-        'fe-dialog',
+        // 'fe-toastr',
+        // 'fe-dialog',
       ],
     },
     // With start character is `z`
