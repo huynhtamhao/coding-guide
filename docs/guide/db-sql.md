@@ -1,19 +1,5 @@
 # SQL Style Guide (Postgresql)
 
-## General
-
-### Query
-
-- Luôn sử dụng chữ hoa cho các từ khóa như SELECT, WHERE.
-- Sử dụng hợp lý khoảng trắng và thụt lề để làm cho mã dễ đọc hơn.
-- Cố gắng sử dụng SQL chuẩn vì mục đích di động.
-- Thụt lề trong một truy vấn (ví dụ: cột, JOIN mệnh đề, nhiều dòng GROUP BY, v.v.) nên được thụt lề 2 khoảng trắng
-- Trong một WITH, toàn bộ câu lệnh SQL phải được thụt lề 4 khoảng trắng.
-
-```sql
-
-```
-
 ## Naming conventions
 
 ### General
@@ -25,7 +11,6 @@
 - Avoid the use of multiple consecutive underscores—these can be hard to read.
 - Use underscores where you would naturally include a space in the name (first name becomes first_name).
 - Avoid abbreviations and if you have to use them make sure they are commonly understood.
-
 - Available characters are alphanumeric characters and underscore.
 - Use only lowercase letters and not uppercase letters.
 
@@ -39,41 +24,34 @@ Symbols: _
 - The maximum length is 63 bytes
 - If the length of the name exceeds the defined maximum length, all words included in the name are replaced with abbreviations registered in the word dictionary.
 - Use registered words defined in the word dictionary(to use a word that does not exist in the word dictionary, follow the registration procedure specified in this PJ.)
+- Prefix + logical name
 
-## Design DB
+|                    | Prefix | The maximum length | Example                 |
+|--------------------|--------|--------------------|-------------------------|
+| Table              |        | 65                 |                         |
+| Column             |        | 65                 |                         |
+| Sequence           | seq_   | 30                 | seq_credit_detail_id    |
+| View               | vw_    | 30                 | vw_monthly_sales_amount |
+| Materialized views | mv_    | 30                 | mv_monthly_sales_amount |
+| Index              | ix_    | 30                 | ix_credit_detail_01     |
 
-### Table
+**Notice:**
 
-- Must have table name by Japanese
-- Must have column name by Japanese
-- Can comment on the meaning of the table
+- Sequence (the sequence automatically generated does not need to follow this rule).
 
-```text
-Example:
-table name: storage_location_class_master
-Japanese name: 保管場所区分マスタ
-Description: 保管場所区分の定義。区分名と保管場所の種別を管理する。
+## Query
+
+- Luôn sử dụng chữ hoa cho các từ khóa như SELECT, WHERE.
+- Sử dụng hợp lý khoảng trắng và thụt lề để làm cho mã dễ đọc hơn.
+- Cố gắng sử dụng SQL chuẩn vì mục đích di động.
+- Thụt lề trong một truy vấn (ví dụ: cột, JOIN mệnh đề, nhiều dòng GROUP BY, v.v.) nên được thụt lề 2 khoảng trắng
+- Trong một WITH, toàn bộ câu lệnh SQL phải được thụt lề 4 khoảng trắng.
+
+```sql
+
 ```
 
-### Column (table field)
-
-- Must have column name by Japanese
-- Can comment on the meaning of the column, the meaning of the value in column
-- Required columns(common fields) in table
-
-<!-- | 項目名（日本語） | 項目名（日本語）              | データ型 | データ型(postgres) | データ型 (java) | 備考                 |
-| ------------- | --------------------- | ---- | -------------- | ----------- | ------------------ |
-| 保管場所種別   | storage_location_type | 文字列  | varchar(2)     | String      | 1:保管場所、2:伝票、3:勘定科目 |
-| 有効開始日    | effective_start_date  | 日付   | date           | LocalDate   | マスタが有効になる日付        | -->
-
-<!-- | 項目名（日本語） | 項目名（日本語）     | データ型 | データ型(postgres) | データ型(java) | 備考             |
-| --------    | ------------ | ---- | -------------- | ---------- | -------------- |
-| 登録者      | created_user | 文字列  | varchar        | String     | マスタを登録したユーザーID |
-| 登録日時    | created_date | 日付時刻 | timestamp      | Instant    | マスタを登録した日付時刻   |
-| 更新者      | updated_user | 文字列  | varchar        | String     | マスタを登録した日付時刻   |
-| 更新日時     | updated_date | 日付時刻 | timestamp      | Instant    | マスタを登録した日付時刻   | -->
-
-#### Data type from postgres to java
+## Data type from postgres to java
 
 | postgres             | java                           |
 | --------             | ----                           |
@@ -91,7 +69,7 @@ Description: 保管場所区分の定義。区分名と保管場所の種別を�
 | date                 | LocalDate                      |
 | boolean              | boolean                        |
 
-#### Column order
+## Column order
 
 - The data fields, which are closely related from a business viewpoint between columns that are arranged in the same table, should be grouped next to each other or in the vicinity.
 - The column set as the primary key should be at the beginning of the table.
@@ -102,57 +80,21 @@ Description: 保管場所区分の定義。区分名と保管場所の種別を�
 - Columns referenced frequently are placed towards the beginning, and columns that are not referenced often are placed towards the end.
 - Fixed-length data is placed towards the beginning, and variable-length data is placed towards the end.
 
-### Sequence
+## Constraints
 
-- The sequence name is "seq_" + the logical name. (the sequence automatically generated does not need to follow this rule)
-- The maximum length is 30 characters
-
-```text
-Example: seq_credit_detail_id
-```
-
-### View
-
-- The view name is "vw_" + logical name
-- The maximum length is 30 characters
-
-```text
-Example: vw_monthly_sales_amount
-```
-
-### Materialized views
-
-- The materialized views name is "mv_" + logical name
-- The maximum length is 30 characters
-
-```text
-Example: mv_monthly_sales_amount
-```
-
-### Index
-
-- The index name is "ix_" + logical name + key number ("_" + 01 to 99). (The index automatically generated does not need to follow this rule)
-- The maximum length is 30 characters
-
-```text
-Example: ix_credit_detail_01
-```
-
-### Constraints
-
-#### Primary key constraint (PRIMARY KEY)
+### Primary key constraint (PRIMARY KEY)
 
 - Primary key is a column of table which uniquely identifies each tuple (row) in that table.
 - Only one primary key is allowed to use in a table
 - The primary key does not accept the any duplicate and NULL values
 - Primary keys can be used as foreign keys for other tables too.
 
-#### Foreign key constraint (FOREIGN KEY)
+### Foreign key constraint (FOREIGN KEY)
 
 - A foreign key is a column or group of columns in a relational database table that provides a link between data in two tables.
 - It is a column (or columns) that references a column (most often the primary key) of another table.
 
-#### Unique constraint (UNIQUE KEY)
+### Unique constraint (UNIQUE KEY)
 
 - Unique key is a constraint that is used to uniquely identify a tuple in a table.
 - A table can have more than one unique key
@@ -162,15 +104,15 @@ Example: ix_credit_detail_01
   - When columns other than the primary key must be absolutely unique from a system control perspective
   - When a column other than the primary key is used as the parent column (reference source) of the foreign key constraint (FOREIGN KEY)
 
-#### Check constraint
+### Check constraint
 
 - The CHECK constraint is used to limit the value range that can be placed in a column.
 
-#### NOT NULL constraint (NOT NULL)
+### NOT NULL constraint (NOT NULL)
 
 - The NOT NULL constraint will not allow a column to contain NULL values.
 
-#### DEFAULT constraint
+### DEFAULT constraint
 
 - A column can be assigned a default value.
 
@@ -207,6 +149,39 @@ CREATE TABLE class (
     PRIMARY KEY (class_id),
 );
 ```
+
+## Design DB
+
+### Table
+
+- Must have table name by Japanese
+- Must have column name by Japanese
+- Can comment on the meaning of the table
+
+```text
+Example:
+table name: storage_location_class_master
+Japanese name: 保管場所区分マスタ
+Description: 保管場所区分の定義。区分名と保管場所の種別を管理する。
+```
+
+### Column (table field)
+
+- Must have column name by Japanese
+- Can comment on the meaning of the column, the meaning of the value in column
+- Required columns(common fields) in table
+
+<!-- | 項目名（日本語） | 項目名（日本語）              | データ型 | データ型(postgres) | データ型 (java) | 備考                 |
+| ------------- | --------------------- | ---- | -------------- | ----------- | ------------------ |
+| 保管場所種別   | storage_location_type | 文字列  | varchar(2)     | String      | 1:保管場所、2:伝票、3:勘定科目 |
+| 有効開始日    | effective_start_date  | 日付   | date           | LocalDate   | マスタが有効になる日付        | -->
+
+<!-- | 項目名（日本語） | 項目名（日本語）     | データ型 | データ型(postgres) | データ型(java) | 備考             |
+| --------    | ------------ | ---- | -------------- | ---------- | -------------- |
+| 登録者      | created_user | 文字列  | varchar        | String     | マスタを登録したユーザーID |
+| 登録日時    | created_date | 日付時刻 | timestamp      | Instant    | マスタを登録した日付時刻   |
+| 更新者      | updated_user | 文字列  | varchar        | String     | マスタを登録した日付時刻   |
+| 更新日時     | updated_date | 日付時刻 | timestamp      | Instant    | マスタを登録した日付時刻   | -->
 
 ## SQL Optimization
 
