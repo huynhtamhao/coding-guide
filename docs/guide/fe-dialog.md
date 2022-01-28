@@ -62,19 +62,18 @@ let dialogRef = dialog.open(UserProfileComponent, {
 })
 ```
 
-## Configuration Component Dialog
+## Add Component Dialog
 
 :::: code-group
 ::: code-group-item confirm-dialog.component.ts
 
 ```ts
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 export class ConfirmDialogComponent implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    public dialogRef: MatDialogRef<ConfirmDialogComponent>,
   ) { }
 
   ngOnInit(): void {
@@ -91,8 +90,8 @@ export class ConfirmDialogComponent implements OnInit {
     ConfirmDialogComponent,
   ],
   imports: [
-    MatDialogModule
-    , CommonModule
+    MatDialogModule,
+    CommonModule,
   ],
   exports: [
     ConfirmDialogComponent,
@@ -147,26 +146,121 @@ export class YourDialog {
 }
 ```
 
-## MatDialogConfig
+## MatDialogRef
 
-- Example:
+- The MatDialogRef provides a handle on the opened dialog. It can be used to close the dialog and to receive notifications when the dialog has been closed. Any notification Observables will complete when the dialog closes.
 
 ```ts
-public confirmDialog(messageCd: string, title?: string): MatDialogRef<ConfirmDialogComponent> {
-  title = !!title ? title : 'テスト終了の確認';
-  return this.dialog.open(ConfirmDialogComponent, {
-    width: '350px',
-    minWidth: '250px',
-    maxWidth: '350px',
-    panelClass: ['mat-elevation-z8', 'confirm-dialog'],
-    autoFocus: false,
-    disableClose: true,
-    data: { title, messageCd } // MAT_DIALOG_DATA
-  });
+dialogRef.afterClosed().subscribe(result => {
+  console.log(`Dialog result: ${result}`); // Pizza!
+});
+
+dialogRef.close('Pizza!');
+```
+
+- Components created via MatDialog can inject MatDialogRef and use it to close the dialog in which they are contained. When closing, an optional result value can be provided. This result value is forwarded as the result of the afterClosed Observable.
+
+```ts
+@Component({/* ... */})
+export class YourDialog {
+  constructor(public dialogRef: MatDialogRef<YourDialog>) { }
+
+  closeDialog() {
+    this.dialogRef.close('Pizza!');
+  }
 }
 ```
 
-- Configuration for opening a modal dialog with the MatDialog service.
+## Use Common Dialog
+
+<img src="~@assets/images/dialog/common-dialog.jpg"><img/>
+
+### Model
+
+```ts
+export class DialogData {
+  title: string | undefined;
+  messageCode: string | undefined;
+  messageContent: string | undefined;
+  messageType: string | undefined;
+  buttonActions = {
+    leftButton: '',
+    rightButton: 'OK'
+  };
+}
+```
+
+| Name                           | Description                                      |
+|:-------------------------------|:-------------------------------------------------|
+| title: ``string``              | Dialog title. |
+| messageCode: ``string``        | Message code error. Example: ``0x800A138F``. when setting ``messageCode``, will get message from system. |
+| messageContent: ``string``     | When not setting ``messageCode``, will display message from ``messageContent``. |
+| messageType: ``string``        | Show icon message content. |
+| leftButton: ``string``         | Name of left button. If not setting, it won't show. |
+| rightButton: ``string``        | Name of right button. If not setting, it won't show. |
+
+### Open Dialog
+
+- Use DialogUtilsService.
+
+```ts
+constructor(
+  private dialogUtils: DialogUtilsService,
+) { }
+```
+
+- Open default dialog
+
+```ts
+const dialogRef = this.dialogUtils.openDialogConfirmDelete();
+```
+
+| Name                           | Description                                      |
+|:-------------------------------|:-------------------------------------------------|
+| openDialogSuccessRegistry()    | Registry success. |
+| openDialogSuccessUpdate()      | Update Success.   |
+| openDialogErrorRegistry()      | Registry error.   |
+| openDialogErrorUpdate()        | Update error.     |
+| openDialogConfirmDelete()      | Confirm delete.   |
+
+- Open dialog setting data.
+
+```ts
+// ...setting dialogData
+const dialogData = new DialogData();
+dialogData.title = '登録';
+dialogData.messageCode = '登録が完了しました。';
+
+// open dialog
+const dialogRef = this.dialogUtils.openDialog(dialogData);
+dialogRef.afterClosed().subscribe((confirmed: boolean) => {
+  if (confirmed) {
+    // action after closed dialog
+  }
+});
+```
+
+- Change position dialog.
+
+```ts
+// { top, right, bottom, left } (px or %)
+this.dialogUtils.changePosition({ top: '10%', left: '30%' });
+```
+
+- Custom dialog.
+
+```ts
+// MatDialogConfig
+this.dialogUtils.dialogConfig.width = '350px';
+this.dialogUtils.dialogConfig.minWidth = '250px';
+this.dialogUtils.dialogConfig.maxWidth = '350px';
+this.dialogUtils.dialogConfig.panelClass = ['mat-elevation-z8', 'mat-dialog-custom'];
+this.dialogUtils.dialogConfig.data = dialogData;
+// open dialog
+const dialogRef = this.dialogUtils.openDialogCustom();
+```
+
+### MatDialogConfig
 
 | Name                           | Description                                      |
 |:-------------------------------|:-------------------------------------------------|
@@ -183,7 +277,7 @@ public confirmDialog(messageCd: string, title?: string): MatDialogRef<ConfirmDia
 | backdropClass: ``string \| string[]`` | Custom class for the backdrop. |
 | disableClose: ``boolean``      | Whether the user can use escape or clicking on the backdrop to close the modal. |
 | position: ``DialogPosition``   | Position overrides. |
-| data: ``D \| null``            | Data being injected into the child component. |
+| data: ``Data \| null``         | Data being injected into the child component. |
 | direction: ``Direction``       | Layout direction for the dialog's content. |
 | ariaDescribedBy: ``string \| null`` | ID of the element that describes the dialog. |
 | ariaLabelledBy: ``string \| null`` | ID of the element that labels the dialog. |
@@ -222,31 +316,6 @@ export interface DialogPosition {
     left?: string;
     /** Override for the dialog's right position. */
     right?: string;
-}
-```
-
-## MatDialogRef
-
-- The MatDialogRef provides a handle on the opened dialog. It can be used to close the dialog and to receive notifications when the dialog has been closed. Any notification Observables will complete when the dialog closes.
-
-```ts
-dialogRef.afterClosed().subscribe(result => {
-  console.log(`Dialog result: ${result}`); // Pizza!
-});
-
-dialogRef.close('Pizza!');
-```
-
-- Components created via MatDialog can inject MatDialogRef and use it to close the dialog in which they are contained. When closing, an optional result value can be provided. This result value is forwarded as the result of the afterClosed Observable.
-
-```ts
-@Component({/* ... */})
-export class YourDialog {
-  constructor(public dialogRef: MatDialogRef<YourDialog>) { }
-
-  closeDialog() {
-    this.dialogRef.close('Pizza!');
-  }
 }
 ```
 
