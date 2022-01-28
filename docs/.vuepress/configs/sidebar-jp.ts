@@ -24,7 +24,7 @@ export const jp = {
       collapsible: false,
       sidebarDepth: 3,
       children: [
-        // 'db-sql',
+        'db-sql',
         // 'db-oracle-fdw',
       ],
     },
