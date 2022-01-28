@@ -89,6 +89,16 @@ Use <img src="@assets/images/report/report_text_field.png"/> when change data
   <img src="@assets/images/report/report_table_5.png"/>
   - The table appears in your report, in the spot where you dragged the element.
   <img src="@assets/images/report/report_table_6.png"/>
+- Connect parameter to table
+
+```java
+  <parameter name="dataList" class="java.util.List"/>
+  <jr:table>
+    <datasetRun subDataset="dataset1" uuid="d70a4bfc-c5dd-48d8-98fe-8c68a7b6d1b2">
+      <dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{dataList})]]></dataSourceExpression>
+    </datasetRun>
+  </jr:table>
+```
 
 #### Group Columns
 
@@ -179,6 +189,9 @@ Use <img src="@assets/images/report/report_text_field.png"/> when change data
     <img src="@assets/images/report/report_field_jar_8.png"/>
     - Added fields in dataset  
     <img src="@assets/images/report/report_field_jar_9.png"/>
+- Create parameter for dataset  
+  <img src="@assets/images/report/report_dataset_4.png"/>
+  <img src="@assets/images/report/report_dataset_5.png"/>
 
 ## Compile report
 
