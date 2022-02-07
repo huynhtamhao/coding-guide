@@ -1,5 +1,11 @@
 # 🚀️ Programming Environment and Tools
 
+## Deployment environment
+
+OS:Ubuntu Server (May be <Badge type="tip" text="v20.04 LTS" vertical="middle" />)
+コンテナ:Docker (サーバ側) <Badge type="tip" text="v20.10" vertical="middle" />
+webサーバ:nginx <Badge type="tip" text="v1.21.6 LTS" vertical="middle" />
+
 ## Programming environment
 
 - Java (Open JDK) - <Badge type="tip" text="v17.0.1" vertical="middle" /> [(Download)](https://jdk.java.net/17/)

@@ -20,13 +20,14 @@ Ex: `ProductInfo`, `ProductData`.
 `HTML`, `DVD`, `Str` for `String`, `Num` for `Number`, `Prop` for `Property`, or `Val` for Value ...)
 For common abbreviations, the camelcase rule should be followed. Ex: `myHtml` not `myHTML`.
 
-| Naming Conventions   | Java                                      | Angular                                                                                                  |
-|----------------------|-------------------------------------------|----------------------------------------------------------------------------------------------------------|
-| Lower Camel Case     | variables / methods                       | variable / parameter / function / method / property / module alias / directive selector / pipe name      |
-| Upper Camel Case     | classes / interfaces / annotations / enum | class / interface / type / enum / decorator / type parameters                                            |
-| Screaming Snake Case | constants / enum value                    | global constant values, including enum value                                                             |
-| lower dot case       | package / property files                  | file name                                                                                                |
-| kebab case           |                                           | component selector                                                                                       |
+|       命名規約       |                   Java                    |                                               Angular                                               |                                       Database (列追加)                                       |
+| -------------------- | ----------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| Lower Camel Case     | variables / methods                       | variable / parameter / function / method / property / module alias / directive selector / pipe name |                                                                                               |
+| Upper Camel Case     | classes / interfaces / annotations / enum | class / interface / type / enum / decorator / type parameters                                       |                                                                                               |
+| Screaming Snake Case | constants / enum value                    | global constant values, including enum value                                                        |                                                                                               |
+| lower dot case       | package / property files                  | file name                                                                                           |                                                                                               |
+| kebab case           |                                           | component selector                                                                                  |                                                                                               |
+| Snake Case           |                                           |                                                                                                     | table name / View / Materialized View / Sequence / Index / Procedure & Function / column name |
 
 ## Variable
 
@@ -46,6 +47,13 @@ For common abbreviations, the camelcase rule should be followed. Ex: `myHtml` no
 Một số trường hợp variable không có ý nghĩa là string chẳng hạn như `year` thì nên đặt tên biến:
 `**<someValue>String**` or `<someValue>AsString`. Ex: `yearString`.
 
+Ex:
+
+```java
+int year = 2020;
+String yearString = "2020";
+```
+
 ### Number (Integer vs Floating-Point Numbers)
 
 - Ngoài những biến có ý nghĩa là số thì sẽ có thêm những quy tắc như bên dưới cho từng trường hợp
@@ -59,12 +67,19 @@ Một số trường hợp variable không có ý nghĩa là string chẳng hạ
 ### Boolean
 
 - Boolean variables should be prefixed with `is`.
-- There are a few alternatives to the is prefix that fits better in some situations.
-These are `has`, `can` `allows`, `does`, `did`, `will` and `should` prefixes.
+- 場合によってより良い接頭辞（prefix）がある。例 `has`, `can`, `allows`, `does`, `did`, `will` and `should` prefixes.
+  - is + adjective：asking whether the status is the 'adjective' or not . ex) isEnabled
+  - has + past tense verb：asking whether the status has become 'verb' or not. ex) hasSent
+  - Third-person-singular verb + noun：asking whether there is the 'noun' in status of 'verb' or not. If the noun is clear, it can be omitted .ex) hasError
+  - Auxiliary verb + verb：asking whether it is possible or not, should do or not.
+ex) canRemoveItems
+ex) shouldContinue
 
 Example: `isVisible`, `isFinished`, `hasLicense`, `canEvaluate`, `shouldAbort`, `allowsWhitespace`, `didUpdate`, `willUpdate`.
 
 ### Arrays, Lists, and Sets
+
+> マップはキーと値が対になったデータ構造です。キーの重複は許可されていません。格納できるデータは参照型のみになります。
 
 - Naming with plural word. Ex: Customers, Suppliers
 - Specify the implementation in the name of the variable. For example: queueOfTasks, stackOfCards, or orderedSetOfTimestamp
@@ -90,6 +105,9 @@ public static final String PDF_EXTENSION = ".pdf";
 ```
 
 ### Optional (Java)
+
+> Optionalは何かの値を包み込むクラスであり、同時に「値はnullかもしれないよ、気を付けて!」と伝えるためのクラスです。
+> Optionalはメソッドの戻り値で使われるのが普通ですが、nullかもしれない値に何か処理をしたい時にも便利に使えます。
 
 - `optional<Something>`. Ex: optionalCustomer, optionalSupplier.
 - `possible<Something>` is accepted too. Ex: couldLoggedInUser, maybeSupplier.

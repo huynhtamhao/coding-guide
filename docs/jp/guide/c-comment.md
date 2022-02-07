@@ -5,7 +5,7 @@
 >
 > -- <cite>Benjamin Franklin</cite>
 
-## コメントを避けたい
+## コードの説明は不要
 
 - すでにコードで表現されている場合にはコメントする必要がない。
 
@@ -35,7 +35,7 @@ private String getCustomerName() {
 }
 ```
 
-- コードが理解できる情報が不足しているコメント
+- コードを理解できる情報が不足しているコメント
   - Constructor
   - その意味を示す機能名
 
@@ -53,7 +53,7 @@ public DefectiveProductDto getDefectiveProduct(String defectiveProductNo) {
 ### コメントが必要
 
 - models, domain, dto...での業務プロパティー
--regex `"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"`などの（考えないで）"即時"情報を提供する。
+- regex `"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"`などの（解読しないで）"即時"情報を提供する。
 
 ```java
 // Minimum eight characters, at least one letter and one number
@@ -66,7 +66,7 @@ str.substr(str.indexOf(' ') + 1);
 private int supplierCode;
 ```
 
-### 検討
+### 参照情報
 
 - ソースコードのコピー元への連携や参考資料を提供する。
 
@@ -89,18 +89,24 @@ private int supplierCode;
 // }
 ```
 
-### マーカー　Marker
+### マーカー Marker
 
 - 未完成の実装をマークするためにコメントを加える (TODO, FIXME ...).
 
 | Marker |                                                            Notes                                                            |
 | :----- | :-------------------------------------------------------------------------------------------------------------------------- |
-| TODO:  | No problem, but additional code needs to be written, usually when you are skipping something. (未着手または未調査の内容)    |
-| FIXME: | This works, sort of, but it could be done better. (usually code written in a hurry that needs rewriting) 下手なコードがある |
-| NOTE:  | Description of how the code works (when it isn't self evident).                                                             |
-| HACK:  | Not very well written or malformed code to circumvent a problem/bug (この解決法は問題に不適切である)                        |
-| BUG:   | There is a problem here (Bug)                                                                                               |
-| XXX:   | Warning about possible pitfalls (要注意!)                                                                                   |
+| TODO:  | 未着手または未調査の内容：問題はありませんが、通常は何かをスキップするときに追加のコードを書く必要があります。No problem, but additional code needs to be written, usually when you are skipping something.     |
+| FIXME: | 下手なコードがある：これは一応機能しますが、もっとうまくできるはずです。(通常は急いで書いたコードで、書き直しが必要) This works, sort of, but it could be done better. (usually code written in a hurry that needs rewriting)  |
+| NOTE:  | コードがどのように動作するかの説明（自明でない場合）。Description of how the code works (when it isn't self evident).                                                             |
+| HACK:  | 不適切なコード：問題/バグを回避するための、あまりよく書かれていない、または不正なコード。Not very well written or malformed code to circumvent a problem/bug .|
+| BUG:   | バグ：ここに問題があります。There is a problem here (Bug)                                                                                               |
+| XXX:   | 要注意!：落とし穴の可能性についての警告。Warning about possible pitfalls                                                                                   |
+
+```java
+   public  updateInventoryMovingAverage() {
+      // TODO：#1234 在庫管理法（移動平均法）の仕様確定後実装
+   }
+```
 
 ## 参考
 
