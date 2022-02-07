@@ -251,6 +251,7 @@ this.dialogUtils.changePosition({ top: '10%', left: '30%' });
 
 ```ts
 // MatDialogConfig
+this.dialogUtils.newDialogConfig();
 this.dialogUtils.dialogConfig.width = '350px';
 this.dialogUtils.dialogConfig.minWidth = '250px';
 this.dialogUtils.dialogConfig.maxWidth = '350px';
