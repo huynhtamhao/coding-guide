@@ -13,6 +13,6 @@ features:
 footer: © 2017-present FANATIC COMPUTERS. ALL RIGHTS RESERVED - Fanatic Developer Team with ❤️
 ---
 
-- A set of conventions (sometimes arbitrary) about how to write code and document design for that project.
-- Some best practices and painful.
-- Tutorial for framework and useful library used in the project.
+- 開発プロジェクトに関して、コーディングのルールと設計ドキュメント作成の規約を纏める。
+- ベストプラクティス（最良実施例）や失敗事例を提示する。
+- プロジェクトで利用するフレームワークや便利なライブラリを説明する。
