@@ -2,13 +2,13 @@
 
 ## Code style
 
-- Sử dụng google style
+- google styleを利用する
 - Intellij: <a href="~@assets/styleguides/intellij-java-fanatic-style.xml" download>Fanatic IntelliJ Style Guide</a> based on [intellij-java-google-style.xml](https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml)
 - Eclipse: <a href="~@assets/styleguides/eclipse-java-fanatic-style.xml" download>Fanatic Eclipse Style Guide</a> based on [eclipse-java-google-style.xml](https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml)
 
 ### Import Rules
 
-- Chỉ import các class cần dùng, không import *
+- 必要なClassのみをインポートする。 import *はしないこと。
 
 :::: code-group
 ::: code-group-item CODE
@@ -31,17 +31,17 @@ import jp.co.fanatic.service.dto.*; // ✕ AVOID!
 
 ## Mapping Rules
 
-- Sử dụng [MapStruct](https://mapstruct.org/documentation/dev/reference/html/) để mapping.
-- Tên file phải có hậu tố là **Mapper**. Ví dụ `ProductMapper.java`.
-- Mapping Method sử dụng bắt đầu bằng chữ `to`:
+- マッピングのために [MapStruct](https://mapstruct.org/documentation/dev/reference/html/) を利用する。
+- ファイル名の最後に **Mapper**を付けるべき。例： `ProductMapper.java`.
+- 利用するMapping Method 名は `to`から始まる:
   - toEntity
   - toDto
   - toListEntity
   - toListDto
-  - Ngoài 4 trường hợp trên sẽ thảo luận khi làm dự án.vi
-- Về comment
-  - Không cần comment cho method.
-  - Class comment: `「Tên tiếng Nhật」マッパー`
+  - 上記の４パターン以外は要相談.vi
+- コメントについて
+  - methodにコメントは不要.
+  - Class comment: `「日本語名」マッパー`
 
 ```java
 /**
@@ -60,7 +60,7 @@ public interface ProductMapper {
 }
 ```
 
-- Trường hợp mapping từ object khác (source to target) thì mapper method được đặt tại target file.
+- 他のオブジェクトからマッピング (source to target)する場合はmapper methodはtarget fileで配置する。
 
 ```java
 @Mapper()
@@ -70,7 +70,7 @@ public interface ProductMapper {
 }
 ```
 
-- Trường hợp đặc biệt có thể tạo file mapper riêng.
+- 特別のケースで、mapper ファイルを別途に作成が可能である。
 
 ```java
 @Mapper()
@@ -84,7 +84,7 @@ public interface CustomerProductMapper {
 
 ### Entity, Dto
 
-- Annotation dùng khi tạo DTO.
+- DTO作成時に使うAnnotation
 
 ```java
 @Data
@@ -93,7 +93,7 @@ public class ItemDto {
 }
 ```
 
-- Annotation dùng khi tạo Entity
+- Entity作成時に使うAnnotation
 
 ```java
 @Entity
@@ -110,25 +110,25 @@ public class ProductBasicMaster extends CommonEntity {
 
 ### DateTime
 
-- Sử dụng java.time (>= jdk8), không sử dụng Calendar.
+- java.time (>= jdk8)を使う, Calendarは使わない
 
 ### Statements
 
-- Có thể sử dụng toán tử 3 ngôi.
+- 三項演算子が使える。
 
 ```java
 return x > y ? true : false;
 ```
 
-### If-else Statements
+### If-else 文
 
-- Mệnh đề if đơn lẻ không cần cặp dấu ngoặc nhọn {} cũng được, có thể viết trên cùng 1 dòng.
+- 単一のif文ならカッコ　{} を記述しなくて良い。1行ですべて記述して良い。
 
 ```java
 if (condition) statement;
 ```
 
-- Không viết trống câu if để thực thi else.
+- if 文を空にして else文を実行するはNG
 
 ```java
 if (condition) {
@@ -138,11 +138,11 @@ if (condition) {
 }
 ```
 
-- Trường hợp nhiều if-else thì nên dùng switch case.
+- if-else条件が多いときは switch caseの利用を勧める。
 
 ### Boolean vs boolean
 
-Boolean allow null value but boolean not
+`Boolean` はnull値が可能が、 `boolean`はnull値が不可
 
 ```java
 Boolean a;
@@ -157,8 +157,8 @@ if (b != null && b) // NG
 
 ### Var
 
-- Tại Java 10 đã có thể sử dụng từ khóa `var` để khai báo biến.
-- Tuy nhiên chỉ nên sử dụng khi khởi tạo biến
+- Java 10 では `var` タグを使って変数宣言ができる。
+- 変数を初期化するときにのみに使うべき
 
 ```java
 var customer = new Customer(); // OK
@@ -171,7 +171,7 @@ int ratio = foo.calculateRatio(); // SHOULD
 
 ### Interface instead
 
-- Java 8 introduces a leaner alternative -- the "utility interface" and makes the private anti-constructor superfluous:
+- Java 8 は通常"utility class"の代わる"utility interface"をサポートできる (private constructorを除去する目的)：
 
 :::: code-group
 ::: code-group-item Interface
@@ -199,24 +199,24 @@ public final class Math {
 
 ### Utility
 
-- Suffix: Utils, Validator, Formatter, Creator, Sender, Generator, Helper ...
-- Whenever a common block of code needs to be used from multiple places, we can create utils class.
-- Should be comment utility classes
-- Advantages of Utils class:
-  - The Utils class provides advantages to reuse the code.
-- Disadvantages of Utils class:
-  - There is possibility of breaking SOLID principle unless considered properly.
-  -Static method stays in memory for longer duration
+- 末尾: Utils, Validator, Formatter, Creator, Sender, Generator, Helper ...
+- 複数個所で利用したい共通のコードの固まりがあった場合、utils classが作れる。
+- utility classesにコメント追加すべき
+- Utils classの利点:
+  - Utils class はソースコードの流用で便利である。
+- Utils classの欠点:
+  - きちんと考慮しないと、原則を破る可能性がある。
+  -Static methodはより長い期間にメモリに存在する。
 
-- **Chỉ tạo Utility classes khi thực sự có sự tái sử dụng code ở nhiều chỗ**
-- **Tạo suffix phù hợp thay vì chỉ tạo Utils**
-Thay vì tạo EmailUtils, xem xét tách chức năng và tạo các file: EmailValidator, EmailFormatter, EmailCreator, EmailSender...
+- **数多くの箇所に再利用するコードのみにUtility classesを使う**
+- **Utilsの作成だけより、適切な末尾を作成した方が良い**
+EmailUtils作成の代わりに、子機能に分けて EmailValidator, EmailFormatter, EmailCreator, EmailSender...などのファイルを作成する。
 
-### How to create
+### 作成方法
 
-- Create a class with suffix is `Utils`.
-- Make its constructor private
-- Expose the methods/functions as static.
+- `Utils`末尾でClassを作成する
+- Classのconstructor をprivateにする。
+- methods/functionsをstaticで公開する。
 
 ```java
 /**
@@ -227,7 +227,7 @@ public class ExcelFileUtils {
     private ExcelFileUtils () { }
 
     /**
-     * Thực hiện mở
+     * 公開する
      * @param path
      * @return
      */
@@ -244,7 +244,7 @@ public class ExcelFileUtils {
 
 ### Conventions
 
-- Value Property phải là private, truy xuất thông tin bằng public method
+- Value プロパティーは privateであるべき、public methodで情報送受信する。
 
 ```java:no-line-numbers
 private final String value;
@@ -253,7 +253,7 @@ public String getValue() {
 }
 ```
 
-- Phải có hàm find để trả về enum cần tìm bằng value
+- valueでenum を返すためのfind ファンクションが必要：
 
 ```java:no-line-numbers
 public static CURRENCY_CD find(String val) {
@@ -263,7 +263,7 @@ public static CURRENCY_CD find(String val) {
 }
 ```
 
-- Một số trường hợp đặc biệt thì nên để code đằng trước
+- 特別な場合は、コードを先に配置すべき
 
 ```java:no-line-numbers
 WH1300_SHIPPING_WAITING_WAREHOUSE("WH1300") // 出荷待倉庫
@@ -273,7 +273,7 @@ WS9002_SUPPLIER_WITHOUT_RETURN("WS9002") // 仕入先保管 返却予定なし
 
 ### Avoid
 
-- Tránh các enum không có nghĩa
+- 意味のない enum が避けたい
 
 ```java:no-line-numbers
 public enum INVENTORY_STATUS {
@@ -286,7 +286,7 @@ public enum INVENTORY_STATUS {
 
 ### Example
 
-- Trường hợp có 1 property.
+- １つのプロパティーがある場合：
 
 ```java
 public enum CURRENCY_CD {
@@ -313,7 +313,7 @@ public enum CURRENCY_CD {
 }
 ```
 
-- Trường hợp có nhiều properties
+- プロパティーが複数ある場合：
 
 ```java
 public enum WAREHOUSE {
@@ -339,16 +339,16 @@ public enum WAREHOUSE {
 }
 ```
 
-## Reference
+## 参考
 
 - [Code Conventions for the Java Programming Language (Oracle)](https://www.oracle.com/java/technologies/javase/codeconventions-introduction.html)
 - [Helper class (Wikipedia)](https://en.wikipedia.org/wiki/Helper_class)
 
 <!-- ## Utils
 
-- Class đặt tên có hậu tố Utils (XUtils) là class tiện ích.
-- Phương thức và định nghĩa đều là static.
-- Bao gồm các chức năng nhỏ sử dụng lặp lại ở bất cứ đâu, có thể dùng ở project khác.
+- Utils (XUtils)末尾のクラス名はユーティリティのクラスである。
+- staticで宣言する
+- 任意の場所（他のプロジェクトも可能）に再利用することが多い小さい機能が備わる。
 
 ```java
 public class XUtils
@@ -368,10 +368,10 @@ public class XUtils
 
 ## Helper
 
-- Class đặt tên có hậu tố Helper (XHelper) cũng là class tiện ích
-- Dùng để hỗ trợ, cung cấp một số chức năng.
-- Class có thể khởi tạo, có thể có các phương thức mở rộng, không nhất thiết phải có phương thức static.
-- Hoặc có thể chỉ thực hiện một số các chức năng business (chỉ dùng được ở project hiện tại).
+- Helper (XHelper) 末尾のクラスもユーティリティのクラスである。
+- サポートやいくつの機能を提供する。
+- Classはmethod を生成できる。extend methodが可能ですが、Static methodを持つとは限らない。　
+- 又は、業務機能のいくつを実装するのみに使う (現行プロジェクトで使うだけ)。
 
 ```java
 public class TextHelper {
@@ -396,4 +396,4 @@ public class Helper {
 }
 ```
 
-- Class đặt tên có hậu tố Validator (XValidator) là class chứa các chức năng xác thực. -->
+- Validator (XValidator)末尾のクラス名は認証機能を実装するクラスである -->
