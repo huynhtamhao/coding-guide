@@ -2,9 +2,9 @@
 
 ## 実行環境
 
-OS:Ubuntu Server (May be <Badge type="tip" text="v20.04 LTS" vertical="middle" />)
-コンテナ:Docker (サーバ側) <Badge type="tip" text="v20.10" vertical="middle" />
-webサーバ:nginx <Badge type="tip" text="v1.21.6 LTS" vertical="middle" />
+- OS:Ubuntu Server (May be <Badge type="tip" text="v20.04 LTS" vertical="middle" />)
+- コンテナ:Docker (サーバ側) <Badge type="tip" text="v20.10" vertical="middle" />
+- webサーバ:nginx <Badge type="tip" text="v1.21.6 LTS" vertical="middle" />
 
 ## 開発環境
 
@@ -27,7 +27,7 @@ webサーバ:nginx <Badge type="tip" text="v1.21.6 LTS" vertical="middle" />
 
 - Angular cli <Badge type="tip" text="v13.1.1" vertical="middle" />
 - [Angular Material Design](https://material.angular.io/) <Badge type="tip" text="v13.1.1" vertical="middle" />
-- [Bootstrap for Angular](https://ng-bootstrap.github.io/#/home) <Badge type="tip" text="v11.0.0" vertical="middle" />
+- [Bootstrap for Angular](https://ng-bootstrap.github.io/#/home) <Badge type="tip" text="v11.0.0" vertical="middle" />  
   | ng-bootstrap  | Angular | Bootstrap CSS | Note          |
   |:--------------|:--------|:--------------|:--------------|
   | 11.x.x        | 13.0.0  | 4.6.0         | recommend     |
