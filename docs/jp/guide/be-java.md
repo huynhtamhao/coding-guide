@@ -206,8 +206,7 @@ public final class Math {
   - Utils class はソースコードの流用で便利である。
 - Utils classの欠点:
   - きちんと考慮しないと、原則を破る可能性がある。
-  -Static methodはより長い期間にメモリに存在する。
-
+  - Static methodはより長い期間にメモリに存在する。
 - **数多くの箇所に再利用するコードのみにUtility classesを使う**
 - **Utilsの作成だけより、適切な末尾を作成した方が良い**
 EmailUtils作成の代わりに、子機能に分けて EmailValidator, EmailFormatter, EmailCreator, EmailSender...などのファイルを作成する。

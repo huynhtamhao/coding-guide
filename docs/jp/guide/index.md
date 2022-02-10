@@ -12,13 +12,18 @@
 - Node.js - <Badge type="tip" text="v16.13.2 LTS" vertical="middle" /> [(Download)](https://nodejs.org/en/)
 - Npm - <Badge type="tip" text="v8.3.0" vertical="middle" />
 - Angular - <Badge type="tip" text="v13.1.1" vertical="middle" />
+- Postgres - <Badge type="tip" text="v14.1" vertical="middle" />
 
 ### Java
 
-- Spring Boot Framework
+- Spring Boot Framework - (現在: using <Badge type="tip" text="v2.6.3" vertical="middle"/>
+将来: <Badge type="tip" text="v3.x.x" vertical="middle"/>)へマイグレーションする可能性)
   - Spring Security
   - Spring JPA
   - Spring AOP
+  - Lombok
+  - Java Mail Sender
+  - Spring Boot Actuator
 - [Gradle](https://gradle.org/) (Dependence and build tools) <Badge type="tip" text="v7.3.3" vertical="middle" />
 - [Mybatis](https://mybatis.org/mybatis-3/)
 - [Flyway](https://flywaydb.org/)
@@ -27,7 +32,7 @@
 
 - Angular cli <Badge type="tip" text="v13.1.1" vertical="middle" />
 - [Angular Material Design](https://material.angular.io/) <Badge type="tip" text="v13.1.1" vertical="middle" />
-- [Bootstrap for Angular](https://ng-bootstrap.github.io/#/home) <Badge type="tip" text="v11.0.0" vertical="middle" />  
+- [Bootstrap for Angular](https://ng-bootstrap.github.io/#/home) <Badge type="tip" text="v11.0.0" vertical="middle" />
   | ng-bootstrap  | Angular | Bootstrap CSS | Note          |
   |:--------------|:--------|:--------------|:--------------|
   | 11.x.x        | 13.0.0  | 4.6.0         | recommend     |

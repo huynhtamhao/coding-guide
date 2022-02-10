@@ -20,7 +20,7 @@ Ex: `ProductInfo`, `ProductData`.
 `HTML`, `DVD`, `Str` for `String`, `Num` for `Number`, `Prop` for `Property`, or `Val` for Value ...)
 For common abbreviations, the camelcase rule should be followed. Ex: `myHtml` not `myHTML`.
 
-|       命名規約       |                   Java                    |                                               Angular                                               |                                       Database (列追加)                                       |
+|       命名規約       |                   Java                    |                                               Angular                                               |                                       Database                                       |
 | -------------------- | ----------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | Lower Camel Case     | variables / methods                       | variable / parameter / function / method / property / module alias / directive selector / pipe name |                                                                                               |
 | Upper Camel Case     | classes / interfaces / annotations / enum | class / interface / type / enum / decorator / type parameters                                       |                                                                                               |

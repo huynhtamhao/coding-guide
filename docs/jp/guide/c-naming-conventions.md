@@ -6,7 +6,7 @@
 >
 > — Phil Karlton
 
-*ここではキャッシュの無効化については記述しない*←書けることがあれば記述してください。
+*ここではキャッシュの無効化については記述しない*
 
 ## 目的
 
@@ -18,12 +18,12 @@
 ## 命名の共通ルール
 
 - 単語は英単語でなければならない (一部は日本語のローマ字可).
-- `data`, `processor`, `table`, `info`, `object`, `a`, `an`, `the`などシステムの予約語・それに類する単語は使用しない
-- Ex: `ProductInfo`, `ProductData`.
+- `data`, `processor`, `table`, `info`, `object`, `a`, `an`, `the`などシステムの予約語・それに類する単語は使用しない。
+Ex: `ProductInfo`, `ProductData`.
 - 意味があり、読みやすい (`HTML`, `DVD`, `Str` for `String`, `Num` for `Number`, `Prop` for `Property`, or `Val` for Value ...などの一般的な語を除き、基本的に変数名は略語を使わない)
 - 一般的な略語に対してキャメルケースのルールを適用する。例: `myHtml` not `myHTML`.
 
-|       命名規約       |                   Java                    |                                               Angular                                               |                                       Database (列追加)                                       |
+|       命名規約       |                   Java                    |                                               Angular                                               |                                       Database                                       |
 | -------------------- | ----------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | Lower Camel Case     | variables / methods                       | variable / parameter / function / method / property / module alias / directive selector / pipe name |                                                                                               |
 | Upper Camel Case     | classes / interfaces / annotations / enum | class / interface / type / enum / decorator / type parameters                                       |                                                                                               |
@@ -48,7 +48,7 @@
 ### String (文字列)
 
 `year`などのstringという意味がないvariableの場合は下記の変数名にしてよいです。
-`**<someValue>String**` or `<someValue>AsString`. Ex: `yearString`.
+`<someValue>String` or `<someValue>AsString`. Ex: `yearString`.
 
 Ex:
 
@@ -70,7 +70,7 @@ String yearString = "2020";
 
 ### Boolean (真偽)
 
-- Boolean 変数は最初に `is`と付ける必要がある。
+- Boolean 変数は最初に `is` と付ける必要がある。
 - 場合によってより良い接頭辞（prefix）がある。例 `has`, `can`, `allows`, `does`, `did`, `will` and `should` prefixes.
   - is + 形容詞：形容詞の状態であるかを尋ねる。ex) isEnabled
   - has + 過去分詞：動詞の状態となったかを尋ねる。ex) hasSent
