@@ -206,7 +206,7 @@ Use <img src="@assets/images/report/report_text_field.png"/> when change data
 
 - Use font ARIALUNI.TTF, which add to folder **resources/fonts**
 
-#### Create the **font-config.xml** file
+#### Create the **resources/fonts/font-config.xml** file
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -222,7 +222,7 @@ Use <img src="@assets/images/report/report_text_field.png"/> when change data
 </beans>
 ```
 
-#### Create the **jasperreports_extension.properties** file
+#### Create the **resources/jasperreports_extension.properties** file
 
 ```properties
 net.sf.jasperreports.extension.registry.factory.fonts=net.sf.jasperreports.extensions.SpringExtensionsRegistryFactory
@@ -248,6 +248,11 @@ net.sf.jasperreports.extension.fonts.spring.beans.resource=fonts/fonts_config.xm
 implementation 'net.sf.jasperreports:jasperreports:6.18.1'
 implementation 'net.sf.jasperreports:jasperreports-fonts:6.18.1'
 implementation 'com.lowagie:itext:2.1.7'
+
+// Use for Barcode
+implementation 'com.google.zxing:core:3.3.0'
+implementation 'net.sf.barcode4j:barcode4j:2.1'
+implementation 'org.apache.xmlgraphics:batik-bridge:1.11'
 ```
 
 ### Generate report
