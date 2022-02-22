@@ -136,6 +136,13 @@ Use <img src="@assets/images/report/report_text_field.png"/> when change data
 - Choose the type of Barbecue types and click **Finish**
 - Input data of Barcode at **Code Expression** of tab **Barcode**
 
+### Image
+
+- Palette - Click <img src="@assets/images/report/report_image.png"/> - Choose position in report
+<img src="@assets/images/report/report_image_0.png"/>
+- Choose **No image (just create an image element, expression will be modified later)** and click **OK**
+<img src="@assets/images/report/report_image_1.png"/>
+
 ## Parameter
 
 - Outline - Right click **Parameters** - Choose **Create Parameter**
@@ -294,6 +301,11 @@ JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(products)
 // Data of Parameters
 Map<String,Object> parameters = new HashMap<>();
 parameters.put("createId", "トゥー");
+
+// image
+byte[] image = imagesRepository.getById("image.png").getImg();
+InputStream logo= new ByteArrayInputStream(image);
+parameters.put("logo",logo);
 
 // Fill the report (file PDF)
 JasperRunManager.runReportToPdf(jasperReport, parameters, dataSource);
