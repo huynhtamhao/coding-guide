@@ -1,28 +1,28 @@
-# SQL Style Guide (Postgresql)
+# SQLスタイルガイド (Postgresql)
 
-## Naming conventions
+## 命名規約
 
-### General
+### 一般
 
-- Ensure the name is unique and does not exist as a reserved keyword.
-- Keep the length to a maximum of 30 bytes—in practice this is 30 characters unless you are using a multi-byte character set.
-- Names must begin with a letter and may not end with an underscore.
-- Only use letters, numbers and underscores in names.
-- Connect the words with underscores (use underscores where you would naturally include a space in the name (first name becomes first_name).
-) and avoid the use of multiple consecutive underscores—these can be hard to read.
-- Avoid abbreviations and if you have to use them make sure they are commonly understood.
-- Available characters are alphanumeric characters and underscore.
-- Use only lowercase letters and not uppercase letters.
-- Prefix + logical name.
-- The maximum length is 30 characters.
-- The index name is ``"ix_" + logical name + `_` + key number`` (key number: 01 to 99)
-- Procedures & Function: The name must contain a verb.
-- The index and sequence automatically generated does not need to follow this rule
+- ユニークで、予約語と異なる名前を選定する。
+- 長さを最大30バイトとする—実際的に30文字（マルチバイト文字でない限り）
+- 名前は文字で始まる。アンダースコアで終わらないこと。
+- 文字、数字、アンダースコアのみからなる。
+- 単語をアンダースコアで連結する (アンダースコアは通常スペースの代わりに使う(first name → first_name).
+) 連続的に複数のアンダースコアの利用を避けたい—読みにくからである。
+- 一般的に分かる言葉以外に略語は避けたい。
+- 利用可能文字はalphanumeric 文字とアンダースコア。
+- 小文字のみを利用する。
+- 接続詞(Prefix) + 論理名。
+- 最大の長さは30文字。
+- index名は``"ix_" + logical name + `_` + key number`` (key number: 01 ～ 99)
+- Procedures & Function: 名前は動詞を含めること。
+- 自動生成の index と sequenceはこのルールを適用すべきでない
 
-```text
-Number: 1234567890
-Alphabetic characters: abcdefghijklmnopqrstuvwxyz
-Symbols: _
+```テキスト
+数字: 1234567890
+文字: abcdefghijklmnopqrstuvwxyz
+記号: _
 ```
 
 |         Type         | Prefix |               Example                |
@@ -37,13 +37,13 @@ Symbols: _
 
 ## Query
 
-- Luôn sử dụng chữ hoa cho các từ khóa như SELECT, WHERE.
-- Sử dụng hợp lý khoảng trắng và thụt lề để làm cho mã dễ đọc hơn.
-Thụt lề trong một truy vấn (ví dụ: cột, JOIN mệnh đề, nhiều dòng GROUP BY, v.v.) nên được thụt lề 2 khoảng trắng.
-Trong một WITH, toàn bộ câu lệnh SQL phải được thụt lề 4 khoảng trắng.
-- Cố gắng sử dụng SQL chuẩn vì để mang tính linh động (sau này chuyển đổi DB cũng dễ dàng)
+- SELECT、WHEREなどのキーワードは常に大文字を使用している。
+- コードが分かりやすいために適用なスペース、字下げを使用する。
+列、結合（JOIN）、GROUP BYなどのクエリには２スペース分の字下げを設定したほうがいいです。
+WITHのSQLにはすべて4スペース分の字下げを設定する必要がある。
+- なるべく標準SQLを使用する。（今後DBへの変換は比較的容易に行なえるため）
 
-**Example**
+**例**
 
 ```sql:
 WITH my_data AS (
@@ -66,7 +66,7 @@ HAVING column_name1 > 0
   AND column_name2 > 0
 ```
 
-## Data type from postgres to java
+## postgres から javaへのデータ型
 
 |       postgres       |              java               |
 | -------------------- | ------------------------------- |
@@ -84,56 +84,55 @@ HAVING column_name1 > 0
 | date                 | LocalDate                       |
 | boolean              | boolean                         |
 
-## Column order
+## 列の順序
 
-- The data fields, which are closely related from a business viewpoint between columns that are arranged in the same table, should be grouped next to each other or in the vicinity.
-- The column set as the primary key should be at the beginning of the table.
-- Candidate keys and foreign key constraints (FOREIGN KEY) are placed towards the beginning.
-- Table common fields (mainly, columns for system control that depend on architecture design, etc.) should be placed at the end of the table, and all columns designed from the business viewpoint should be placed before the table common items.
-- For business purposes, key data is placed towards the beginning and non-key data is placed towards the end.
-- Columns that are updated less frequently are placed towards the beginning, and columns that are updated frequently are placed towards the end.
-- Columns referenced frequently are placed towards the beginning, and columns that are not referenced often are placed towards the end.
-- Fixed-length data is placed towards the beginning, and variable-length data is placed towards the end.
+- 同じテーブルに配置されたビジネスの観点から密接に関連しているデータフィールドは、隣り合って、または近くにグループ化すべきである。
+- 主キーとして設定された列は、テーブルの先頭に配置する。
+- 候補キーと外部キー制約（FOREIGN KEY）は最初に配置される。
+- テーブル共通フィールド（主に、アーキテクチャ設計に依存するシステム制御用の列など）をテーブルの最後に配置し、ビジネスの観点から設計されたすべての列をテーブル共通項目の前に配置する。
+- ビジネス上の目的で、キーデータは最初に配置され、非キーデータは最後に配置される。
+- 更新頻度の低い列は最初に配置され、更新頻度の高い列は最後に配置される。
+- 頻繁に参照される列は最初に配置され、頻繁に参照されない列は最後に配置される。
+- 固定長データは最初に配置され、可変長データは最後に配置される。
 
-## Constraints
+## 制約
 
-### Primary key constraint (PRIMARY KEY)
+### 主キー制約 (PRIMARY KEY)
 
-- Primary key is a column of table which uniquely identifies each tuple (row) in that table.
-- Only one primary key is allowed to use in a table
-- The primary key does not accept the any duplicate and NULL values
-- Primary keys can be used as foreign keys for other tables too.
+- 主キーは、そのテーブル内の各タプル（行）を一意に識別するテーブルの列である。
+- テーブルで使用できる主キーは1つだけである。
+- 主キーは重複する値とNULL値は不可である。
+- 主キーは、他のテーブルの外部キーとしても使用できる。
 
-### Foreign key constraint (FOREIGN KEY)
+### 外部キー制約 (FOREIGN KEY)
 
-- A foreign key is a column or group of columns in a relational database table that provides a link between data in two tables.
-- It is a column (or columns) that references a column (most often the primary key) of another table.
+-外部キーは、リレーショナルデータベーステーブルの列または列のグループであり、2つのテーブルのデータ間をリンクさせる。
+-別のテーブルの列（ほとんどの場合、主キー）を参照する1つまたは複数の列です。
 
-### Unique constraint (UNIQUE KEY)
+### ユニーク制約 (UNIQUE KEY)
 
-- Unique key is a constraint that is used to uniquely identify a tuple in a table.
-- A table can have more than one unique key
-- NULL values are allowed in case of a unique key
-- Unique keys can be used as foreign keys for other tables too.
-- Choose Unique
-  - When columns other than the primary key must be absolutely unique from a system control perspective
-  - When a column other than the primary key is used as the parent column (reference source) of the foreign key constraint (FOREIGN KEY)
+- 一意キー（ユニークキー）は、テーブル内のタプルを一意に識別するために使用される制約である。
+- テーブルには複数の一意キーを含めることができる。
+- 一意キーの場合はNULL値を使用できる
+- 一意キーは、他のテーブルの外部キーとしても使用できる。
+- ユニークの選択
+  - 主キー以外の列がシステム制御の観点から完全に一意である必要がある場合
+  - 主キー以外の列が外部キー制約（FOREIGN KEY）の親列（参照ソース）として使用されている場合
 
-### Check constraint
+### Check 制約
 
-- The CHECK constraint is used to limit the value range that can be placed in a column.
+- CHECK制約は、列に配置できる値の範囲を制限するために使用される。
 
-### NOT NULL constraint (NOT NULL)
+### NOT NULL 制約 (NOT NULL)
 
-- The NOT NULL constraint will not allow a column to contain NULL values.
+- NOT NULL制約は、列にNULL値を含めることは不可である。
 
-### DEFAULT constraint
+### DEFAULT 制約
 
-- A column can be assigned a default value.
+- 列にデフォルト値を割り当てることができる。
+- 新しい行が作成され、一部の列に値が指定されていない場合、それらの列にはそれぞれのデフォルト値が入力される。
 
-- When a new row is created and no values are specified for some of the columns, those columns will be filled with their respective default values.
-
-Example:
+例:
 
 ```sql
 CREATE TABLE persons (
@@ -165,27 +164,27 @@ CREATE TABLE class (
 );
 ```
 
-<!-- TODO: Phần này dành cho thiết kế DB, bên Nhật sẽ làm rule này -->
+<!-- TODO: この部分はDB設計に使用するため、日本側担当となる。 -->
 <!-- ## Design DB
 
-### Table
+### テーブル
 
-- Must have table name by Japanese
-- Must have column name by Japanese
-- Can comment on the meaning of the table
+- 日本語のテーブル名が必要である。
+- 日本語の列名が必要である。
+- テーブルの意味についてコメントできる
 
 ```text
-Example:
-table name: storage_location_class_master
-Japanese name: 保管場所区分マスタ
-Description: 保管場所区分の定義。区分名と保管場所の種別を管理する。
+例:
+テーブル名: storage_location_class_master
+日本語名: 保管場所区分マスタ
+説明: 保管場所区分の定義。区分名と保管場所の種別を管理する。
 ```
 
-### Column (table field)
+### 列 (table field)
 
-- Must have column name by Japanese
-- Can comment on the meaning of the column, the meaning of the value in column
-- Required columns(common fields) in table
+- 日本語の列名が必要である。
+- 列の意味、列の値の意味についてコメントできる。
+- テーブルの必須列（共通フィールド）
 
 | 項目名（日本語） | 項目名（日本語）              | データ型 | データ型(postgres) | データ型 (java) | 備考                 |
 | ------------- | --------------------- | ---- | -------------- | ----------- | ------------------ |
@@ -199,27 +198,27 @@ Description: 保管場所区分の定義。区分名と保管場所の種別を�
 | 更新者      | updated_user | 文字列  | varchar        | String     | マスタを登録した日付時刻   |
 | 更新日時     | updated_date | 日付時刻 | timestamp      | Instant    | マスタを登録した日付時刻   | -->
 
-## SQL Optimization
+## SQL 最適化
 
-**Các nguyên nhân gây chậm truy vấn SQL**
+**どうしてSQL問い合わせが遅いか、その原因は以下となる。**
 
-- Không/thiếu sử dụng các lợi ích của Indexes.
-- Trả về các dữ liệu không cần thiết.
-- Locks or deadlocks bị cấm.
-- Các câu truy vấn được viết nghèo nàn.
-- Không/thiếu tận dụng được I/O striping.
-- Thiếu bộ nhớ.
+- Indexesのメリットを適用しない。
+- 不要なデータを返却する。
+- Locks・Deadlocksは禁止される。
+- クエリは簡単に書かれる。
+- I/O stripingを適用しない。
+- メモリ不足
 
 ### Index
 
-- Index đối với column thường xuyên query, mà ít có thay đổi.
-- Chẳng hạn như column `name` của các table bên dưới
+- クエリを常に実行されるがあまり変更しないカラムに使用するIndex
+- 例：下記のテーブルの`name`というカラム
   - Customer
   - Supplier
 
-### Chỉ select những field cần thiết
+### 必要なフィールドのみセレクトする。
 
-- Sử dụng select * sẽ khiến SQL quét toàn bộ table,trả về dữ liệu trùng lặp tiêu tốn I/O.
+- select *を使用すれば、SQLでテーブルを全て処理し重複データが返却される。（I/Oがかかる）
 
 ```sql
 SELECT * FROM table_1 LEFTJOIN table_2 WHERE table_1.id = table_2.gid;
@@ -229,11 +228,10 @@ SELECT table_1.id,table_2.username,table_2.lucky FROM table_1 LEFTJOIN table_2 W
 
 ### Operator
 
-- Toán tử phủ định : Index không thể thực hiện với toán tử phủ định
-do đó các toán tử phía dưới sẽ làm chậm câu lệnh hãy hạn chế sử dụng.
+- 否定演算子：Indexは否定演算子を使用しないため、
+次の演算子を使用するとクエリが遅くなるので、十分に注意してください。
 `IS NULL`, `!=`, `!>`, `!<`, `NOT`, `NOT EXISTS`, `NOT IN`, `NOT LIKE`
-
-- Toán tử so sánh 2 lần
+- ２回比較演算子
 
 ```sql
 SELECT user_id, user_name FROM user WHERE user_amount < 3001
@@ -245,16 +243,16 @@ Instead:
 SELECT user_id, user_name FROM user WHERE user_amount <= 3000
 ```
 
-- Sử dụng like ko hợp lý (nhất là like ở đầu %data)
+- 不当なlikeを使用する。（特に%dataのlike)
 
-### Hạn chế sử dụng function lên column
+### なるべくカラムでのファンクション使用を制限する。
 
-hạn chế sử dụng function lên column
+なるべくカラムでのファンクション使用を制限する。
 
-### Sử dụng SQL Procedure
+### SQLプロシージャを使用する。
 
-Đối với các thao tác được thực hiện 1 cách thường xuyên và có xử lý phức tạp ta sử dụng SQL procedure(SP) với nhiều lợi ích như dưới đây.
+常に実行される複雑な処理の操作については下記のメリットがあるので、SQLプロシージャ(SP)を使用したほうがいいです。
 
-- Giảm lượng dữ liệu truyền đến Server SP được lưu sẵn ở phía server do đó không cần phải gửi cả câu lệnh SQL dài tới server mà chỉ cần gửi tham số.
-- SP được biên dịch ngay ở lần đầu chạy, những lần sau chạy SP sẽ sử dụng lại file đã biên dịch trước đó nên tốc độ sẽ nhanh hơn.
-- Mặt khác khi sử dụng SP trong source có thể dùng vòng for để gọi nhiều câu lệnh SQL gửi lên server điều này giúp tái sử dụng source.
+- SPサーバに渡されるデータ量が減少されるので、サーバに長いSQLを送信しなくてよいです。（パラメータを送信するだけOKです。）
+- SPが初回で翻訳される。２回目以降に実行されるSPは前回翻訳されたファイルを流用するので、速度がより速くなる。
+- ソースコードでSPを使用する時、for句を使用して複数のSQLを呼び出す。そうするとソースコードが流用される。

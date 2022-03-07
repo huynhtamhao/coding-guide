@@ -4,7 +4,7 @@
 
 1. **Consider** limiting files to 400 lines of code
 1. **Consider** limiting to no more than 75 lines
-1. Prefix custom component: Use `karios` prefix stand for custom component, directive of Karios project.
+1. Prefix custom component: Use `kairos` prefix stand for custom component, directive of Kairos project.
 1. Folders-by-feature structure: Do create folders named for the feature area they represent.
 1. Use scss in project.
 1. Do not add filtering and sorting logic to pipes.

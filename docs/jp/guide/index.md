@@ -1,18 +1,29 @@
 # 🚀️ Programming Environment and Tools
 
+## 実行環境
+
+- OS:Ubuntu Server (May be <Badge type="tip" text="v20.04 LTS" vertical="middle" />)
+- コンテナ:Docker (サーバ側) <Badge type="tip" text="v20.10" vertical="middle" />
+- webサーバ:nginx <Badge type="tip" text="v1.21.6 LTS" vertical="middle" />
+
 ## 開発環境
 
 - Java (Open JDK) - <Badge type="tip" text="v17.0.1" vertical="middle" /> [(Download)](https://jdk.java.net/17/)
 - Node.js - <Badge type="tip" text="v16.13.2 LTS" vertical="middle" /> [(Download)](https://nodejs.org/en/)
 - Npm - <Badge type="tip" text="v8.3.0" vertical="middle" />
 - Angular - <Badge type="tip" text="v13.1.1" vertical="middle" />
+- Postgres - <Badge type="tip" text="v14.1" vertical="middle" />
 
 ### Java
 
-- Spring Boot Framework
+- Spring Boot Framework - (現在: using <Badge type="tip" text="v2.6.3" vertical="middle"/>
+将来: <Badge type="tip" text="v3.x.x" vertical="middle"/>)へマイグレーションする可能性)
   - Spring Security
   - Spring JPA
   - Spring AOP
+  - Lombok
+  - Java Mail Sender
+  - Spring Boot Actuator
 - [Gradle](https://gradle.org/) (Dependence and build tools) <Badge type="tip" text="v7.3.3" vertical="middle" />
 - [Mybatis](https://mybatis.org/mybatis-3/)
 - [Flyway](https://flywaydb.org/)

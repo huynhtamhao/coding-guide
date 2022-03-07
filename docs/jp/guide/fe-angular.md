@@ -1,33 +1,33 @@
 # Angular
 
-## General
+## 一般
 
-1. **Consider** limiting files to 400 lines of code
-1. **Consider** limiting to no more than 75 lines
-1. Prefix custom component: Use `karios` prefix stand for custom component, directive of Karios project.
-1. Folders-by-feature structure: Do create folders named for the feature area they represent.
-1. Use scss in project.
-1. Do not add filtering and sorting logic to pipes.
-1. Thực hiện tách html code vs css ra file riêng nếu quá dài (không thể để trong file *.ts)
-1. Sử dụng annotation `@Input`, `@Output` thay vì khai báo properties `inputs` và `outputs` trong `@Component`, `@Directive` metadata.
-(Xem xet cho `@Input` và `@Output` trên cùng 1 dòng code. Ex: ```js @Output() heroChange = new EventEmitter<any>();```
-Ngoài ra cũng tránh alias nếu nó không có gì đặc biệt.).
-1. Logic nên được coding trong file service, presentation logic thì vẫn để trong component.
-1. Nên sử dụng config file để  xây dựng môi trường vì nó thuận tiện nhất. [Using config with multiple environment](https://mokkapps.de/blog/how-to-build-an-angular-app-once-and-deploy-it-to-multiple-environments/)
-1. Thứ tự đặt source code trong 1 file
-    - Properties nằm trên function.
-    - public trước, private sau.
-    - Nên xếp theo bảng chữ cái.
+1. **検討** ファイルを400LOCに制限する。
+1. **検討** 75行を超えないように制限する。
+1. カスタム コンポーネントの接頭辞: カスタム コンポーネントに `kairos`という接頭辞を使う。
+1. Folders-by-feature 構成: 実現したい機能を表すフォルダ名を作成する。
+1. プロジェクトに scssを利用する。
+1. パイプにfiltering と sorting ロジックを追加しない。
+1. htmlコードとcssが長い（*.tsファイルに管理できない）場合は別のファイルに分離して管理する。
+1. `@Component`、 `@Directive` metadataにproperties `inputs` と `outputs`を宣言しないでannotation `@Input`, `@Output` を使用する。
+(`@Input`と`@Output`を同じ行に配置するようにする。例） ```js @Output() heroChange = new EventEmitter<any>();```
+何か意図がなければalias使用を避けたほうがいいです。
+1. Logicはサービスファイルでコーディングしてよいです。presentation logicはcomponentにそのまま入れる。
+1. configファイルを使用して環境を設定して良いです。[Using config with multiple environment](https://mokkapps.de/blog/how-to-build-an-angular-app-once-and-deploy-it-to-multiple-environments/)
+1. ファイル内のソースコード配置順は次の通りです。
+    - Propertiesはファンクションの上に配置する。
+    - publicは前、privateは後ろにある。
+    - アルファベット通りに配置する。
 
-## Naming Conventions
+## 命名規約
 
-Recommended pattern is **`feature.type.ts`**.
+推薦するパターンは **`feature.type.ts`**.
 
-- Trong đó type names including .service, .component, .pipe, .module, and .directive.
-Có thể tạo thêm tên mới nhưng đừng nên quá nhiều.
-- Tên Module nên ở số nhiều. Ex: supplier => suppliers
-- Tên class nên trùng với file name và có suffix là Component, Directive, Module, Pipe, or Service
-(Tuy nhiên một số service có thể  có kết thúc bằng `-er` như là Logger).
+- その中、type names including .service, .component, .pipe, .module, and .directive.
+名称は新規作成可能ですが、複数作成しないでください。
+- モジュール名は複数形にしたほうがいいです。Ex: supplier => suppliers
+- クラス名はファイル名と同一で、そのsuffixはComponent, Directive, Module, Pipe, or Serviceにしてよいです。
+(但し、Loggerなどの `-er`で終わるサービスもある。)
 
 |      Type       |       Class Name       |      Name       |           File Name           |
 | :-------------- | :--------------------- | :-------------- | :---------------------------- |
@@ -39,9 +39,9 @@ Có thể tạo thêm tên mới nhưng đừng nên quá nhiều.
 | Service         | UserProfileService     |                 | `user-profile.service.ts`     |
 | Service         | Logger                 |                 | `logger.service.ts`           |
 
-- Không đặt tên cho `event` có prefix là `on<EventName>` mà hãy đặt tên cho `event handler` với prefix là `on<EventName>`.
+- prefixが`on<EventName>`の`event`はネーミングしないが、prefixが`on<EventName>`の`event handler`はネーミングする。
 
-*Don't*
+*しないこと*
 
 :::: code-group
 ::: code-group-item app/heroes/hero.component.ts
@@ -66,7 +66,7 @@ export class HeroComponent {
 :::
 ::::
 
-*Do*
+*すべきこと*
 
 :::: code-group
 ::: code-group-item app/heroes/hero.component.ts
@@ -97,11 +97,11 @@ export class HeroComponent {
         |-- customer-routing.module.ts
         |-- customer.module.ts
     |-- core                                        // Core Module
-        |-- [+] constants                           // Nơi chứa constants và enum của project
+        |-- [+] constants                           // プロジェクトのconstants、enumが入る場所
         |-- [+] guards                              // security
         |-- [+] interceptors
         |-- models
-            |-- core.interfaces.ts                  // model sử dụng cho core module
+            |-- core.interfaces.ts                  // core moduleに使用されるモデル
         |-- services
             |-- auth.service.ts
             |-- config.service.ts
@@ -111,7 +111,7 @@ export class HeroComponent {
         |-- [+] transloco
         |-- core.module.ts
         |-- ensureModuleLoadedOnceGuard.ts
-    |-- layout                                       // Layout Module: chứa common layout của project
+    |-- layout                                       // Layout Module：プロジェクトの共通レイアウトが入る。
         |-- [+] authentication
         |-- [+] dashboard
         |-- [+] footer
@@ -132,7 +132,7 @@ export class HeroComponent {
 |-- assets
     |-- [+] configs
     |-- [+] fonts
-    |-- [+] i18n                                     // Đa ngôn ngữ
+    |-- [+] i18n                                     // 多言語
     |-- [+] images
     |-- [+] js
     |-- scss
@@ -142,23 +142,23 @@ export class HeroComponent {
 |-- [+] environments
 ```
 
-- Đặt tất cả mã của ứng dụng vào một thư mục có tên src.
-- Tạo thư mục theo nghiệp vụ (One module per feature / view (Lazy Load)). Ex: customer.
+- アプリのコードはsrcというフォルダ内に全て配置する。
+- 業務通りにフォルダを作成する。(One module per feature / view (Lazy Load)). Ex: customer.
 - App root module: `app.module.ts`.
-- Never directly import lazy loaded folders
-- `material.module.ts`: add các module của material để sử dụng tai các module khác tránh khai báo lại.
+- lazy loadedフォルダ―はインポートしないこと
+- `material.module.ts`: 材料のモデルを追加して別のモデルに使用する。（再宣言を避けるため）
 
 ## RxJS
 
-### Sử dụng RxJs với angular http client
+### angular http clientのRxJsを使用
 
 - map => map data
-- mergeMap/flatMap => sử dụng khi get data từ API A sau đó làm param cho API B
-- switchMap => sử  dụng khi muốn lấy kq cuối cùng.
-- forkJoin => sử dụng khi muốn trả két quả đồng thời.
+- mergeMap/flatMap => API Aからデータを取得してAPI Bのパラメータにする場合に使用する。
+- switchMap => 最終の結果を取得したい場合に使用する。
+- forkJoin => 同時結果を返したい場合に使用する。
 
-<!-- TODO: Tìm hiểu trong lúc coding -->
-<!-- ## Sharing Data between Angular Components - Four Methods
+<!-- TODO: コーディングの中に理解する。 -->
+<!-- ## Angular Components間のデータ共有 -4つのメソッド
 
 ### Parent to child component
 
@@ -169,24 +169,24 @@ export class HeroComponent {
 - Using `@Output` and `EventEmitter`
 - Using `@ViewChild` with AfterViewInit
 
-### Sharing data between sibling components
+### sibling components間のデータ共有
 
-### Sharing data between not related components
+### 関係のないcomponents間のデータ共有
 
 - Service
 - RxJS BehaviorSubject
 
-## Quản lý state -->
+## state管理 -->
 
 ## Angular Tips & Tricks
 
-### 1. Import library in module
+### 1. モジュールにライブラリをインポートする
 
-- Tránh khai báo thư viện component mà đã tồn tại tại file routing
-- Khai báo static array component tại file routing module và import vào filde module để giảm import component.
+- routingファイルにすでに存在しているcomponentライブラリを宣言することを避ける。
+- routing moduleファイルでstatic array componentを宣言し、moduleファイルにインポートしてcomponentインポートを減らす。
 
 ```js
-// Tại file routing.module.ts
+// routing.module.tsファイルで
 import { SalaryComponent } from './salary/salary.component';
 import { SalaryPasswordDialogComponent } from './salary/salary-password-dialog.component';
 
@@ -202,7 +202,7 @@ export class UserRoutingModule {
   ]
 }
 
-// Tại file module.ts
+// module.tsファイルで
 @NgModule({
   imports: [
     UserRoutingModule,
@@ -216,12 +216,12 @@ export class UserRoutingModule {
 export class UserModule { }
 ```
 
-### 2. Sử dụng interface cho model thay cho class
+### 2. classの代わりにmodelにインタフェースを使用する。
 
-- Chỉ sử dụng Class khi ta có logic nghiệp vụ thực sự cần được implement để thực thi. Ngược lại, nếu chỉ dùng nó để tạo 1 ràng buộc kiểu cho params hay variable, ta nên dùng Interface
-- Nguyên nhân là do complier biên dịch từ code typescript sang javascript.
+- 業務ロジックを実装して実行する必要がある場合のみClassを使用する。variable又はパラメータを渡すように連携を作成するために使用する場合はInterfaceを使用する。
+- 原因としてcomplierでtypescriptコードからjavascriptに翻訳するため。
 
-Trường hợp sử dụng class:
+classを使用する場合
 
 ```js
 class Response {
@@ -236,7 +236,7 @@ fetch('https://my-api.com').then((response: Response) => {
 });
 ```
 
-Sau khi biên dịch
+翻訳後
 
 ```js
 var Response = (function() {
@@ -252,7 +252,7 @@ fetch('https://my-api.com').then(function (response) {
 });
 ```
 
-Trường hợp thay bằng interface
+interfaceを使用する場合
 
 ```js
 interface Response {
@@ -267,7 +267,7 @@ fetch('https://my-api.com').then((response: Response) => {
 });
 ```
 
-Sau khi biên dịch
+翻訳後
 
 ```js
 fetch('https://my-api.com').then(function (response) {
@@ -277,9 +277,9 @@ fetch('https://my-api.com').then(function (response) {
 });
 ```
 
-### 3. Parameter property
+### 3. Parameter プロパティ
 
-Thay vì viết code như bên dưới (cách thường thấy)
+通常通りに下記のコードを書く代わりに
 
 ```js
 class Human {
@@ -291,7 +291,7 @@ class Human {
 }
 ```
 
-Typescript cho phép viết tắt như sau
+Typescriptで下記のように簡単に書くことができる。
 
 ```js
 class Human {
@@ -303,7 +303,7 @@ class Human {
 
 ## Child form group
 
-Add control từ component con cho component cha
+子componentから親componentにコントロールを追加する。
 
 **Child Component**
 
@@ -341,11 +341,11 @@ export class ListeningTestAnswerComponent implements OnInit {
 </form>
 ```
 
-<!-- TODO: Tìm hiểu thêm add form group con cho form group cha
+<!-- TODO: 子form groupから親form groupに追加することについて理解する。
 
-- Add form group từ component con cho component cha -->
+- 子componentから親componentにform groupを追加する。 -->
 
-## Reference
+## 参考
 
 [Reference](https://angular.io/guide/styleguide)
 [Typescript Class Interface](https://viblo.asia/p/typescript-class-interface-chung-khac-gi-voi-class-interface-trong-c-java-YWOZryzrKQ0)

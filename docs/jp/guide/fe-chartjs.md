@@ -76,7 +76,7 @@ const chart = new Chart(this.pieChart.nativeElement, config);
 
 **Data**:
 
--labels: [ ] label name for each index.
+-lables: [ ] label name for each index.
 
 -datasets: [ {  } ] data and configuration for point data.
 
@@ -374,21 +374,21 @@ const data = {
 
 #### Dataset Properties
 
-|           Name           |                               Description                                |         Default          | Value |
-| :----------------------- | :----------------------------------------------------------------------- | :----------------------- | :---- |
-| ``backgroundColor``      | arc background color.                                                    | ``'rgba(0, 0, 0, 0.1)'`` |       |
-| ``borderColor``          | arc border color.                                                        | ``'rgba(0, 0, 0, 0.1)'`` |       |
-| ``borderJoinStyle``      | arc border join style.                                                   | ``undefined``            |       |
-| ``borderWidth``          | arc border width (in pixels).                                            | ``2``                    |       |
-| ``offset``               | arc offset (in pixels).                                                  | ``0``                    |       |
-| ``spacing``              | Fixed arc offset (in pixels). Similar to offset but applies to all arcs. | ``0``                    |       |
-| ``weight``               | The relative thickness of the dataset.                                   | ``1``                    |       |
-| ``hoverBackgroundColor`` | arc background color when hovered.                                       | ``undefined``            |       |
-| ``hoverBorderColor``     | arc border color when hovered.                                           | ``undefined``            |       |
-| ``hoverBorderJoinStyle`` | arc border join style when hovered.                                      | ``undefined``            |       |
-| ``hoverBorderWidth``     | arc border width when hovered (in pixels).                               | ``undefined``            | ``'round' \| 'bevel' \| 'miter'`` |
-| ``hoverOffset``          | arc offset when hovered (in pixels).                                     | ``0``                    |       |
-| ``radius``               | The outer radius of the chart. If ``string`` and ending with '%', percentage of radius. ``number`` is considered to be pixels. || ``number\|string`` |
+| Name                 | Description      | Default             | Value       |
+|:---------------------|:-----------------|:--------------------|:------------|
+| ``backgroundColor``  | arc background color. | ``'rgba(0, 0, 0, 0.1)'`` ||
+| ``borderColor``      | arc border color. | ``'rgba(0, 0, 0, 0.1)'`` ||
+| ``borderJoinStyle``  | arc border join style. | ``undefined`` ||
+| ``borderWidth``      | arc border width (in pixels). | ``2`` ||
+| ``offset``           | arc offset (in pixels). | ``0`` ||
+| ``spacing``          | Fixed arc offset (in pixels). Similar to offset but applies to all arcs. | ``0`` ||
+| ``weight``           | The relative thickness of the dataset. | ``1`` ||
+| ``hoverBackgroundColor``  | arc background color when hovered. | ``undefined`` ||
+| ``hoverBorderColor``      | arc border color when hovered. | ``undefined`` ||
+| ``hoverBorderJoinStyle``  | arc border join style when hovered. | ``undefined`` ||
+| ``hoverBorderWidth``      | arc border width when hovered (in pixels). | ``undefined`` | ``'round' \| 'bevel' \| 'miter'`` |
+| ``hoverOffset``           | arc offset when hovered (in pixels). | ``0`` ||
+| ``radius``           | The outer radius of the chart. If ``string`` and ending with '%', percentage of radius. ``number`` is considered to be pixels. || ``number\|string`` |
 
 ### Other Charts
 
@@ -438,8 +438,8 @@ datasets: [
 |:---------------------|:-----------------|:--------------------|:------------|
 | ``type``             | Type axis.       |  | ``linear \| category \| time \| logarithmic`` |
 | ``display``          | Show line scale of axis. | ``true`` ||
-| ``title``            | Title of axis.   |  | ``Object`` |
-| ``grid``             | Grid line setting.   |  | ``Object`` |
+| ``title``            | Title of axis.   |  | ``Opject`` |
+| ``grid``             | Grid line setting.   |  | ``Opject`` |
 
 [Scales](https://www.chartjs.org/docs/latest/samples/scales/linear-min-max.html)
 
@@ -449,18 +449,18 @@ datasets: [
 
 | Name                 | Description      | Default             | Value       |
 |:---------------------|:-----------------|:--------------------|:------------|
-| ``title``            | Show Title for Chart.    || ``Object`` |
-| ``subtitle``         | Show Subtitle for Chart. || ``Object`` |
-| ``legend``           | Show Legend for Chart.   || ``Object`` |
-| ``tooltip``          | Tooltip for Chart when hovered. || ``Object`` |
-| ``quadrants``        | Divide the Chart into quadrants.(topLeft, topRight, bottomRight, bottomLeft) |  | ``Object`` |
-| ``chartAreaBorder``  | Style area border Chart. || ``Object`` |
+| ``title``            | Show Title for Chart.    || ``Opject`` |
+| ``subtitle``         | Show Subtitle for Chart. || ``Opject`` |
+| ``legend``           | Show Legend for Chart.   || ``Opject`` |
+| ``tooltip``          | Tooltip for Chart when hovered. || ``Opject`` |
+| ``quadrants``        | Divide the Chart into quadrants.(topLeft, topRight, bottomRight, bottomLeft) |  | ``Opject`` |
+| ``chartAreaBorder``  | Style area border Chart. || ``Opject`` |
 
 #### Animations
 
 | Name                 | Description      | Default             | Value       |
 |:---------------------|:-----------------|:--------------------|:------------|
-| ``tension``          | Animations for tension. || ``Object`` |
+| ``tension``          | Animations for tension. || ``Opject`` |
 
 #### Events
 
@@ -481,7 +481,7 @@ var chart = new Chart(ctx, {
 });
 ```
 
-#### Propertiesの参考
+####  Propertiesの参考
 
 [Samples](https://www.chartjs.org/docs/latest/samples/information.html)
 
