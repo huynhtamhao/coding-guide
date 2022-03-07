@@ -36,8 +36,8 @@ import jp.co.fanatic.service.dto.*; // ✕ AVOID!
 - Mapping Method sử dụng bắt đầu bằng chữ `to`:
   - toEntity
   - toDto
-  - toListEntity
-  - toListDto
+  - toEntityList
+  - toDtoList
   - Ngoài 4 trường hợp trên sẽ thảo luận khi làm dự án.vi
 - Về comment
   - Không cần comment cho method.
@@ -54,9 +54,9 @@ public interface ProductMapper {
 
     ProductDto toDto(Product product);
 
-    List<Product> toListEntity(List<ProductDto> productsDto);
+    List<Product> toEntityList(List<ProductDto> productsDto);
 
-    List<ProductDto> toListDto(List<Product> products);
+    List<ProductDto> toDtoList(List<Product> products);
 }
 ```
 
