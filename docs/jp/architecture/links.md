@@ -32,4 +32,5 @@
 ### 今後は展開予定システム
 
 - ソースコードのレビュー
-- 監視システム : Spring boot actuator, Spring b
+- 監視システム : Spring boot actuator, Spring boot Admin, Prometheus
+- LoadTest, Performance Test: K6
