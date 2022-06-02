@@ -63,4 +63,15 @@ export const en = {
       ]
     },
   ],
+  '/architecture/': [
+    {
+      text: '',
+      collapsible: false,
+      sidebarDepth: 0,
+      children: [
+        '/architecture/',
+        'links'
+      ]
+    }
+  ],
 };

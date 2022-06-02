@@ -47,6 +47,7 @@ module.exports = {
         navbar: [
           { text: '🏠 Home', link: '/', icon: 'home' },
           { text: '🖥️ Guide', link: '/guide/' },
+          { text: '📏 Architecture', link: '/architecture/' },
         ],
         sidebar: config.sidebar.en,
         // 404 page
@@ -58,6 +59,7 @@ module.exports = {
         navbar: [
           { text: '🏠 ホームページ', link: '/jp/' },
           { text: '🖥️ コーディング手引書', link: '/jp/guide/' },
+          { text: '📏 Architecture', link: '/jp/architecture/' },
         ],
         sidebar: config.sidebar.jp,
         // 404 page

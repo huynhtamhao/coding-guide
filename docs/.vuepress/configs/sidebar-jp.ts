@@ -60,4 +60,15 @@ export const jp = {
       ]
     },
   ],
+  '/jp/architecture/': [
+    {
+      text: '',
+      collapsible: false,
+      sidebarDepth: 0,
+      children: [
+        '/jp/architecture/',
+        'links'
+      ]
+    }
+  ],
 };
