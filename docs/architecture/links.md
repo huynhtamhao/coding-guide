@@ -29,8 +29,3 @@
   - Push Docker image to Docker Repository Hub (Nexus Repository)
   - Access vào môi trường deployment, pull docker images and run docker images.
 
-### Các hệ thống dự định triển khai trong tương lai
-
-- Review Source Code
-- Monitoring System : Spring boot actuator, Spring boot Admin, Prometheus,
-- LoadTest, Performance Test: K6

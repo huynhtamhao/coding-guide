@@ -28,9 +28,3 @@
   - Docker イメージを作成する
   - Docker イメージをDocker Repository Hub (Nexus Repository)へプッシュする。
   - デプロイ先の環境にアクセスして、Dockerイメージをプルしてから実行する。
-
-### 今後は展開予定システム
-
-- ソースコードのレビュー
-- 監視システム : Spring boot actuator, Spring boot Admin, Prometheus
-- LoadTest, Performance Test: K6
